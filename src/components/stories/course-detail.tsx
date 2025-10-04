@@ -244,19 +244,20 @@ export function CourseDetail({ course }: CourseDetailProps) {
                   </Button>
                 </div>
 
-                {showMap && (
-                  <div className="h-80 sm:h-96 lg:h-[500px] w-full rounded-lg overflow-hidden border-2 border-gray-200">
-                    <KakaoMap
-                      center={getMapCenter()}
-                      level={12}
-                      markers={getMapMarkers()}
-                      routes={[getMapRoute()]}
-                      onMarkerClick={handleMarkerClick}
-                      className="w-full h-full"
-                      style={{ minHeight: '320px' }}
-                    />
-                  </div>
-                )}
+                <div
+                  className={`h-80 sm:h-96 lg:h-[500px] w-full rounded-lg overflow-hidden border-2 border-gray-200 ${!showMap ? 'hidden' : ''}`}
+                >
+                  <KakaoMap
+                    center={getMapCenter()}
+                    level={12}
+                    markers={getMapMarkers()}
+                    routes={[getMapRoute()]}
+                    onMarkerClick={handleMarkerClick}
+                    className="w-full h-full"
+                    style={{ minHeight: '320px' }}
+                    shouldInitialize={showMap}
+                  />
+                </div>
               </div>
             </CardContent>
           </Card>

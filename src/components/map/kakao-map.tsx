@@ -28,6 +28,7 @@ interface KakaoMapProps {
   onMarkerClick?: (marker: MapMarker) => void;
   onBoundsChanged?: (bounds: any) => void;
   onZoomChanged?: (level: number) => void;
+  shouldInitialize?: boolean;
 }
 
 declare global {
@@ -47,6 +48,7 @@ export function KakaoMap({
   onMarkerClick,
   onBoundsChanged,
   onZoomChanged,
+  shouldInitialize = true,
 }: KakaoMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
@@ -69,6 +71,12 @@ export function KakaoMap({
   // 지도 초기화 (최적화된 버전)
   const initializeMap = useCallback(() => {
     console.log('지도 초기화 시작');
+
+    // 초기화가 허용되지 않은 경우 대기
+    if (!shouldInitialize) {
+      console.log('지도 초기화가 허용되지 않음, 대기');
+      return;
+    }
 
     // 컴포넌트가 마운트되지 않은 경우 대기
     if (!isMounted) {
@@ -259,8 +267,10 @@ export function KakaoMap({
       }
     };
 
-    // DOM이 준비될 때까지 대기 후 초기화 실행
-    checkDOMAndInitialize();
+    // DOM 업데이트 완료 후 초기화 실행
+    requestAnimationFrame(() => {
+      checkDOMAndInitialize();
+    });
   }, [
     center,
     level,
@@ -269,6 +279,7 @@ export function KakaoMap({
     onZoomChanged,
     isInitializing,
     isMounted,
+    shouldInitialize,
   ]);
 
   // Kakao Map API 로드
@@ -395,7 +406,7 @@ export function KakaoMap({
         clearTimeout(timeoutId);
       }
     };
-  }, [initializeMap, isMounted]);
+  }, [initializeMap, isMounted, shouldInitialize]);
 
   // 마커 메모이제이션
   const memoizedMarkers = useMemo(() => markers, [markers]);
