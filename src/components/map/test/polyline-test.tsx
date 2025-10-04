@@ -99,6 +99,7 @@ export default function PolylineTest() {
   useEffect(() => {
     const newRoutes: MapRoute[] = polylines.map((polyline) => ({
       id: polyline.id,
+      name: polyline.name || `Route ${polyline.id}`,
       waypoints: polyline.points,
       color: polyline.color,
       strokeWeight: polyline.strokeWeight,
