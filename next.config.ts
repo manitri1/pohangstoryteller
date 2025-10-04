@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
           {
             key: 'Content-Security-Policy',
             value:
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://dapi.kakao.com https://t1.daumcdn.net https://maps.googleapis.com; connect-src 'self' https://dapi.kakao.com https://maps.googleapis.com;",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://dapi.kakao.com https://t1.daumcdn.net https://maps.googleapis.com; script-src-elem 'self' 'unsafe-inline' https://dapi.kakao.com https://t1.daumcdn.net https://maps.googleapis.com; connect-src 'self' https://dapi.kakao.com https://maps.googleapis.com; img-src 'self' data: https: blob:;",
           },
         ],
       },
