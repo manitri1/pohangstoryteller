@@ -64,52 +64,62 @@ export function KakaoMap({
 
     setIsInitializing(true);
 
-    // 필수 객체 검증 강화
-    if (!mapRef.current) {
-      console.error('지도 초기화 실패: mapRef.current가 없습니다');
-      setError('지도 컨테이너를 찾을 수 없습니다.');
-      setIsInitializing(false);
-      return;
-    }
+    // DOM이 준비될 때까지 대기
+    const checkDOMAndInitialize = () => {
+      if (!mapRef.current) {
+        console.log('DOM이 아직 준비되지 않음, 100ms 후 재시도');
+        setTimeout(checkDOMAndInitialize, 100);
+        return;
+      }
 
-    if (!window.kakao) {
-      console.error('지도 초기화 실패: window.kakao가 없습니다');
-      setError('카카오맵 API가 로드되지 않았습니다.');
-      setIsInitializing(false);
-      return;
-    }
+      console.log('DOM 준비 완료, 지도 초기화 진행');
+      
+      // 필수 객체 검증 강화
+      if (!mapRef.current) {
+        console.error('지도 초기화 실패: mapRef.current가 없습니다');
+        setError('지도 컨테이너를 찾을 수 없습니다.');
+        setIsInitializing(false);
+        return;
+      }
 
-    if (!window.kakao.maps) {
-      console.error('지도 초기화 실패: window.kakao.maps가 없습니다');
-      setError('카카오맵 API가 완전히 로드되지 않았습니다.');
-      setIsInitializing(false);
-      return;
-    }
+      if (!window.kakao) {
+        console.error('지도 초기화 실패: window.kakao가 없습니다');
+        setError('카카오맵 API가 로드되지 않았습니다.');
+        setIsInitializing(false);
+        return;
+      }
 
-    console.log('필수 객체 검증 완료:', {
-      mapRef: !!mapRef.current,
-      kakao: !!window.kakao,
-      maps: !!window.kakao.maps,
-    });
+      if (!window.kakao.maps) {
+        console.error('지도 초기화 실패: window.kakao.maps가 없습니다');
+        setError('카카오맵 API가 완전히 로드되지 않았습니다.');
+        setIsInitializing(false);
+        return;
+      }
 
-    try {
-      // 지도 옵션 최적화 (불필요한 로그 제거)
-      const mapOption = {
-        center: new window.kakao.maps.LatLng(center.lat, center.lng),
-        level: level,
-        // 성능 최적화 옵션 추가
-        draggable: true,
-        scrollwheel: true,
-        disableDoubleClick: false,
-        disableDoubleClickZoom: false,
-        projectionId: 'kakao.maps.ProjectionId.WCONG',
-      };
+      console.log('필수 객체 검증 완료:', {
+        mapRef: !!mapRef.current,
+        kakao: !!window.kakao,
+        maps: !!window.kakao.maps,
+      });
 
-      console.log('지도 인스턴스 생성 시작');
-      mapInstanceRef.current = new window.kakao.maps.Map(
-        mapRef.current,
-        mapOption
-      );
+      try {
+        // 지도 옵션 최적화 (불필요한 로그 제거)
+        const mapOption = {
+          center: new window.kakao.maps.LatLng(center.lat, center.lng),
+          level: level,
+          // 성능 최적화 옵션 추가
+          draggable: true,
+          scrollwheel: true,
+          disableDoubleClick: false,
+          disableDoubleClickZoom: false,
+          projectionId: 'kakao.maps.ProjectionId.WCONG',
+        };
+
+        console.log('지도 인스턴스 생성 시작');
+        mapInstanceRef.current = new window.kakao.maps.Map(
+          mapRef.current,
+          mapOption
+        );
 
       // 지도 로드 완료 이벤트 대기 (개선된 버전)
       let tilesLoaded = false;
@@ -204,8 +214,12 @@ export function KakaoMap({
         }
       }
 
-      setError('지도 초기화에 실패했습니다.');
-    }
+        setError('지도 초기화에 실패했습니다.');
+      }
+    };
+
+    // DOM이 준비될 때까지 대기 후 초기화 실행
+    checkDOMAndInitialize();
   }, [
     center,
     level,
