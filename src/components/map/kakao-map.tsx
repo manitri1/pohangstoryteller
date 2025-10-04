@@ -1,6 +1,13 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+} from 'react';
 import { config } from '@/lib/config';
 import {
   MapCenter,
@@ -51,10 +58,23 @@ export function KakaoMap({
     'script'
   );
   const [isInitializing, setIsInitializing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // 컴포넌트 마운트 상태 확인
+  useLayoutEffect(() => {
+    setIsMounted(true);
+    console.log('컴포넌트 마운트 완료, mapRef.current:', !!mapRef.current);
+  }, []);
 
   // 지도 초기화 (최적화된 버전)
   const initializeMap = useCallback(() => {
     console.log('지도 초기화 시작');
+
+    // 컴포넌트가 마운트되지 않은 경우 대기
+    if (!isMounted) {
+      console.log('컴포넌트가 아직 마운트되지 않음, 초기화 대기');
+      return;
+    }
 
     // 이미 초기화된 경우 중복 실행 방지 (강화된 버전)
     if (mapInstanceRef.current) {
@@ -248,10 +268,17 @@ export function KakaoMap({
     onBoundsChanged,
     onZoomChanged,
     isInitializing,
+    isMounted,
   ]);
 
   // Kakao Map API 로드
   useEffect(() => {
+    // 컴포넌트가 마운트되지 않은 경우 대기
+    if (!isMounted) {
+      console.log('컴포넌트가 아직 마운트되지 않음, 스크립트 로드 대기');
+      return;
+    }
+
     let timeoutId: NodeJS.Timeout;
     let isScriptLoading = false;
 
@@ -368,7 +395,7 @@ export function KakaoMap({
         clearTimeout(timeoutId);
       }
     };
-  }, [initializeMap]);
+  }, [initializeMap, isMounted]);
 
   // 마커 메모이제이션
   const memoizedMarkers = useMemo(() => markers, [markers]);
