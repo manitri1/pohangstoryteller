@@ -56,24 +56,45 @@ export function KakaoMap({
   const initializeMap = useCallback(() => {
     console.log('지도 초기화 시작');
 
-    // 이미 초기화된 경우 중복 실행 방지
-    if (mapInstanceRef.current || isInitializing) {
-      console.log('지도가 이미 초기화됨 또는 초기화 중, 중복 실행 방지');
+    // 이미 초기화된 경우 중복 실행 방지 (강화된 버전)
+    if (mapInstanceRef.current) {
+      console.log('지도가 이미 초기화됨, 중복 실행 방지');
+      return;
+    }
+
+    if (isInitializing) {
+      console.log('지도 초기화 중, 중복 실행 방지');
       return;
     }
 
     setIsInitializing(true);
 
-    // DOM이 준비될 때까지 대기
+    // DOM이 준비될 때까지 대기 (최대 재시도 횟수 제한)
+    let retryCount = 0;
+    const maxRetries = 50; // 최대 5초 (50 * 100ms)
+
     const checkDOMAndInitialize = () => {
+      retryCount++;
+
       if (!mapRef.current) {
-        console.log('DOM이 아직 준비되지 않음, 100ms 후 재시도');
-        setTimeout(checkDOMAndInitialize, 100);
-        return;
+        if (retryCount < maxRetries) {
+          console.log(
+            `DOM이 아직 준비되지 않음, 100ms 후 재시도 (${retryCount}/${maxRetries})`
+          );
+          setTimeout(checkDOMAndInitialize, 100);
+          return;
+        } else {
+          console.error('DOM 준비 타임아웃: 최대 재시도 횟수 초과');
+          setError(
+            '지도 컨테이너를 찾을 수 없습니다. 페이지를 새로고침해주세요.'
+          );
+          setIsInitializing(false);
+          return;
+        }
       }
 
       console.log('DOM 준비 완료, 지도 초기화 진행');
-      
+
       // 필수 객체 검증 강화
       if (!mapRef.current) {
         console.error('지도 초기화 실패: mapRef.current가 없습니다');
@@ -121,98 +142,98 @@ export function KakaoMap({
           mapOption
         );
 
-      // 지도 로드 완료 이벤트 대기 (개선된 버전)
-      let tilesLoaded = false;
+        // 지도 로드 완료 이벤트 대기 (개선된 버전)
+        let tilesLoaded = false;
 
-      const handleTilesLoaded = () => {
-        if (!tilesLoaded) {
-          tilesLoaded = true;
-          console.log('지도 타일 로드 완료');
-          setLoadingStep('tiles');
-          setIsLoaded(true);
-          setError(null);
-          setIsInitializing(false); // 초기화 완료
-        }
-      };
-
-      // tilesloaded 이벤트 리스너 등록
-      window.kakao.maps.event.addListener(
-        mapInstanceRef.current,
-        'tilesloaded',
-        handleTilesLoaded
-      );
-
-      // 대안: 일정 시간 후 강제로 로드 완료 처리
-      setTimeout(() => {
-        if (!tilesLoaded) {
-          console.log('타일 로드 타임아웃, 강제 완료 처리');
-          handleTilesLoaded();
-        }
-      }, 3000); // 3초 후 강제 완료
-
-      // 추가 대안: 지도 인스턴스 생성 직후 즉시 완료 처리
-      setTimeout(() => {
-        if (!tilesLoaded) {
-          console.log('지도 인스턴스 생성 완료, 즉시 완료 처리');
-          handleTilesLoaded();
-        }
-      }, 1000); // 1초 후 즉시 완료
-
-      // 이벤트 리스너 등록
-      if (onMapClick) {
-        window.kakao.maps.event.addListener(
-          mapInstanceRef.current,
-          'click',
-          onMapClick
-        );
-      }
-
-      if (onBoundsChanged) {
-        window.kakao.maps.event.addListener(
-          mapInstanceRef.current,
-          'bounds_changed',
-          () => {
-            const bounds = mapInstanceRef.current.getBounds();
-            onBoundsChanged({
-              sw: {
-                lat: bounds.getSouthWest().getLat(),
-                lng: bounds.getSouthWest().getLng(),
-              },
-              ne: {
-                lat: bounds.getNorthEast().getLat(),
-                lng: bounds.getNorthEast().getLng(),
-              },
-            });
+        const handleTilesLoaded = () => {
+          if (!tilesLoaded) {
+            tilesLoaded = true;
+            console.log('지도 타일 로드 완료');
+            setLoadingStep('tiles');
+            setIsLoaded(true);
+            setError(null);
+            setIsInitializing(false); // 초기화 완료
           }
-        );
-      }
+        };
 
-      if (onZoomChanged) {
+        // tilesloaded 이벤트 리스너 등록
         window.kakao.maps.event.addListener(
           mapInstanceRef.current,
-          'zoom_changed',
-          () => {
-            onZoomChanged(mapInstanceRef.current.getLevel());
-          }
+          'tilesloaded',
+          handleTilesLoaded
         );
-      }
-    } catch (err) {
-      console.error('지도 초기화 실패:', err);
-      setIsInitializing(false); // 초기화 실패 시 상태 리셋
 
-      // 서비스 비활성화 오류 감지
-      if (err && typeof err === 'object' && 'message' in err) {
-        const errorMessage = (err as any).message;
-        if (
-          errorMessage.includes('disabled') &&
-          errorMessage.includes('OPEN_MAP_AND_LOCAL')
-        ) {
-          setError(
-            '카카오맵 웹 지도 서비스가 비활성화되어 있습니다. 카카오 개발자 콘솔에서 서비스를 활성화해주세요.'
+        // 대안: 일정 시간 후 강제로 로드 완료 처리
+        setTimeout(() => {
+          if (!tilesLoaded) {
+            console.log('타일 로드 타임아웃, 강제 완료 처리');
+            handleTilesLoaded();
+          }
+        }, 3000); // 3초 후 강제 완료
+
+        // 추가 대안: 지도 인스턴스 생성 직후 즉시 완료 처리
+        setTimeout(() => {
+          if (!tilesLoaded) {
+            console.log('지도 인스턴스 생성 완료, 즉시 완료 처리');
+            handleTilesLoaded();
+          }
+        }, 1000); // 1초 후 즉시 완료
+
+        // 이벤트 리스너 등록
+        if (onMapClick) {
+          window.kakao.maps.event.addListener(
+            mapInstanceRef.current,
+            'click',
+            onMapClick
           );
-          return;
         }
-      }
+
+        if (onBoundsChanged) {
+          window.kakao.maps.event.addListener(
+            mapInstanceRef.current,
+            'bounds_changed',
+            () => {
+              const bounds = mapInstanceRef.current.getBounds();
+              onBoundsChanged({
+                sw: {
+                  lat: bounds.getSouthWest().getLat(),
+                  lng: bounds.getSouthWest().getLng(),
+                },
+                ne: {
+                  lat: bounds.getNorthEast().getLat(),
+                  lng: bounds.getNorthEast().getLng(),
+                },
+              });
+            }
+          );
+        }
+
+        if (onZoomChanged) {
+          window.kakao.maps.event.addListener(
+            mapInstanceRef.current,
+            'zoom_changed',
+            () => {
+              onZoomChanged(mapInstanceRef.current.getLevel());
+            }
+          );
+        }
+      } catch (err) {
+        console.error('지도 초기화 실패:', err);
+        setIsInitializing(false); // 초기화 실패 시 상태 리셋
+
+        // 서비스 비활성화 오류 감지
+        if (err && typeof err === 'object' && 'message' in err) {
+          const errorMessage = (err as any).message;
+          if (
+            errorMessage.includes('disabled') &&
+            errorMessage.includes('OPEN_MAP_AND_LOCAL')
+          ) {
+            setError(
+              '카카오맵 웹 지도 서비스가 비활성화되어 있습니다. 카카오 개발자 콘솔에서 서비스를 활성화해주세요.'
+            );
+            return;
+          }
+        }
 
         setError('지도 초기화에 실패했습니다.');
       }
@@ -232,8 +253,15 @@ export function KakaoMap({
   // Kakao Map API 로드
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
+    let isScriptLoading = false;
 
     const loadKakaoMap = () => {
+      // 중복 실행 방지
+      if (isScriptLoading) {
+        console.log('스크립트 로딩 중, 중복 실행 방지');
+        return;
+      }
+
       // 이미 로드된 경우 즉시 초기화
       if (window.kakao && window.kakao.maps) {
         console.log('카카오맵 API 이미 로드됨, 즉시 초기화');
@@ -248,6 +276,7 @@ export function KakaoMap({
 
       if (existingScript) {
         console.log('기존 스크립트 발견, 로드 대기');
+        isScriptLoading = true;
         // 스크립트 로드 완료 대기 (개선된 버전)
         let checkCount = 0;
         const maxChecks = 50; // 최대 5초 (50 * 100ms)
@@ -257,6 +286,7 @@ export function KakaoMap({
 
           if (window.kakao && window.kakao.maps) {
             console.log('카카오 객체 확인됨');
+            isScriptLoading = false;
             setLoadingStep('init');
             window.kakao.maps.load(() => {
               console.log('카카오맵 초기화 시작');
