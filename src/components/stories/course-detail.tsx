@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { GoogleMap } from '@/components/map/google-map';
+import { KakaoMap } from '@/components/map/kakao-map';
 import { MapMarker, MapRoute } from '@/types/map';
 
 interface Location {
@@ -246,7 +246,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
 
                 {showMap && (
                   <div className="h-80 sm:h-96 lg:h-[500px] w-full rounded-lg overflow-hidden border-2 border-gray-200">
-                    <GoogleMap
+                    <KakaoMap
                       center={getMapCenter()}
                       level={12}
                       markers={getMapMarkers()}

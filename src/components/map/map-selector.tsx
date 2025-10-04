@@ -38,7 +38,7 @@ export function MapSelector({
   onMarkerClick,
   onBoundsChanged,
   onZoomChanged,
-  defaultMapType = 'google', // 기본값을 Google Maps로 설정
+  defaultMapType = 'kakao', // 기본값을 Kakao Map으로 설정
 }: MapSelectorProps) {
   const [mapType, setMapType] = useState<'kakao' | 'google' | 'leaflet'>(
     defaultMapType
@@ -66,7 +66,7 @@ export function MapSelector({
       case 'leaflet':
         return <LeafletMap {...commonProps} />;
       default:
-        return <GoogleMap {...commonProps} />;
+        return <KakaoMap {...commonProps} />;
     }
   };
 
