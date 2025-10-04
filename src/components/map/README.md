@@ -1,151 +1,105 @@
-# 지도 서비스 대안 가이드
+# 🗺️ Map Components - 포항 스토리 텔러
 
-## 🗺️ 지원하는 지도 서비스
+## 📌 개요
 
-### 1. Google Maps (추천)
+포항 스토리 텔러의 핵심 지도 기능을 담당하는 컴포넌트들입니다. 스토리 기반 코스 탐험, 디지털 스탬프 투어, 경험 기록을 위한 지도 인터랙션을 제공합니다.
 
-- **장점**: 글로벌 표준, 안정적, 기능 풍부
-- **단점**: 유료 (월 $200 무료 크레딧)
-- **설정**: Google Cloud Console에서 API 키 발급
+## 🏗️ 컴포넌트 구조
 
-### 2. OpenStreetMap + Leaflet (무료 추천)
-
-- **장점**: 완전 무료, 오픈소스, 가벼움
-- **단점**: 한국 데이터 제한적
-- **설정**: API 키 불필요
-
-### 3. 카카오맵 (기존)
-
-- **장점**: 한국 최적화, 한국어 지원
-- **단점**: 복잡한 설정, CORS 문제
-- **설정**: 카카오 개발자 콘솔에서 서비스 활성화 필요
-
-## 🚀 사용 방법
-
-### 기본 사용법
-
-```tsx
-import { MapSelector } from '@/components/map/map-selector';
-
-// 지도 타입 자동 선택 (기본값: Google Maps)
-<MapSelector
-  center={{ lat: 36.019, lng: 129.3435 }}
-  level={12}
-  markers={markers}
-  routes={routes}
-  onMapClick={handleMapClick}
-  onMarkerClick={handleMarkerClick}
-/>;
+```
+src/components/map/
+├── README.md                 # 이 파일
+├── index.ts                  # 컴포넌트 내보내기
+├── types.ts                  # 지도 관련 타입 정의
+├── hooks/                    # 지도 관련 커스텀 훅
+│   ├── use-map.ts           # 지도 상태 관리
+│   ├── use-markers.ts       # 마커 관리
+│   └── use-routes.ts        # 경로 관리
+├── components/              # 지도 컴포넌트들
+│   ├── map-container.tsx    # 지도 컨테이너
+│   ├── map-marker.tsx       # 마커 컴포넌트
+│   ├── map-route.tsx        # 경로 컴포넌트
+│   ├── map-controls.tsx     # 지도 컨트롤
+│   └── map-popup.tsx        # 팝업 컴포넌트
+├── providers/               # 지도 프로바이더
+│   ├── map-provider.tsx     # 지도 컨텍스트
+│   └── kakao-map-provider.tsx # 카카오맵 프로바이더
+└── utils/                   # 유틸리티 함수
+    ├── map-utils.ts         # 지도 유틸리티
+    ├── coordinate-utils.ts  # 좌표 변환
+    └── qr-utils.ts          # QR 코드 관련
 ```
 
-### 특정 지도 서비스 사용
+## 🎯 핵심 기능
 
-```tsx
-import { GoogleMap } from '@/components/map/google-map';
-import { LeafletMap } from '@/components/map/leaflet-map';
-import { KakaoMap } from '@/components/map/kakao-map';
+### 1. 스토리 코스 지도
 
-// Google Maps 사용
-<GoogleMap center={center} markers={markers} />
+- **코스 경로 표시**: 방문지 간 이동 경로 시각화
+- **방문지 마커**: 각 방문지의 상세 정보 표시
+- **인터랙티브 탐색**: 마커 클릭 시 스토리 콘텐츠 표시
 
-// OpenStreetMap 사용
-<LeafletMap center={center} markers={markers} />
+### 2. 디지털 스탬프 투어
 
-// 카카오맵 사용
-<KakaoMap center={center} markers={markers} />
-```
+- **QR 코드 연동**: 위치 기반 스탬프 획득
+- **실시간 업데이트**: 스탬프 획득 시 지도 상태 업데이트
+- **진행률 표시**: 코스 완주 진행률 시각화
 
-## ⚙️ 설정 방법
+### 3. 경험 기록 앨범
 
-### 1. Google Maps 설정
+- **사진 위치 표시**: 촬영한 사진의 위치 마커
+- **타임라인 뷰**: 시간순 방문 기록 표시
+- **감정 태그**: 방문지별 감정 기록
 
-1. [Google Cloud Console](https://console.cloud.google.com/) 접속
-2. 프로젝트 생성 및 Maps JavaScript API 활성화
-3. API 키 생성
-4. 환경변수 설정:
+## 🎨 디자인 원칙
 
-```bash
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
-```
+### 색상 팔레트
 
-### 2. OpenStreetMap 설정
+- **Primary**: `#3B82F6` (브랜드 메인)
+- **Secondary**: `#F59E0B` (따뜻한 포인트)
+- **Accent**: `#10B981` (자연스러운 강조)
+- **Neutral**: `#374151` (텍스트), `#F9FAFB` (배경)
 
-- 별도 설정 불필요
-- 즉시 사용 가능
+### 반응형 레이아웃
 
-### 3. 카카오맵 설정
+- **Mobile (320px+)**: 1열, 터치 최적화
+- **Tablet (768px+)**: 2열, 지도 + 정보 패널
+- **Desktop (1024px+)**: 3열, 사이드바 + 지도 + 상세 정보
 
-1. [카카오 개발자 콘솔](https://developers.kakao.com/) 접속
-2. 애플리케이션 생성
-3. 웹 플랫폼 등록 및 도메인 설정
-4. 카카오맵 서비스 활성화
+## 🔧 기술 스택
 
-## 💰 비용 비교
+- **지도 API**: Kakao Map API (한국 최적화)
+- **상태 관리**: Zustand (경량 글로벌 상태)
+- **UI 라이브러리**: shadcn/ui + TailwindCSS
+- **타입 안정성**: TypeScript
+- **성능 최적화**: React.memo, useMemo, useCallback
 
-| 서비스            | 무료 크레딧 | 월 사용량   | 예상 비용 |
-| ----------------- | ----------- | ----------- | --------- |
-| **Google Maps**   | $200/월     | 10,000 로드 | $0-50     |
-| **OpenStreetMap** | 무제한      | 무제한      | $0        |
-| **카카오맵**      | 무료        | 무제한      | $0        |
+## 📱 사용자 경험
 
-## 🎯 추천 사용 시나리오
+### 모바일 최적화
 
-### 개발/테스트 환경
+- 터치 제스처 지원 (핀치 줌, 팬)
+- 스와이프 네비게이션
+- 햅틱 피드백 (진동)
 
-- **OpenStreetMap**: 무료, 빠른 설정
-- **Google Maps**: 안정적 테스트
+### 접근성
 
-### 프로덕션 환경
+- 키보드 네비게이션 지원
+- 스크린 리더 호환
+- 고대비 모드 지원
 
-- **Google Maps**: 글로벌 서비스, 안정성 중요
-- **카카오맵**: 한국 전용 서비스
+## 🚀 성능 최적화
 
-### 예산 제약
+- **지연 로딩**: 필요 시에만 지도 API 로드
+- **메모이제이션**: 불필요한 리렌더링 방지
+- **가상화**: 대량 마커 처리 최적화
+- **캐싱**: 자주 사용되는 지도 타일 캐시
 
-- **OpenStreetMap**: 완전 무료
-- **Google Maps**: 무료 크레딧 활용
+## 🔒 보안 및 개인정보
 
-## 🔧 마이그레이션 가이드
+- **로컬 저장**: 개인정보 최소화
+- **HTTPS 통신**: 모든 API 통신 암호화
+- **권한 관리**: 위치 정보 접근 권한 명시적 요청
 
-### 카카오맵 → Google Maps
+---
 
-```tsx
-// Before
-import { KakaoMap } from '@/components/map/kakao-map';
-<KakaoMap center={center} markers={markers} />;
-
-// After
-import { GoogleMap } from '@/components/map/google-map';
-<GoogleMap center={center} markers={markers} />;
-```
-
-### 카카오맵 → OpenStreetMap
-
-```tsx
-// Before
-import { KakaoMap } from '@/components/map/kakao-map';
-<KakaoMap center={center} markers={markers} />;
-
-// After
-import { LeafletMap } from '@/components/map/leaflet-map';
-<LeafletMap center={center} markers={markers} />;
-```
-
-## 🐛 문제 해결
-
-### Google Maps 오류
-
-- API 키 확인
-- 도메인 제한 설정 확인
-- 결제 정보 등록 확인
-
-### OpenStreetMap 오류
-
-- 네트워크 연결 확인
-- CORS 정책 확인
-
-### 카카오맵 오류
-
-- 서비스 활성화 확인
-- 도메인 등록 확인
-- CORS 설정 확인
+이 컴포넌트들은 포항 스토리 텔러의 핵심 가치인 **스토리 중심의 여행 경험**을 지도 인터랙션을 통해 구현합니다.
