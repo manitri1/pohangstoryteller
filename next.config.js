@@ -61,8 +61,10 @@ const nextConfig = {
   // Windows 파일 시스템 문제 해결을 위한 설정
   webpack: (config, { dev, isServer }) => {
     if (dev) {
-      // 소스맵 설정 개선 (eval-source-map 대신 더 안정적인 설정 사용)
-      config.devtool = 'cheap-module-source-map';
+      // 개발 환경에서 성능 최적화된 소스맵 설정
+      if (process.env.NODE_ENV === 'development') {
+        config.devtool = 'cheap-module-eval-source-map';
+      }
 
       config.watchOptions = {
         poll: 2000,
