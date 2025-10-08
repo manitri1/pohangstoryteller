@@ -1,0 +1,10 @@
+QR Code: QR_JUNGMYEONG_038
+Name: 중명자연생태공원
+Description: 다양한 동식물을 관찰하고 생태 학습을 할 수 있는 공원입니다. 잘 조성된 산책로와 습지가 특징입니다.
+Address: 경상북도 포항시 북구 송라면
+Coordinates: 36.15, 129.45
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=38
+Stamp Image URL: https://picsum.photos/200/200?random=stamp38
+
+Generated at: 2025-10-07T01:29:22.419Z

@@ -1,0 +1,10 @@
+QR Code: QR_DREAM_054
+Name: 꿈들로
+Description: 포항의 꿈이 가득한 거리로, 다양한 문화를 체험할 수 있습니다.
+Address: 경상북도 포항시 남구
+Coordinates: 36, 129.345
+Visit Duration: 45 minutes
+Image URL: https://picsum.photos/800/600?random=54
+Stamp Image URL: https://picsum.photos/200/200?random=stamp54
+
+Generated at: 2025-10-07T01:29:22.425Z

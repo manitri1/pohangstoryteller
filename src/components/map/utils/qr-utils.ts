@@ -33,7 +33,7 @@ export function encodeQRData(qrInfo: QRCodeInfo): string {
     expiresAt: qrInfo.expiresAt?.toISOString(),
     timestamp: new Date().toISOString(),
   };
-  
+
   return JSON.stringify(qrData);
 }
 
@@ -43,12 +43,12 @@ export function encodeQRData(qrInfo: QRCodeInfo): string {
 export function decodeQRData(qrString: string): QRCodeInfo | null {
   try {
     const qrData = JSON.parse(qrString);
-    
+
     // 필수 필드 검증
     if (!qrData.type || !qrData.locationId || !qrData.data) {
       return null;
     }
-    
+
     // 만료 시간 검증
     if (qrData.expiresAt) {
       const expiresAt = new Date(qrData.expiresAt);
@@ -56,7 +56,7 @@ export function decodeQRData(qrString: string): QRCodeInfo | null {
         return null; // 만료된 QR 코드
       }
     }
-    
+
     return {
       type: qrData.type,
       locationId: qrData.locationId,
@@ -77,18 +77,18 @@ export function validateQRCode(qrInfo: QRCodeInfo): boolean {
   if (!qrInfo.type || !qrInfo.locationId || !qrInfo.data) {
     return false;
   }
-  
+
   // 타입 검증
   const validTypes = ['stamp', 'story', 'media'];
   if (!validTypes.includes(qrInfo.type)) {
     return false;
   }
-  
+
   // 만료 시간 검증
   if (qrInfo.expiresAt && qrInfo.expiresAt < new Date()) {
     return false;
   }
-  
+
   return true;
 }
 
@@ -108,7 +108,7 @@ export function createStampQRCode(
     stampId,
     reward,
   });
-  
+
   return encodeQRData(qrInfo);
 }
 
@@ -124,7 +124,7 @@ export function createStoryQRCode(
     storyId,
     mediaUrl,
   });
-  
+
   return encodeQRData(qrInfo);
 }
 
@@ -142,7 +142,7 @@ export function createMediaQRCode(
     mediaType,
     mediaUrl,
   });
-  
+
   return encodeQRData(qrInfo);
 }
 
@@ -158,19 +158,20 @@ export function scanQRCode(): Promise<string> {
     }
 
     // 간단한 QR 스캔 구현 (실제로는 더 복잡한 라이브러리 필요)
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => {
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then((stream) => {
         // 여기서 실제 QR 스캔 로직을 구현해야 함
         // 예: qr-scanner 라이브러리 사용
         console.log('QR 스캔 시작');
-        
+
         // 임시로 더미 데이터 반환
         setTimeout(() => {
-          stream.getTracks().forEach(track => track.stop());
+          stream.getTracks().forEach((track) => track.stop());
           resolve('dummy_qr_data');
         }, 2000);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(new Error(`카메라 접근 실패: ${error.message}`));
       });
   });
@@ -189,16 +190,16 @@ export function generateQRCodeImage(
     canvas.width = size;
     canvas.height = size;
     const ctx = canvas.getContext('2d');
-    
+
     if (!ctx) {
       reject(new Error('Canvas를 지원하지 않는 브라우저입니다.'));
       return;
     }
-    
+
     // 간단한 QR 코드 패턴 생성 (실제로는 라이브러리 사용)
     ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, size, size);
-    
+
     ctx.fillStyle = '#FFFFFF';
     for (let i = 0; i < size; i += 10) {
       for (let j = 0; j < size; j += 10) {
@@ -207,7 +208,7 @@ export function generateQRCodeImage(
         }
       }
     }
-    
+
     const dataURL = canvas.toDataURL('image/png');
     resolve(dataURL);
   });
@@ -216,9 +217,12 @@ export function generateQRCodeImage(
 /**
  * QR 코드 다운로드
  */
-export function downloadQRCode(qrData: string, filename: string = 'qrcode.png'): void {
+export function downloadQRCode(
+  qrData: string,
+  filename: string = 'qrcode.png'
+): void {
   generateQRCodeImage(qrData)
-    .then(dataURL => {
+    .then((dataURL) => {
       const link = document.createElement('a');
       link.href = dataURL;
       link.download = filename;
@@ -226,7 +230,7 @@ export function downloadQRCode(qrData: string, filename: string = 'qrcode.png'):
       link.click();
       document.body.removeChild(link);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('QR 코드 다운로드 실패:', error);
     });
 }
@@ -234,7 +238,10 @@ export function downloadQRCode(qrData: string, filename: string = 'qrcode.png'):
 /**
  * QR 코드 공유 (Web Share API 사용)
  */
-export async function shareQRCode(qrData: string, title: string = 'QR 코드'): Promise<void> {
+export async function shareQRCode(
+  qrData: string,
+  title: string = 'QR 코드'
+): Promise<void> {
   if (!navigator.share) {
     // Web Share API를 지원하지 않는 경우 클립보드에 복사
     await navigator.clipboard.writeText(qrData);
@@ -278,15 +285,15 @@ export function getQRCodeTimeRemaining(expiresAt: Date): {
 } {
   const now = new Date();
   const diff = expiresAt.getTime() - now.getTime();
-  
+
   if (diff <= 0) {
     return { hours: 0, minutes: 0, seconds: 0 };
   }
-  
+
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-  
+
   return { hours, minutes, seconds };
 }
 
@@ -305,11 +312,11 @@ export function generateQRCodeStats(qrCodes: QRCodeInfo[]): {
     expired: 0,
     valid: 0,
   };
-  
-  qrCodes.forEach(qrCode => {
+
+  qrCodes.forEach((qrCode) => {
     // 타입별 통계
     stats.byType[qrCode.type] = (stats.byType[qrCode.type] || 0) + 1;
-    
+
     // 만료 상태 통계
     if (qrCode.expiresAt && isQRCodeExpired(qrCode.expiresAt)) {
       stats.expired++;
@@ -317,6 +324,6 @@ export function generateQRCodeStats(qrCodes: QRCodeInfo[]): {
       stats.valid++;
     }
   });
-  
+
   return stats;
 }

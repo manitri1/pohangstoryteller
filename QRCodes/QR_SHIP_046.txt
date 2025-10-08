@@ -1,0 +1,10 @@
+QR Code: QR_SHIP_046
+Name: 포항함체험관
+Description: 포항의 해양 문화를 체험할 수 있는 체험관입니다.
+Address: 경상북도 포항시 북구
+Coordinates: 36.005, 129.37
+Visit Duration: 75 minutes
+Image URL: https://picsum.photos/800/600?random=46
+Stamp Image URL: https://picsum.photos/200/200?random=stamp46
+
+Generated at: 2025-10-07T01:29:22.424Z

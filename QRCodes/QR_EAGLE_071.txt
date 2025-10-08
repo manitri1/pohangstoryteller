@@ -1,0 +1,10 @@
+QR Code: QR_EAGLE_071
+Name: 독수리바위
+Description: 독수리 모양의 바위로, 포항의 자연 명소입니다.
+Address: 경상북도 포항시 북구 청하면
+Coordinates: 36.15, 129.4
+Visit Duration: 30 minutes
+Image URL: https://picsum.photos/800/600?random=71
+Stamp Image URL: https://picsum.photos/200/200?random=stamp71
+
+Generated at: 2025-10-07T01:29:22.428Z

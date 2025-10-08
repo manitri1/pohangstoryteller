@@ -1,0 +1,10 @@
+QR Code: QR_CHIMCHON_035
+Name: 침촌근린공원
+Description: 풍차와 놀이터가 있는 가족 친화적인 공원입니다. 아이들과 함께 즐기기 좋습니다.
+Address: 경상북도 포항시 북구
+Coordinates: 36.02, 129.38
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=35
+Stamp Image URL: https://picsum.photos/200/200?random=stamp35
+
+Generated at: 2025-10-07T01:29:22.419Z

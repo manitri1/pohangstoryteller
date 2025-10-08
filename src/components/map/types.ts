@@ -144,7 +144,9 @@ export interface MapState {
   selectedMarker?: Marker;
   selectedRoute?: Route;
   visibleMarkers: Marker[];
+  routes: Route[];
   collectedStamps: Stamp[];
+  experienceRecords: ExperienceRecord[];
   userLocation?: Coordinate;
   error?: string;
 }

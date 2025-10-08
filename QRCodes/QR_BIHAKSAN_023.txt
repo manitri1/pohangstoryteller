@@ -1,0 +1,10 @@
+QR Code: QR_BIHAKSAN_023
+Name: 비학산
+Description: 포항시에 위치한 산으로, 비교적 짧은 시간에 오를 수 있는 등산로가 특징입니다. 정상에서는 아름다운 포항 시내 전망을 감상할 수 있습니다.
+Address: 경상북도 포항시 북구 흥해읍
+Coordinates: 36.025, 129.325
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=23
+Stamp Image URL: https://picsum.photos/200/200?random=stamp23
+
+Generated at: 2025-10-07T01:29:22.416Z

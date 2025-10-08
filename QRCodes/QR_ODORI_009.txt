@@ -1,0 +1,10 @@
+QR Code: QR_ODORI_009
+Name: 오도리 주상절리
+Description: 바닷가 절벽에 형성된 육각형 모양의 주상절리를 볼 수 있는 자연 지질 명소입니다. 파도와 어우러진 독특한 해안 절경이 인상적입니다.
+Address: 경상북도 포항시 북구 청하면
+Coordinates: 36.1683, 129.4087
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=9
+Stamp Image URL: https://picsum.photos/200/200?random=stamp9
+
+Generated at: 2025-10-07T01:29:22.414Z

@@ -58,37 +58,35 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-primary;
-    font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 }
 
 @layer components {
   /* 포항 스토리 텔러 커스텀 컴포넌트 스타일 */
   .btn-primary {
-    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-4 py-2 rounded-lg transition-colors duration-200;
   }
 
   .btn-secondary {
-    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground font-medium px-4 py-2 rounded-lg transition-colors duration-200;
   }
 
   .btn-accent {
-    @apply bg-accent-500 hover:bg-accent-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+    @apply bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-4 py-2 rounded-lg transition-colors duration-200;
   }
 
   .card-story {
-    @apply bg-white rounded-xl shadow-sm border border-neutral-200 hover:shadow-md transition-shadow duration-200;
+    @apply bg-card rounded-xl shadow-sm border border-border hover:shadow-md transition-shadow duration-200;
   }
 
   .card-course {
-    @apply bg-white rounded-lg shadow-sm border border-neutral-200 hover:shadow-lg hover:border-primary-200 transition-all duration-200;
+    @apply bg-card rounded-lg shadow-sm border border-border hover:shadow-lg hover:border-primary/50 transition-all duration-200;
   }
 
   .input-focus {
-    @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500 border-neutral-300 rounded-lg;
+    @apply focus:ring-2 focus:ring-ring focus:border-ring border-input rounded-lg;
   }
 
   /* 접근성 개선 */

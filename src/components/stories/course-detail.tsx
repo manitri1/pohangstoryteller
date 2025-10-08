@@ -26,7 +26,35 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { KakaoMap } from '@/components/map/kakao-map';
+import dynamic from 'next/dynamic';
+import { memo, useMemo, useCallback } from 'react';
+
+// 카카오맵 컴포넌트를 동적으로 로드 (SSR 비활성화)
+const MapContainer = dynamic(
+  () =>
+    import('@/components/map').then((mod) => ({ default: mod.MapContainer })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto mb-2"></div>
+          <p className="text-sm text-gray-600">지도를 불러오는 중...</p>
+        </div>
+      </div>
+    ),
+  }
+);
+
+// 지연 로딩을 위한 컴포넌트 분리
+const LazyMediaViewer = dynamic(() => import('./lazy-media-viewer'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+      <div className="animate-pulse text-gray-500">미디어 로딩 중...</div>
+    </div>
+  ),
+});
 import { MapMarker, MapRoute } from '@/types/map';
 
 interface Location {
@@ -65,12 +93,15 @@ interface CourseDetailProps {
   course: Course;
 }
 
-export function CourseDetail({ course }: CourseDetailProps) {
+// 성능 최적화를 위한 메모이제이션
+export const CourseDetail = memo(function CourseDetail({
+  course,
+}: CourseDetailProps) {
   const [expandedLocation, setExpandedLocation] = useState<string | null>(null);
   const [showMap, setShowMap] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
 
-  const getDifficultyColor = (difficulty: string) => {
+  const getDifficultyColor = useCallback((difficulty: string) => {
     switch (difficulty) {
       case '쉬움':
         return 'bg-green-100 text-green-700';
@@ -81,9 +112,9 @@ export function CourseDetail({ course }: CourseDetailProps) {
       default:
         return 'bg-neutral-100 text-neutral-700';
     }
-  };
+  }, []);
 
-  const getCategoryColor = (category: string) => {
+  const getCategoryColor = useCallback((category: string) => {
     switch (category) {
       case '자연경관':
         return 'bg-primary-100 text-primary-700';
@@ -96,33 +127,42 @@ export function CourseDetail({ course }: CourseDetailProps) {
       default:
         return 'bg-neutral-100 text-neutral-700';
     }
-  };
+  }, []);
 
-  const toggleLocation = (locationId: string) => {
-    setExpandedLocation(expandedLocation === locationId ? null : locationId);
-  };
+  const toggleLocation = useCallback(
+    (locationId: string) => {
+      setExpandedLocation(expandedLocation === locationId ? null : locationId);
+    },
+    [expandedLocation]
+  );
 
-  // 지도 마커 데이터 생성
-  const getMapMarkers = (): MapMarker[] => {
+  // 지도 마커 데이터 생성 (메모이제이션)
+  const getMapMarkers = useMemo(() => {
     if (!course.locations || !Array.isArray(course.locations)) {
       return [];
     }
     return course.locations.map((location, index) => ({
       id: location.id,
+      location: {
+        id: location.id,
+        name: location.name,
+        description: location.description,
+        coordinates: location.coordinates,
+        category: course.category as any,
+        qrCode: location.qrCode,
+        media: location.media,
+      },
       position: location.coordinates,
-      title: location.name,
-      content: location.description,
-      type:
-        index === 0
-          ? 'start'
-          : index === course.locations.length - 1
-            ? 'end'
-            : 'waypoint',
+      type: (index === 0
+        ? 'start'
+        : index === course.locations.length - 1
+          ? 'end'
+          : 'waypoint') as 'start' | 'end' | 'waypoint' | 'stamp' | 'photo',
     }));
-  };
+  }, [course.locations, course.category]);
 
   // 지도 경로 데이터 생성
-  const getMapRoute = (): MapRoute => {
+  const getMapRoute = () => {
     if (!course.locations || !Array.isArray(course.locations)) {
       return {
         id: course.id,
@@ -131,6 +171,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
         color: '#3B82F6',
         strokeWeight: 5,
         strokeOpacity: 0.7,
+        isMainRoute: true,
       };
     }
     return {
@@ -140,6 +181,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
       color: '#3B82F6',
       strokeWeight: 5,
       strokeOpacity: 0.7,
+      isMainRoute: true,
     };
   };
 
@@ -150,7 +192,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
       !Array.isArray(course.locations) ||
       course.locations.length === 0
     ) {
-      return { lat: 36.019, lng: 129.3435 };
+      return { lat: 36.019, lng: 129.3435, level: 12 };
     }
 
     const lats = course.locations.map((l) => l.coordinates.lat);
@@ -159,11 +201,12 @@ export function CourseDetail({ course }: CourseDetailProps) {
     return {
       lat: (Math.min(...lats) + Math.max(...lats)) / 2,
       lng: (Math.min(...lngs) + Math.max(...lngs)) / 2,
+      level: 12,
     };
   };
 
   // 마커 클릭 핸들러
-  const handleMarkerClick = (marker: MapMarker) => {
+  const handleMarkerClick = (marker: any) => {
     setSelectedLocation(marker.id);
     setExpandedLocation(marker.id);
   };
@@ -184,6 +227,8 @@ export function CourseDetail({ course }: CourseDetailProps) {
             src={course.image}
             alt={course.title}
             fill
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
@@ -246,16 +291,33 @@ export function CourseDetail({ course }: CourseDetailProps) {
 
                 <div
                   className={`h-80 sm:h-96 lg:h-[500px] w-full rounded-lg overflow-hidden border-2 border-gray-200 ${!showMap ? 'hidden' : ''}`}
+                  style={{
+                    width: '100%',
+                    height: '400px',
+                    minHeight: '400px',
+                    position: 'relative',
+                    display: 'block',
+                  }}
                 >
-                  <KakaoMap
+                  <MapContainer
                     center={getMapCenter()}
                     level={12}
-                    markers={getMapMarkers()}
+                    markers={getMapMarkers}
                     routes={[getMapRoute()]}
-                    onMarkerClick={handleMarkerClick}
+                    handlers={{
+                      onMarkerClick: handleMarkerClick,
+                    }}
                     className="w-full h-full"
-                    style={{ minHeight: '320px' }}
-                    shouldInitialize={showMap}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      minHeight: '400px',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                    }}
                   />
                 </div>
               </div>
@@ -339,6 +401,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
                               src={location.image}
                               alt={location.name}
                               fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                               className="object-cover"
                             />
                           </div>
@@ -362,6 +425,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
                                       src={media.url}
                                       alt={media.title}
                                       fill
+                                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 12vw"
                                       className="object-cover"
                                     />
                                     {media.type === 'video' && (
@@ -506,4 +570,4 @@ export function CourseDetail({ course }: CourseDetailProps) {
       </div>
     </div>
   );
-}
+});

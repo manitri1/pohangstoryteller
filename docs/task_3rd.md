@@ -3,234 +3,132 @@
 ## 📌 3단계 개요
 
 **기간**: 4주  
-**목표**: 커뮤니티 및 상업적 기능 완성  
-**핵심 성과물**: DIY 기념품 제작, 커뮤니티 플랫폼, 다국어 지원, 프로덕션 배포
+**목표**: AI 기능 및 고급 기능 완성  
+**핵심 성과물**: AI 챗봇, 다국어 지원, 성능 최적화, 프로덕션 배포
 
 ---
 
 ## 📌 주차별 개발 계획
 
-### 🗓️ 1주차: DIY 기념품 제작 시스템
+### 🗓️ 1주차: AI 추천 시스템 및 챗봇
 
-#### Day 1-3: 템플릿 시스템 구축
+#### Day 1-3: OpenAI API 연동
 
-- [ ] 포항4컷 템플릿 디자인 및 구현
-- [ ] 롤링페이퍼 템플릿 구현
-- [ ] 포토북 템플릿 구현
-- [ ] 템플릿 편집기 UI 구현
+- [ ] OpenAI API 키 설정 및 환경 변수 구성
+- [ ] gpt-4o 모델 연동 설정
+- [ ] API 호출을 위한 별도 PHP 파일 생성 (curl 사용)
+- [ ] 에러 핸들링 및 재시도 로직
 
-#### Day 4-7: 제작 및 주문 시스템
+#### Day 4-7: AI 챗봇 구현
 
-- [ ] 이미지/스탬프 드래그 앤 드롭 기능
-- [ ] 텍스트 편집 및 스타일링 기능
-- [ ] 미리보기 및 수정 기능
-- [ ] 주문 정보 입력 폼 구현
+- [ ] 채팅 인터페이스 UI 구현
+- [ ] 실시간 메시지 송수신 기능
+- [ ] 사용자 입력 기반 추천 로직
+- [ ] 대화 기록 저장 및 관리
 
-### 🗓️ 2주차: 결제 시스템 및 주문 관리
+### 🗓️ 2주차: 다국어 지원 시스템
 
-#### Day 8-10: PortOne 결제 연동
-
-- [ ] PortOne API 설정 및 연동
-- [ ] 결제 위젯 구현
-- [ ] 결제 성공/실패 처리
-- [ ] 환불 및 취소 기능
-
-#### Day 11-14: 주문 관리 시스템
-
-- [ ] 주문 내역 관리 페이지
-- [ ] 주문 상태 추적 기능
-- [ ] 이메일 알림 시스템
-- [ ] 관리자 주문 관리 대시보드
-
-### 🗓️ 3주차: 커뮤니티 및 소셜 기능
-
-#### Day 15-17: 커뮤니티 피드 구현
-
-- [ ] 피드 UI/UX 구현 (인스타그램 스타일)
-- [ ] 숏폼/사진 업로드 기능
-- [ ] 좋아요, 댓글, 공유 기능
-- [ ] 해시태그 및 검색 기능
-
-#### Day 18-21: 소셜 공유 기능
-
-- [ ] 외부 SNS 공유 버튼 (Instagram, Facebook, Twitter)
-- [ ] 공유 링크 생성 및 관리
-- [ ] 소셜 미디어 최적화 (Open Graph)
-- [ ] 바이럴 콘텐츠 추적 시스템
-
-### 🗓️ 4주차: 다국어 지원 및 최종 배포
-
-#### Day 22-24: 다국어 지원
+#### Day 8-10: 다국어 지원
 
 - [ ] i18n 라이브러리 설정
 - [ ] 한국어, 영어, 중국어, 일본어 번역
 - [ ] 언어별 콘텐츠 관리
 - [ ] 언어 자동 감지 및 설정
 
-#### Day 25-28: 최종 최적화 및 배포
+#### Day 11-14: 성능 최적화 및 배포
 
 - [ ] 성능 최적화 (번들 크기, 로딩 속도)
 - [ ] SEO 최적화 (메타 태그, 구조화 데이터)
 - [ ] 보안 검토 및 강화
 - [ ] 프로덕션 배포 및 모니터링 설정
 
+### 🗓️ 3주차: 고급 기능 및 모니터링
+
+#### Day 15-17: 고급 기능 구현
+
+- [ ] 실시간 알림 시스템
+- [ ] 오프라인 지원 (PWA)
+- [ ] 고급 검색 및 필터링
+- [ ] 데이터 분석 및 통계
+
+#### Day 18-21: 모니터링 및 유지보수
+
+- [ ] 에러 추적 시스템 구축
+- [ ] 성능 모니터링 설정
+- [ ] 사용자 피드백 수집
+- [ ] 문서화 및 가이드 작성
+
+### 🗓️ 4주차: 최종 테스트 및 런칭
+
+#### Day 22-24: 통합 테스트
+
+- [ ] 전체 시스템 통합 테스트
+- [ ] 사용자 시나리오 테스트
+- [ ] 성능 및 보안 테스트
+- [ ] 사용자 피드백 반영
+
+#### Day 25-28: 런칭 및 마케팅
+
+- [ ] 프로덕션 배포 완료
+- [ ] 마케팅 자료 준비
+- [ ] 사용자 가이드 작성
+- [ ] 런칭 이벤트 준비
+
 ---
 
 ## 📌 핵심 기능 구현
 
-### 🛍️ DIY 기념품 제작 시스템
+### 🤖 AI 추천 시스템 및 챗봇
 
-#### 템플릿 시스템
-
-```typescript
-interface Template {
-  id: string;
-  name: string;
-  type: "포항4컷" | "롤링페이퍼" | "포토북";
-  layout: LayoutConfig;
-  price: number;
-  preview: string;
-}
-
-interface LayoutConfig {
-  slots: Slot[];
-  background: BackgroundConfig;
-  text: TextStyle[];
-}
-
-interface Slot {
-  id: string;
-  position: { x: number; y: number };
-  size: { width: number; height: number };
-  type: "image" | "stamp" | "text";
-  constraints: MediaConstraints;
-}
-```
-
-#### 제작 에디터
+#### OpenAI API 연동 (PHP)
 
 ```typescript
-interface EditorState {
-  template: Template;
-  content: EditorContent[];
-  selectedSlot: string | null;
-  history: EditorAction[];
+interface OpenAIConfig {
+  apiKey: string;
+  model: 'gpt-4o';
+  maxTokens: number;
+  temperature: number;
 }
 
-interface EditorContent {
-  slotId: string;
-  type: "image" | "stamp" | "text";
-  data: any;
-  style: StyleConfig;
-}
-
-interface StyleConfig {
-  fontSize?: number;
-  fontFamily?: string;
-  color?: string;
-  alignment?: "left" | "center" | "right";
-  effects?: Effect[];
-}
-```
-
-### 💳 결제 시스템
-
-#### PortOne 연동
-
-```typescript
-interface PaymentConfig {
-  storeId: string;
-  channelKey: string;
-  environment: "development" | "production";
-}
-
-interface OrderItem {
+interface ChatMessage {
   id: string;
-  templateId: string;
-  quantity: number;
-  customization: CustomizationData;
-  price: number;
-}
-
-interface Order {
-  id: string;
-  userId: string;
-  items: OrderItem[];
-  totalAmount: number;
-  status:
-    | "pending"
-    | "paid"
-    | "processing"
-    | "shipped"
-    | "delivered"
-    | "cancelled";
-  paymentMethod: string;
-  shippingAddress: Address;
-  createdAt: Date;
-}
-```
-
-#### 결제 처리
-
-```typescript
-interface PaymentService {
-  createPayment(order: Order): Promise<PaymentResult>;
-  verifyPayment(paymentId: string): Promise<PaymentStatus>;
-  refundPayment(paymentId: string, amount: number): Promise<RefundResult>;
-  getPaymentHistory(userId: string): Promise<Payment[]>;
-}
-```
-
-### 💬 커뮤니티 시스템
-
-#### 피드 시스템
-
-```typescript
-interface Post {
-  id: string;
-  author: User;
-  content: PostContent;
-  media: MediaFile[];
-  hashtags: string[];
-  likes: Like[];
-  comments: Comment[];
-  shares: Share[];
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-interface PostContent {
-  text: string;
-  location?: Location;
-  mood?: string;
-  tags: string[];
-}
-
-interface Comment {
-  id: string;
-  author: User;
+  role: 'user' | 'assistant';
   content: string;
-  createdAt: Date;
-  likes: number;
-  replies: Comment[];
+  timestamp: Date;
+}
+
+interface ChatBotProps {
+  onRecommendation: (recommendation: Course[]) => void;
+  onError: (error: string) => void;
 }
 ```
 
-#### 소셜 기능
+#### AI 추천 엔진
 
 ```typescript
-interface SocialFeatures {
-  likePost(postId: string): Promise<void>;
-  commentPost(postId: string, content: string): Promise<Comment>;
-  sharePost(postId: string, platform: SocialPlatform): Promise<ShareResult>;
-  followUser(userId: string): Promise<void>;
-  unfollowUser(userId: string): Promise<void>;
+interface RecommendationEngine {
+  generateRecommendations(profile: UserProfile): Promise<Course[]>;
+  updateProfile(userId: string, behavior: UserBehavior): Promise<void>;
+  getSimilarUsers(userId: string): Promise<User[]>;
+  getTrendingContent(): Promise<Course[]>;
 }
 
-interface SocialPlatform {
-  type: "instagram" | "facebook" | "twitter" | "kakao";
-  shareUrl: string;
-  shareCount: number;
+interface UserProfile {
+  demographics: {
+    age: number;
+    gender: string;
+    location: string;
+  };
+  preferences: {
+    interests: string[];
+    travelStyle: 'relaxed' | 'active' | 'cultural';
+    budget: 'low' | 'medium' | 'high';
+  };
+  behavior: {
+    visitedLocations: string[];
+    likedContent: string[];
+    timeSpent: Record<string, number>;
+  };
 }
 ```
 
@@ -240,30 +138,30 @@ interface SocialPlatform {
 
 ```typescript
 interface LocaleConfig {
-  defaultLocale: "ko";
-  locales: ["ko", "en", "ja", "zh"];
-  fallbackLocale: "ko";
+  defaultLocale: 'ko';
+  locales: ['ko', 'en', 'ja', 'zh'];
+  fallbackLocale: 'ko';
 }
 
 interface TranslationKeys {
   // 공통
-  "common.save": string;
-  "common.cancel": string;
-  "common.confirm": string;
+  'common.save': string;
+  'common.cancel': string;
+  'common.confirm': string;
 
   // 네비게이션
-  "nav.home": string;
-  "nav.stories": string;
-  "nav.records": string;
-  "nav.community": string;
+  'nav.home': string;
+  'nav.stories': string;
+  'nav.records': string;
+  'nav.community': string;
 
   // 기능별
-  "stories.explore": string;
-  "stories.recommendations": string;
-  "records.album": string;
-  "records.stamps": string;
-  "community.feed": string;
-  "community.share": string;
+  'stories.explore': string;
+  'stories.recommendations': string;
+  'records.album': string;
+  'records.stamps': string;
+  'community.feed': string;
+  'community.share': string;
 }
 ```
 
@@ -272,7 +170,7 @@ interface TranslationKeys {
 ```typescript
 interface MultilingualContent {
   id: string;
-  type: "course" | "story" | "location";
+  type: 'course' | 'story' | 'location';
   translations: {
     [locale: string]: {
       title: string;
@@ -350,14 +248,14 @@ interface SEOConfig {
 
 // 구조화 데이터
 const courseSchema = {
-  "@context": "https://schema.org",
-  "@type": "TouristAttraction",
-  name: "포항 스토리 코스",
-  description: "포항의 매력을 담은 스토리 기반 여행 코스",
+  '@context': 'https://schema.org',
+  '@type': 'TouristAttraction',
+  name: '포항 스토리 코스',
+  description: '포항의 매력을 담은 스토리 기반 여행 코스',
   location: {
-    "@type": "Place",
-    name: "포항시",
-    address: "경상북도 포항시",
+    '@type': 'Place',
+    name: '포항시',
+    address: '경상북도 포항시',
   },
 };
 ```
@@ -373,7 +271,7 @@ interface AccessibilityConfig {
   keyboardNavigation: boolean;
   screenReaderSupport: boolean;
   highContrast: boolean;
-  fontSize: "small" | "medium" | "large";
+  fontSize: 'small' | 'medium' | 'large';
 }
 ```
 
@@ -384,17 +282,19 @@ interface AccessibilityConfig {
 ### 🔒 데이터 보안
 
 ```typescript
-interface SecurityConfig {
+interface SupabaseSecurityConfig {
   encryption: {
-    algorithm: "AES-256-GCM";
+    algorithm: 'AES-256-GCM';
     keyRotation: boolean;
   };
   authentication: {
+    supabaseAuth: boolean;
     jwtExpiry: string;
     refreshToken: boolean;
     mfa: boolean;
   };
   dataProtection: {
+    rlsPolicies: boolean; // Row Level Security
     gdprCompliant: boolean;
     dataRetention: number; // days
     anonymization: boolean;
@@ -405,7 +305,7 @@ interface SecurityConfig {
 ### 🛡️ API 보안
 
 ```typescript
-interface APISecurity {
+interface SupabaseAPISecurity {
   rateLimiting: {
     windowMs: number;
     maxRequests: number;
@@ -417,6 +317,11 @@ interface APISecurity {
   helmet: {
     contentSecurityPolicy: boolean;
     xssFilter: boolean;
+  };
+  supabase: {
+    rlsEnabled: boolean;
+    apiKeySecurity: boolean;
+    realtimeSecurity: boolean;
   };
 }
 ```
@@ -430,15 +335,15 @@ interface APISecurity {
 ```yaml
 # vercel.json
 {
-  "framework": "nextjs",
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "env":
+  'framework': 'nextjs',
+  'buildCommand': 'npm run build',
+  'outputDirectory': '.next',
+  'env':
     {
-      "NEXT_PUBLIC_API_URL": "@api-url",
-      "NEXT_PUBLIC_MAP_API_KEY": "@map-api-key",
+      'NEXT_PUBLIC_API_URL': '@api-url',
+      'NEXT_PUBLIC_MAP_API_KEY': '@map-api-key',
     },
-  "functions": { "pages/api/**/*.js": { "runtime": "nodejs18.x" } },
+  'functions': { 'pages/api/**/*.js': { 'runtime': 'nodejs18.x' } },
 }
 ```
 
@@ -447,12 +352,12 @@ interface APISecurity {
 ```typescript
 interface MonitoringSetup {
   uptime: {
-    provider: "UptimeRobot" | "Pingdom";
+    provider: 'UptimeRobot' | 'Pingdom';
     interval: number;
   };
   logs: {
-    provider: "LogRocket" | "Sentry";
-    level: "error" | "warn" | "info";
+    provider: 'LogRocket' | 'Sentry';
+    level: 'error' | 'warn' | 'info';
   };
   alerts: {
     email: string[];
@@ -473,8 +378,8 @@ interface MonitoringSetup {
 
 ```typescript
 // E2E 테스트 시나리오
-describe("포항 스토리 텔러 E2E", () => {
-  test("사용자 여행 플로우", async () => {
+describe('포항 스토리 텔러 E2E', () => {
+  test('사용자 여행 플로우', async () => {
     // 1. 홈페이지 접속
     // 2. 스토리 탐험
     // 3. QR 스캔
@@ -509,24 +414,25 @@ interface PerformanceMetrics {
 
 ### ✅ 기능적 요구사항
 
-- [ ] DIY 기념품 제작 및 주문 완료
-- [ ] 커뮤니티 피드 및 소셜 공유
+- [ ] AI 추천 시스템 및 챗봇 완성
 - [ ] 다국어 지원 (4개 언어)
-- [ ] 결제 시스템 안정적 운영
+- [ ] 성능 최적화 및 모니터링
+- [ ] 프로덕션 배포 완료
 
 ### ✅ 기술적 요구사항
 
-- [ ] 프로덕션 배포 완료
+- [ ] OpenAI API 안정적 연동
 - [ ] 성능 최적화 (Lighthouse 90+)
 - [ ] 보안 검토 통과
 - [ ] 모니터링 시스템 구축
+- [ ] CI/CD 파이프라인 구축
 
 ### ✅ 비즈니스 요구사항
 
-- [ ] 수익 모델 검증
 - [ ] 사용자 피드백 수집
 - [ ] 마케팅 준비 완료
 - [ ] 운영 프로세스 수립
+- [ ] 런칭 이벤트 준비
 
 ---
 
@@ -548,5 +454,5 @@ interface PerformanceMetrics {
 
 ---
 
-✅ **3단계 목표**: 완전한 상업적 플랫폼 구축 및 배포 완료  
+✅ **3단계 목표**: AI 추천 시스템, 다국어 지원 및 최종 배포 완료  
 🚀 **프로젝트 완료**: 포항 스토리 텔러 플랫폼 런칭 성공

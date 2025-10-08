@@ -1,0 +1,10 @@
+QR Code: QR_OBSERVATORY_078
+Name: 영일대 전망대
+Description: 영일대 해수욕장 해상에 위치한 누각으로, 포항 시내와 동해 바다를 360도로 조망할 수 있는 곳입니다.
+Address: 경상북도 포항시 북구 두호동
+Coordinates: 36.0175, 129.3665
+Visit Duration: 40 minutes
+Image URL: https://picsum.photos/800/600?random=78
+Stamp Image URL: https://picsum.photos/200/200?random=stamp78
+
+Generated at: 2025-10-07T01:29:22.428Z

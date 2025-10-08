@@ -1,0 +1,10 @@
+QR Code: QR_DOEUMSAN_022
+Name: 도음산
+Description: 만인당 수목원, 야외 정글숲, 경상북도 수목원. 아름다운 자연과 맑은 공기를 느낄 수 있으며, 완만한 등산로가 조성되어 있어 힐링하기 좋은 곳입니다.
+Address: 경상북도 포항시 북구 흥해읍
+Coordinates: 36.0791, 129.3178
+Visit Duration: 120 minutes
+Image URL: https://picsum.photos/800/600?random=22
+Stamp Image URL: https://picsum.photos/200/200?random=stamp22
+
+Generated at: 2025-10-07T01:29:22.416Z

@@ -1,0 +1,21 @@
+{
+  "name": "pohang-storyteller-qr-codes",
+  "version": "1.0.0",
+  "description": "포항 스토리텔러 QR 코드 생성기",
+  "main": "generate_qr_images.js",
+  "scripts": {
+    "generate": "node generate_qr_images.js",
+    "generate-simple": "node generate_qr_codes.js"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.3"
+  },
+  "keywords": [
+    "qr-code",
+    "pohang",
+    "storyteller",
+    "tourism"
+  ],
+  "author": "Pohang StoryTeller Team",
+  "license": "MIT"
+}

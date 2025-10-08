@@ -1,0 +1,10 @@
+QR Code: QR_BOGYEONGSA_019
+Name: 보경사
+Description: 내연산의 웅장한 자연 속에 자리 잡은 천년 고찰입니다. 12폭포로 향하는 길목에 있으며, 고즈넉한 분위기를 느낄 수 있습니다.
+Address: 경상북도 포항시 북구 송라면
+Coordinates: 36.1915, 129.382
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=19
+Stamp Image URL: https://picsum.photos/200/200?random=stamp19
+
+Generated at: 2025-10-07T01:29:22.413Z

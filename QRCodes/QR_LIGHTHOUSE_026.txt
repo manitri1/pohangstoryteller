@@ -1,0 +1,10 @@
+QR Code: QR_LIGHTHOUSE_026
+Name: 국립등대박물관
+Description: 호미곶에 위치한 등대 관련 전시관으로, 등대의 역사와 문화를 배울 수 있습니다.
+Address: 경상북도 포항시 남구 호미곶면
+Coordinates: 36.0097, 129.5694
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=26
+Stamp Image URL: https://picsum.photos/200/200?random=stamp26
+
+Generated at: 2025-10-07T01:29:22.417Z

@@ -74,13 +74,18 @@ export function useRoutes() {
 
   // 카카오맵 폴리라인 생성
   const createKakaoPolyline = useCallback((route: Route) => {
-    if (!mapInstanceRef.current) return null;
+    if (
+      !mapInstanceRef.current ||
+      typeof window === 'undefined' ||
+      !window.kakao
+    )
+      return null;
 
     const path = route.waypoints.map(
-      (point) => new kakao.maps.LatLng(point.lat, point.lng)
+      (point) => new window.kakao.maps.LatLng(point.lat, point.lng)
     );
 
-    const polyline = new kakao.maps.Polyline({
+    const polyline = new window.kakao.maps.Polyline({
       path,
       strokeWeight: route.strokeWeight || 3,
       strokeColor: route.color || '#3B82F6',
@@ -89,7 +94,7 @@ export function useRoutes() {
     });
 
     // 폴리라인 클릭 이벤트
-    kakao.maps.event.addListener(polyline, 'click', () => {
+    window.kakao.maps.event.addListener(polyline, 'click', () => {
       console.log('경로 클릭:', route);
     });
 
@@ -99,7 +104,8 @@ export function useRoutes() {
   // 카카오맵에 경로 표시
   const showRoutesOnMap = useCallback(
     (mapInstance: any) => {
-      if (!mapInstance) return;
+      if (!mapInstance || typeof window === 'undefined' || !window.kakao)
+        return;
 
       mapInstanceRef.current = mapInstance;
 
@@ -118,7 +124,7 @@ export function useRoutes() {
 
       setKakaoPolylines(newKakaoPolylines);
     },
-    [routes, createKakaoPolyline]
+    [routes, createKakaoPolyline, kakaoPolylines]
   );
 
   // 경로 색상 변경

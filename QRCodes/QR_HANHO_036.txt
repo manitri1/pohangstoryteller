@@ -1,0 +1,10 @@
+QR Code: QR_HANHO_036
+Name: 한호공원
+Description: 아름다운 호수와 함께 휴식을 취할 수 있는 공원입니다.
+Address: 경상북도 포항시 북구
+Coordinates: 36.025, 129.375
+Visit Duration: 45 minutes
+Image URL: https://picsum.photos/800/600?random=36
+Stamp Image URL: https://picsum.photos/200/200?random=stamp36
+
+Generated at: 2025-10-07T01:29:22.419Z

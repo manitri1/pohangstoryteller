@@ -1,0 +1,10 @@
+QR Code: QR_YEONORANG_GIL_065
+Name: 연오랑세오녀길
+Description: 연오랑과 세오녀의 전설을 따라 걷는 트레킹 코스입니다.
+Address: 경상북도 포항시 남구 호미곶면
+Coordinates: 36, 129.55
+Visit Duration: 120 minutes
+Image URL: https://picsum.photos/800/600?random=65
+Stamp Image URL: https://picsum.photos/200/200?random=stamp65
+
+Generated at: 2025-10-07T01:29:22.427Z

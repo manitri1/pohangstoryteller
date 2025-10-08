@@ -3,6 +3,15 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { MapState, MapCenter, Marker, Route, MapEventHandlers } from '../types';
 
+// Kakao Maps API 타입 선언
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
+const kakao = typeof window !== 'undefined' ? window.kakao : null;
+
 /**
  * 🗺️ 지도 상태 관리 훅
  * 지도의 전반적인 상태와 이벤트를 관리합니다.
@@ -14,7 +23,9 @@ export function useMap(initialCenter: MapCenter, handlers?: MapEventHandlers) {
     currentCenter: initialCenter,
     currentLevel: initialCenter.level || 12,
     visibleMarkers: [],
+    routes: [],
     collectedStamps: [],
+    experienceRecords: [],
   });
 
   const mapInstanceRef = useRef<any>(null);
@@ -125,7 +136,14 @@ export function useMap(initialCenter: MapCenter, handlers?: MapEventHandlers) {
         ...prev,
         collectedStamps: [
           ...prev.collectedStamps,
-          { id: stampId, isCollected: true },
+          {
+            id: stampId,
+            locationId: '',
+            name: '',
+            description: '',
+            icon: '',
+            isCollected: true,
+          },
         ],
       }));
       handlers?.onStampCollected?.(stampId);

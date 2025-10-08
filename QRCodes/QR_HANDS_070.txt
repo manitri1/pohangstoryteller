@@ -1,0 +1,10 @@
+QR Code: QR_HANDS_070
+Name: 상생의 손
+Description: 호미곶에 위치한 상생의 손 조형물로, 포항의 상징적인 랜드마크입니다.
+Address: 경상북도 포항시 남구 호미곶면
+Coordinates: 36.0097, 129.5694
+Visit Duration: 30 minutes
+Image URL: https://picsum.photos/800/600?random=70
+Stamp Image URL: https://picsum.photos/200/200?random=stamp70
+
+Generated at: 2025-10-07T01:29:22.427Z

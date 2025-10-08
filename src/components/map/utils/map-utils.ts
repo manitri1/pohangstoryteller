@@ -8,14 +8,19 @@ import { Coordinate, MapCenter, Marker, Route } from '../types';
 /**
  * 두 좌표 간의 거리 계산 (하버사인 공식)
  */
-export function calculateDistance(point1: Coordinate, point2: Coordinate): number {
+export function calculateDistance(
+  point1: Coordinate,
+  point2: Coordinate
+): number {
   const R = 6371; // 지구 반지름 (km)
-  const dLat = (point2.lat - point1.lat) * Math.PI / 180;
-  const dLng = (point2.lng - point1.lng) * Math.PI / 180;
-  const a = 
+  const dLat = ((point2.lat - point1.lat) * Math.PI) / 180;
+  const dLng = ((point2.lng - point1.lng) * Math.PI) / 180;
+  const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(point1.lat * Math.PI / 180) * Math.cos(point2.lat * Math.PI / 180) *
-    Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    Math.cos((point1.lat * Math.PI) / 180) *
+      Math.cos((point2.lat * Math.PI) / 180) *
+      Math.sin(dLng / 2) *
+      Math.sin(dLng / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
 }
@@ -30,7 +35,7 @@ export function calculateCenter(coordinates: Coordinate[]): MapCenter {
 
   const latSum = coordinates.reduce((sum, coord) => sum + coord.lat, 0);
   const lngSum = coordinates.reduce((sum, coord) => sum + coord.lng, 0);
-  
+
   return {
     lat: latSum / coordinates.length,
     lng: lngSum / coordinates.length,
@@ -55,8 +60,8 @@ export function calculateBounds(coordinates: Coordinate[]): {
     };
   }
 
-  const lats = coordinates.map(coord => coord.lat);
-  const lngs = coordinates.map(coord => coord.lng);
+  const lats = coordinates.map((coord) => coord.lat);
+  const lngs = coordinates.map((coord) => coord.lng);
 
   return {
     north: Math.max(...lats),
@@ -76,14 +81,17 @@ export function calculateRouteDistance(waypoints: Coordinate[]): number {
   for (let i = 0; i < waypoints.length - 1; i++) {
     totalDistance += calculateDistance(waypoints[i], waypoints[i + 1]);
   }
-  
+
   return totalDistance;
 }
 
 /**
  * 경로의 예상 소요 시간 계산 (도보 기준)
  */
-export function calculateRouteTime(waypoints: Coordinate[], walkingSpeed: number = 4): number {
+export function calculateRouteTime(
+  waypoints: Coordinate[],
+  walkingSpeed: number = 4
+): number {
   const distance = calculateRouteDistance(waypoints);
   return Math.round((distance / walkingSpeed) * 60); // 분 단위
 }
@@ -97,25 +105,25 @@ export function optimizeRoute(waypoints: Coordinate[]): Coordinate[] {
   // 간단한 최근접 이웃 알고리즘
   const optimized: Coordinate[] = [waypoints[0]];
   const remaining = [...waypoints.slice(1)];
-  
+
   while (remaining.length > 0) {
     const lastPoint = optimized[optimized.length - 1];
     let nearestIndex = 0;
     let nearestDistance = Infinity;
-    
+
     for (let i = 0; i < remaining.length; i++) {
       const distance = calculateDistance(lastPoint, remaining[i]);
-      
+
       if (distance < nearestDistance) {
         nearestDistance = distance;
         nearestIndex = i;
       }
     }
-    
+
     optimized.push(remaining[nearestIndex]);
     remaining.splice(nearestIndex, 1);
   }
-  
+
   return optimized;
 }
 
@@ -123,25 +131,25 @@ export function optimizeRoute(waypoints: Coordinate[]): Coordinate[] {
  * 마커 클러스터링
  */
 export function clusterMarkers(
-  markers: Marker[], 
+  markers: Marker[],
   maxZoom: number = 10,
   clusterDistance: number = 0.01
 ): { center: Coordinate; markers: Marker[] }[] {
   const clusters: { center: Coordinate; markers: Marker[] }[] = [];
 
-  markers.forEach(marker => {
+  markers.forEach((marker) => {
     let addedToCluster = false;
-    
+
     for (const cluster of clusters) {
       const distance = calculateDistance(marker.position, cluster.center);
-      
+
       if (distance < clusterDistance) {
         cluster.markers.push(marker);
         addedToCluster = true;
         break;
       }
     }
-    
+
     if (!addedToCluster) {
       clusters.push({
         center: marker.position,
@@ -175,12 +183,12 @@ export function coordinateToTile(
   coordinate: Coordinate,
   zoom: number
 ): { x: number; y: number } {
-  const latRad = coordinate.lat * Math.PI / 180;
+  const latRad = (coordinate.lat * Math.PI) / 180;
   const n = Math.pow(2, zoom);
-  
-  const x = Math.floor((coordinate.lng + 180) / 360 * n);
-  const y = Math.floor((1 - Math.asinh(Math.tan(latRad)) / Math.PI) / 2 * n);
-  
+
+  const x = Math.floor(((coordinate.lng + 180) / 360) * n);
+  const y = Math.floor(((1 - Math.asinh(Math.tan(latRad)) / Math.PI) / 2) * n);
+
   return { x, y };
 }
 
@@ -192,10 +200,11 @@ export function tileToCoordinate(
   zoom: number
 ): Coordinate {
   const n = Math.pow(2, zoom);
-  
+
   const lng = (tile.x / n) * 360 - 180;
-  const lat = Math.atan(Math.sinh(Math.PI * (1 - 2 * tile.y / n))) * 180 / Math.PI;
-  
+  const lat =
+    (Math.atan(Math.sinh(Math.PI * (1 - (2 * tile.y) / n))) * 180) / Math.PI;
+
   return { lat, lng };
 }
 
@@ -227,7 +236,7 @@ export function coordinatesToGeoJSON(coordinates: Coordinate[]): any {
     type: 'Feature',
     geometry: {
       type: 'LineString',
-      coordinates: coordinates.map(coord => [coord.lng, coord.lat]),
+      coordinates: coordinates.map((coord) => [coord.lng, coord.lat]),
     },
     properties: {},
   };
@@ -240,7 +249,7 @@ export function geoJSONToCoordinates(geoJSON: any): Coordinate[] {
   if (geoJSON.type !== 'Feature' || geoJSON.geometry.type !== 'LineString') {
     return [];
   }
-  
+
   return geoJSON.geometry.coordinates.map((coord: number[]) => ({
     lat: coord[1],
     lng: coord[0],
@@ -250,7 +259,9 @@ export function geoJSONToCoordinates(geoJSON: any): Coordinate[] {
 /**
  * 좌표를 주소로 변환 (카카오맵 API 사용)
  */
-export async function coordinateToAddress(coordinate: Coordinate): Promise<string> {
+export async function coordinateToAddress(
+  coordinate: Coordinate
+): Promise<string> {
   if (!window.kakao || !window.kakao.maps) {
     throw new Error('카카오맵 API가 로드되지 않았습니다.');
   }
@@ -258,29 +269,35 @@ export async function coordinateToAddress(coordinate: Coordinate): Promise<strin
   return new Promise((resolve, reject) => {
     const geocoder = new window.kakao.maps.services.Geocoder();
     const latlng = new window.kakao.maps.LatLng(coordinate.lat, coordinate.lng);
-    
-    geocoder.coord2Address(latlng.getLng(), latlng.getLat(), (result: any, status: any) => {
-      if (status === window.kakao.maps.services.Status.OK) {
-        const address = result[0].address.address_name;
-        resolve(address);
-      } else {
-        reject(new Error('주소 변환에 실패했습니다.'));
+
+    geocoder.coord2Address(
+      latlng.getLng(),
+      latlng.getLat(),
+      (result: any, status: any) => {
+        if (status === window.kakao.maps.services.Status.OK) {
+          const address = result[0].address.address_name;
+          resolve(address);
+        } else {
+          reject(new Error('주소 변환에 실패했습니다.'));
+        }
       }
-    });
+    );
   });
 }
 
 /**
  * 주소를 좌표로 변환 (카카오맵 API 사용)
  */
-export async function addressToCoordinate(address: string): Promise<Coordinate> {
+export async function addressToCoordinate(
+  address: string
+): Promise<Coordinate> {
   if (!window.kakao || !window.kakao.maps) {
     throw new Error('카카오맵 API가 로드되지 않았습니다.');
   }
 
   return new Promise((resolve, reject) => {
     const geocoder = new window.kakao.maps.services.Geocoder();
-    
+
     geocoder.addressSearch(address, (result: any, status: any) => {
       if (status === window.kakao.maps.services.Status.OK) {
         const lat = parseFloat(result[0].y);

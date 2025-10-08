@@ -1,0 +1,10 @@
+QR Code: QR_CAFE_055
+Name: 송도카페문화거리
+Description: 송도 지역의 카페 문화를 즐길 수 있는 거리입니다.
+Address: 경상북도 포항시 남구
+Coordinates: 35.995, 129.35
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=55
+Stamp Image URL: https://picsum.photos/200/200?random=stamp55
+
+Generated at: 2025-10-07T01:29:22.425Z

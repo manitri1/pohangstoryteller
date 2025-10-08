@@ -1,0 +1,10 @@
+QR Code: QR_JOGYUNG_064
+Name: 조경대길
+Description: 포항의 아름다운 해안선을 따라 조성된 길 중 하나로, 멋진 경치를 조망할 수 있는 전망대가 있습니다.
+Address: 경상북도 포항시 북구 송라면
+Coordinates: 36.182, 129.4205
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=64
+Stamp Image URL: https://picsum.photos/200/200?random=stamp64
+
+Generated at: 2025-10-07T01:29:22.427Z

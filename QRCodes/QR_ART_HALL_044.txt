@@ -1,0 +1,10 @@
+QR Code: QR_ART_HALL_044
+Name: 포항시립중앙아트홀
+Description: 포항의 문화 예술을 감상할 수 있는 아트홀입니다.
+Address: 경상북도 포항시 북구
+Coordinates: 36.015, 129.36
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=44
+Stamp Image URL: https://picsum.photos/200/200?random=stamp44
+
+Generated at: 2025-10-07T01:29:22.420Z

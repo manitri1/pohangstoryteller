@@ -1,0 +1,10 @@
+QR Code: QR_HAEJAE_062
+Name: 영일대 해맞이길
+Description: 영일대 해수욕장 주변의 아름다운 해안 산책로입니다. 동해의 푸른 바다를 바라보며 걷기 좋으며, 특히 일출 시간에 인기가 많습니다.
+Address: 경상북도 포항시 북구 두호동
+Coordinates: 36.015, 129.365
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=62
+Stamp Image URL: https://picsum.photos/200/200?random=stamp62
+
+Generated at: 2025-10-07T01:29:22.426Z

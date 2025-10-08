@@ -1,0 +1,10 @@
+QR Code: QR_YEONORANG_029
+Name: 연오랑세오녀 테마파크
+Description: 연오랑과 세오녀의 전설을 테마로 한 공원입니다. 가족 단위 관광객에게 인기입니다.
+Address: 경상북도 포항시 남구 호미곶면
+Coordinates: 36, 129.55
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=29
+Stamp Image URL: https://picsum.photos/200/200?random=stamp29
+
+Generated at: 2025-10-07T01:29:22.418Z

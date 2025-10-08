@@ -1,10 +1,13 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { MapContainer, MapControls, MapInfoPanel } from './';
+import { MapContainer } from './map-container';
+import { MapControls, MapInfoPanel } from './map-controls';
 import { StoryCourse, Location, Marker, Route, MapCenter } from '../types';
-import { useMap, useMarkers, useRoutes } from '../hooks';
-import { calculateCenter, createMarkerFromLocation, createRouteFromCoordinates } from '../utils/map-utils';
+import { useMap } from '../hooks/use-map';
+import { useMarkers } from '../hooks/use-markers';
+import { useRoutes } from '../hooks/use-routes';
+import { calculateCenter } from '../utils/map-utils';
 
 /**
  * 📖 스토리 지도 컴포넌트
@@ -27,66 +30,79 @@ export function StoryMap({
   className = '',
   style,
 }: StoryMapProps) {
-  const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<Location | null>(
+    null
+  );
   const [selectedRoute, setSelectedRoute] = useState<Route | null>(null);
   const [isMapReady, setIsMapReady] = useState(false);
 
   // 지도 중심점 계산
   const mapCenter: MapCenter = calculateCenter(
-    course.locations.map(location => location.coordinates)
+    course.locations.map((location) => location.coordinates)
   );
 
   // 마커 생성
   const markers: Marker[] = course.locations.map((location, index) => {
-    const marker = createMarkerFromLocation(location, 'waypoint');
-    
+    const marker: Marker = {
+      id: location.id,
+      location: location,
+      position: location.coordinates,
+      type: 'waypoint',
+    };
+
     // 시작점과 끝점 설정
     if (index === 0) {
       marker.type = 'start';
     } else if (index === course.locations.length - 1) {
       marker.type = 'end';
     }
-    
+
     // 스탬프가 있는 경우
     if (location.stampId) {
       marker.type = 'stamp';
     }
-    
+
     return marker;
   });
 
   // 경로 생성
-  const routes: Route[] = course.routes.map(route => 
-    createRouteFromCoordinates(
-      route.waypoints,
-      route.name,
-      {
-        color: route.color || '#3B82F6',
-        strokeWeight: route.strokeWeight || 3,
-        strokeOpacity: route.strokeOpacity || 0.8,
-        isMainRoute: route.isMainRoute || false,
-      }
-    )
-  );
+  const routes: Route[] = course.routes.map((route) => ({
+    id: route.id,
+    name: route.name,
+    waypoints: route.waypoints,
+    color: route.color || '#3B82F6',
+    strokeWeight: route.strokeWeight || 3,
+    strokeOpacity: route.strokeOpacity || 0.8,
+    isMainRoute: route.isMainRoute || false,
+  }));
 
   // 지도 이벤트 핸들러
   const handleMapReady = useCallback((mapInstance: any) => {
     setIsMapReady(true);
   }, []);
 
-  const handleMarkerClick = useCallback((marker: Marker) => {
-    setSelectedLocation(marker.location);
-    onLocationClick?.(marker.location);
-  }, [onLocationClick]);
+  const handleMarkerClick = useCallback(
+    (marker: Marker) => {
+      setSelectedLocation(marker.location);
+      onLocationClick?.(marker.location);
+    },
+    [onLocationClick]
+  );
 
-  const handleRouteClick = useCallback((route: Route) => {
-    setSelectedRoute(route);
-    onRouteClick?.(route);
-  }, [onRouteClick]);
+  const handleRouteClick = useCallback(
+    (route: Route) => {
+      setSelectedRoute(route);
+      onRouteClick?.(route);
+    },
+    [onRouteClick]
+  );
 
-  const handleStampCollected = useCallback((stampId: string) => {
-    onStampCollected?.(stampId);
-  }, [onStampCollected]);
+  const handleStampCollected = useCallback(
+    (stampId: string) => {
+      onStampCollected?.(stampId);
+    },
+    [onStampCollected]
+  );
 
   // 지도 컨트롤 핸들러
   const handleZoomIn = useCallback(() => {
@@ -115,8 +131,8 @@ export function StoryMap({
 
   // 통계 계산
   const totalMarkers = markers.length;
-  const visitedMarkers = markers.filter(m => m.isVisited).length;
-  const collectedStamps = markers.filter(m => m.isStampCollected).length;
+  const visitedMarkers = markers.filter((m) => m.isVisited).length;
+  const collectedStamps = markers.filter((m) => m.isStampCollected).length;
   const totalRoutes = routes.length;
 
   return (
@@ -176,7 +192,9 @@ export function StoryMap({
       {selectedLocation && (
         <div className="absolute bottom-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-sm">
           <div className="flex items-start justify-between mb-2">
-            <h3 className="font-semibold text-gray-900">{selectedLocation.name}</h3>
+            <h3 className="font-semibold text-gray-900">
+              {selectedLocation.name}
+            </h3>
             <button
               onClick={() => setSelectedLocation(null)}
               className="text-gray-400 hover:text-gray-600"
@@ -184,9 +202,11 @@ export function StoryMap({
               ✕
             </button>
           </div>
-          
-          <p className="text-sm text-gray-600 mb-3">{selectedLocation.description}</p>
-          
+
+          <p className="text-sm text-gray-600 mb-3">
+            {selectedLocation.description}
+          </p>
+
           <div className="space-y-2">
             {selectedLocation.category && (
               <div className="flex items-center gap-1">
@@ -195,14 +215,14 @@ export function StoryMap({
                 </span>
               </div>
             )}
-            
+
             {selectedLocation.estimatedTime && (
               <div className="flex items-center gap-1 text-sm text-gray-500">
                 <span>⏱️</span>
                 <span>예상 소요시간: {selectedLocation.estimatedTime}분</span>
               </div>
             )}
-            
+
             {selectedLocation.difficulty && (
               <div className="flex items-center gap-1 text-sm text-gray-500">
                 <span>📊</span>
@@ -210,14 +230,14 @@ export function StoryMap({
               </div>
             )}
           </div>
-          
+
           <div className="flex gap-2 mt-3">
             {selectedLocation.qrCode && (
               <button className="px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600">
                 QR 스캔
               </button>
             )}
-            
+
             {selectedLocation.media && selectedLocation.media.length > 0 && (
               <button className="px-3 py-1 bg-gray-500 text-white text-xs rounded hover:bg-gray-600">
                 미디어 보기
@@ -231,7 +251,9 @@ export function StoryMap({
       {selectedRoute && (
         <div className="absolute bottom-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-sm">
           <div className="flex items-start justify-between mb-2">
-            <h3 className="font-semibold text-gray-900">{selectedRoute.name}</h3>
+            <h3 className="font-semibold text-gray-900">
+              {selectedRoute.name}
+            </h3>
             <button
               onClick={() => setSelectedRoute(null)}
               className="text-gray-400 hover:text-gray-600"
@@ -239,13 +261,13 @@ export function StoryMap({
               ✕
             </button>
           </div>
-          
+
           <div className="space-y-2 text-sm text-gray-600">
             <div className="flex items-center gap-1">
               <span>📏</span>
               <span>총 거리: {selectedRoute.waypoints.length}개 포인트</span>
             </div>
-            
+
             {selectedRoute.isMainRoute && (
               <div className="flex items-center gap-1 text-blue-600 font-medium">
                 <span>⭐</span>
@@ -253,7 +275,7 @@ export function StoryMap({
               </div>
             )}
           </div>
-          
+
           <div className="flex gap-2 mt-3">
             <button className="px-3 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600">
               경로 따라가기

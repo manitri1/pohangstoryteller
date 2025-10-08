@@ -1,0 +1,10 @@
+QR Code: QR_EXILE_030
+Name: 장기유배문화체험촌
+Description: 조선시대 유배 문화를 체험할 수 있는 문화촌입니다. 역사와 문화를 배울 수 있습니다.
+Address: 경상북도 포항시 남구 장기면
+Coordinates: 35.9, 129.48
+Visit Duration: 120 minutes
+Image URL: https://picsum.photos/800/600?random=30
+Stamp Image URL: https://picsum.photos/200/200?random=stamp30
+
+Generated at: 2025-10-07T01:29:22.418Z

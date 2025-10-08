@@ -3,6 +3,15 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { Marker, Location, Coordinate } from '../types';
 
+// Kakao Maps API 타입 선언
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
+const kakao = typeof window !== 'undefined' ? window.kakao : null;
+
 /**
  * 🎯 마커 관리 훅
  * 지도상의 마커들을 생성, 업데이트, 삭제하는 기능을 제공합니다.
@@ -110,8 +119,8 @@ export function useMarkers() {
 
     // 마커 이미지 설정
     let imageSrc = '';
-    let imageSize = new kakao.maps.Size(24, 24);
-    let imageOption = { offset: new kakao.maps.Point(12, 12) };
+    const imageSize = new kakao.maps.Size(24, 24);
+    const imageOption = { offset: new kakao.maps.Point(12, 12) };
 
     switch (marker.type) {
       case 'start':
@@ -177,7 +186,7 @@ export function useMarkers() {
 
       setKakaoMarkers(newKakaoMarkers);
     },
-    [markers, createKakaoMarker]
+    [markers, createKakaoMarker, kakaoMarkers]
   );
 
   // 마커 클러스터링

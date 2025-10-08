@@ -1,0 +1,10 @@
+QR Code: QR_YONGYEON_073
+Name: 용연저수지
+Description: 아름다운 저수지로, 주변에 맛집들이 많아 인기가 높습니다.
+Address: 경상북도 포항시 북구 신광면
+Coordinates: 36.1, 129.4
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=73
+Stamp Image URL: https://picsum.photos/200/200?random=stamp73
+
+Generated at: 2025-10-07T01:29:22.428Z

@@ -1,0 +1,10 @@
+QR Code: QR_GWAMEGI_028
+Name: 구룡포 과메기문화관
+Description: 구룡포의 전통 과메기 문화를 체험할 수 있는 문화관입니다.
+Address: 경상북도 포항시 남구 구룡포읍
+Coordinates: 35.968, 129.544
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=28
+Stamp Image URL: https://picsum.photos/200/200?random=stamp28
+
+Generated at: 2025-10-07T01:29:22.417Z

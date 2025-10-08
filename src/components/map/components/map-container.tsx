@@ -6,6 +6,13 @@ import { useMap } from '../hooks/use-map';
 import { useMarkers } from '../hooks/use-markers';
 import { useRoutes } from '../hooks/use-routes';
 
+// 카카오맵 타입 정의
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
 /**
  * 🗺️ 지도 컨테이너 컴포넌트
  * 포항 스토리 텔러의 핵심 지도 기능을 제공합니다.
@@ -40,30 +47,44 @@ export function MapContainer({
   children,
 }: MapContainerProps) {
   const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstanceRef = useRef<any>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // 클라이언트 사이드 마운트 확인
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // 커스텀 훅들
   const mapHook = useMap(center, handlers);
   const markersHook = useMarkers();
   const routesHook = useRoutes();
 
-  // 카카오맵 API 로드
+  // 카카오맵 API 로드 (CSR 보호)
   useEffect(() => {
+    if (!isMounted) return;
+
     const loadKakaoMap = () => {
+      // 브라우저 환경 확인
+      if (typeof window === 'undefined') return;
+
       if (window.kakao && window.kakao.maps) {
         initializeMap();
         return;
       }
 
       const script = document.createElement('script');
-      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_API_KEY}&autoload=false`;
+      script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_API_KEY}&autoload=false`;
       script.async = true;
 
       script.onload = () => {
-        window.kakao.maps.load(() => {
-          initializeMap();
-        });
+        if (window.kakao && window.kakao.maps) {
+          window.kakao.maps.load(() => {
+            initializeMap();
+          });
+        }
       };
 
       script.onerror = () => {
@@ -75,7 +96,7 @@ export function MapContainer({
     };
 
     loadKakaoMap();
-  }, []);
+  }, [isMounted, onMapError]);
 
   // 지도 초기화
   const initializeMap = useCallback(() => {
@@ -93,6 +114,20 @@ export function MapContainer({
       };
 
       const mapInstance = new window.kakao.maps.Map(mapRef.current, mapOption);
+      mapInstanceRef.current = mapInstance;
+
+      // 지도 크기 조정 (중요!) - 여러 번 호출하여 확실하게
+      setTimeout(() => {
+        mapInstance.relayout();
+      }, 100);
+
+      setTimeout(() => {
+        mapInstance.relayout();
+      }, 300);
+
+      setTimeout(() => {
+        mapInstance.relayout();
+      }, 500);
 
       // 지도 훅 초기화
       mapHook.initializeMap(mapInstance);
@@ -109,6 +144,14 @@ export function MapContainer({
       }
 
       setIsLoaded(true);
+
+      // 지도 로드 완료 후 추가 relayout 호출
+      setTimeout(() => {
+        if (mapInstance) {
+          mapInstance.relayout();
+        }
+      }, 1000);
+
       onMapReady?.(mapInstance);
     } catch (err) {
       const errorMessage = '지도 초기화에 실패했습니다.';
@@ -139,7 +182,7 @@ export function MapContainer({
       markersHook.addMarkers(markers);
       markersHook.showMarkersOnMap(mapHook.getMapInstance());
     }
-  }, [markers, isLoaded, markersHook, mapHook]);
+  }, [markers, isLoaded]);
 
   // 경로 업데이트
   useEffect(() => {
@@ -148,21 +191,21 @@ export function MapContainer({
       routesHook.addRoutes(routes);
       routesHook.showRoutesOnMap(mapHook.getMapInstance());
     }
-  }, [routes, isLoaded, routesHook, mapHook]);
+  }, [routes, isLoaded]);
 
   // 지도 중심점 변경
   useEffect(() => {
     if (isLoaded) {
       mapHook.setCenter(center);
     }
-  }, [center, isLoaded, mapHook]);
+  }, [center, isLoaded]);
 
   // 지도 줌 레벨 변경
   useEffect(() => {
     if (isLoaded) {
       mapHook.setZoom(level);
     }
-  }, [level, isLoaded, mapHook]);
+  }, [level, isLoaded]);
 
   if (error) {
     return (
@@ -186,13 +229,45 @@ export function MapContainer({
     );
   }
 
+  // CSR 보호: 클라이언트 사이드에서만 렌더링
+  if (!isMounted) {
+    return (
+      <div className={`relative w-full h-full ${className}`} style={style}>
+        <div className="w-full h-full flex items-center justify-center bg-gray-100">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto mb-2"></div>
+            <p className="text-sm text-gray-600">지도를 불러오는 중...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={`relative w-full h-full ${className}`} style={style}>
+    <div
+      className={`relative w-full h-full ${className}`}
+      style={{
+        ...style,
+        width: '100%',
+        height: '100%',
+        minHeight: '300px',
+        position: 'relative',
+      }}
+    >
       {/* 지도 컨테이너 */}
       <div
         ref={mapRef}
         className="w-full h-full"
-        style={{ minHeight: '300px' }}
+        style={{
+          width: '100%',
+          height: '100%',
+          minHeight: '300px',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }}
       />
 
       {/* 로딩 상태 */}
@@ -211,21 +286,25 @@ export function MapContainer({
           {showZoom && (
             <div className="bg-white rounded-lg shadow-lg p-1">
               <button
-                onClick={() =>
-                  mapHook.setZoom(mapHook.mapState.currentLevel + 1)
-                }
+                onClick={() => {
+                  if (mapInstanceRef.current) {
+                    const currentLevel = mapInstanceRef.current.getLevel();
+                    mapInstanceRef.current.setLevel(currentLevel - 1);
+                  }
+                }}
                 className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded"
-                disabled={mapHook.mapState.currentLevel >= 20}
               >
                 +
               </button>
               <div className="w-full h-px bg-gray-200"></div>
               <button
-                onClick={() =>
-                  mapHook.setZoom(mapHook.mapState.currentLevel - 1)
-                }
+                onClick={() => {
+                  if (mapInstanceRef.current) {
+                    const currentLevel = mapInstanceRef.current.getLevel();
+                    mapInstanceRef.current.setLevel(currentLevel + 1);
+                  }
+                }}
                 className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded"
-                disabled={mapHook.mapState.currentLevel <= 1}
               >
                 −
               </button>

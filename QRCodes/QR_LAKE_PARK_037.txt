@@ -1,0 +1,10 @@
+QR Code: QR_LAKE_PARK_037
+Name: 영일대 해수공원
+Description: 영일대 해수욕장과 이어져 있는 해변 공원으로, 다양한 휴식 시설과 운동 시설이 갖춰져 있습니다.
+Address: 경상북도 포항시 북구 두호동
+Coordinates: 36.018, 129.3645
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=37
+Stamp Image URL: https://picsum.photos/200/200?random=stamp37
+
+Generated at: 2025-10-07T01:29:22.419Z

@@ -1,0 +1,10 @@
+QR Code: QR_WOLPO_015
+Name: 월포해수욕장
+Description: 넓은 백사장과 얕은 수심으로 가족 단위 피서객에게 인기 있는 해수욕장입니다. 주차장과 샤워시설이 잘 갖춰져 있습니다.
+Address: 경상북도 포항시 북구 청하면
+Coordinates: 36.182, 129.4005
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=15
+Stamp Image URL: https://picsum.photos/200/200?random=stamp15
+
+Generated at: 2025-10-07T01:29:22.414Z

@@ -12,6 +12,7 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
+  Album,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -24,6 +25,7 @@ const navigation = [
   { name: '홈', href: '/', icon: Home },
   { name: '스토리 탐험', href: '/stories', icon: BookOpen },
   { name: '경험 기록', href: '/records', icon: Camera },
+  { name: '나의 앨범', href: '/albums', icon: Album },
   { name: '커뮤니티', href: '/community', icon: Users },
   { name: 'AI 챗봇', href: '/chatbot', icon: MessageCircle },
   { name: '설정', href: '/settings', icon: Settings },
@@ -74,7 +76,7 @@ export function Sidebar({ className }: SidebarProps) {
                 className={cn(
                   'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                   isActive
-                    ? 'bg-primary-50 text-primary-700 border border-primary-200'
+                    ? 'bg-primary/10 text-primary border border-primary/20'
                     : 'text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900',
                   isCollapsed && 'justify-center'
                 )}

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "stamp_homigot_sunrise",
+    "name": "호미곶 일출 스탬프",
+    "description": "한반도 최동단 호미곶에서 웅장한 일출을 감상하고 획득한 스탬프입니다.",
+    "imageUrl": "https://picsum.photos/200/200?random=101",
+    "acquiredDate": "2023-10-26",
+    "location": "호미곶",
+    "rarity": "common",
+    "points": 100
+  },
+  {
+    "id": "stamp_yeongildae_beach",
+    "name": "영일대 해수욕장 스탬프",
+    "description": "포항의 대표 해수욕장, 영일대 해수욕장에서 시원한 바다를 만끽하고 획득한 스탬프입니다.",
+    "imageUrl": "https://picsum.photos/200/200?random=102",
+    "acquiredDate": "2023-10-26",
+    "location": "영일대 해수욕장",
+    "rarity": "common",
+    "points": 80
+  },
+  {
+    "id": "stamp_jookdo_market",
+    "name": "죽도시장 맛집 스탬프",
+    "description": "활기 넘치는 죽도시장에서 신선한 해산물과 포항 특미를 맛보고 획득한 스탬프입니다.",
+    "imageUrl": "https://picsum.photos/200/200?random=103",
+    "acquiredDate": "2023-10-27",
+    "location": "죽도시장",
+    "rarity": "common",
+    "points": 120
+  },
+  {
+    "id": "stamp_posco_tour",
+    "name": "포항제철소 견학 스탬프",
+    "description": "대한민국 산업 발전의 상징, 포항제철소를 견학하고 획득한 스탬프입니다.",
+    "imageUrl": "https://picsum.photos/200/200?random=104",
+    "acquiredDate": "2023-10-27",
+    "location": "포항제철소",
+    "rarity": "rare",
+    "points": 200
+  },
+  {
+    "id": "stamp_guryongpo_modern",
+    "name": "구룡포 근대문화거리 스탬프",
+    "description": "시간이 멈춘 듯한 구룡포 근대문화거리에서 역사와 문화를 체험하고 획득한 스탬프입니다.",
+    "imageUrl": "https://picsum.photos/200/200?random=105",
+    "acquiredDate": "2023-10-28",
+    "location": "구룡포 근대문화거리",
+    "rarity": "common",
+    "points": 90
+  }
+]

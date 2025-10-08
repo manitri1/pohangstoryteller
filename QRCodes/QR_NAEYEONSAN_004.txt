@@ -1,0 +1,10 @@
+QR Code: QR_NAEYEONSAN_004
+Name: 내연산 12폭포
+Description: 포항 북구에 위치한 산으로, 숲길과 등산로가 잘 정비되어 트레킹을 즐기기에 좋습니다. 울창한 숲과 맑은 공기 속에서 아름다운 폭포를 만끽할 수 있습니다.
+Address: 경상북도 포항시 북구 송라면
+Coordinates: 36.1956, 129.3789
+Visit Duration: 150 minutes
+Image URL: https://picsum.photos/800/600?random=4
+Stamp Image URL: https://picsum.photos/200/200?random=stamp4
+
+Generated at: 2025-10-07T01:29:22.412Z

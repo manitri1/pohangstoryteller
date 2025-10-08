@@ -1,0 +1,10 @@
+QR Code: QR_GURYONGPO_021
+Name: 구룡포
+Description: 근대 문화 역사 거리가 유명하며, 일본식 가옥과 아기자기한 상점들을 볼 수 있는 드라마 촬영지입니다. 신선한 해산물도 맛볼 수 있습니다.
+Address: 경상북도 포항시 남구 구룡포읍
+Coordinates: 35.968, 129.544
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=21
+Stamp Image URL: https://picsum.photos/200/200?random=stamp21
+
+Generated at: 2025-10-07T01:29:22.412Z

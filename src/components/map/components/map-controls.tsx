@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { MapControls } from '../types';
+import type { MapControls } from '../types';
 
 /**
  * 🎛️ 지도 컨트롤 컴포넌트
@@ -84,7 +84,9 @@ export function MapControls({
       {controls.showScale && (
         <div className="bg-white rounded-lg shadow-lg px-3 py-2 text-xs text-gray-600">
           <div className="font-medium mb-1">스케일</div>
-          <div>1:{(1000000 / Math.pow(2, currentZoom - 1)).toLocaleString()}</div>
+          <div>
+            1:{(1000000 / Math.pow(2, currentZoom - 1)).toLocaleString()}
+          </div>
         </div>
       )}
 
@@ -93,7 +95,7 @@ export function MapControls({
         <button
           onClick={handleFullscreen}
           className="w-8 h-8 bg-white rounded-lg shadow-lg flex items-center justify-center text-gray-600 hover:bg-gray-100"
-          title={isFullscreen ? "전체화면 종료" : "전체화면"}
+          title={isFullscreen ? '전체화면 종료' : '전체화면'}
         >
           {isFullscreen ? '⤓' : '⤢'}
         </button>
@@ -179,25 +181,29 @@ export function MapInfoPanel({
   currentLocation,
   className = '',
 }: MapInfoPanelProps) {
-  const completionRate = totalMarkers > 0 ? (visitedMarkers / totalMarkers) * 100 : 0;
-  const stampRate = totalMarkers > 0 ? (collectedStamps / totalMarkers) * 100 : 0;
+  const completionRate =
+    totalMarkers > 0 ? (visitedMarkers / totalMarkers) * 100 : 0;
+  const stampRate =
+    totalMarkers > 0 ? (collectedStamps / totalMarkers) * 100 : 0;
 
   return (
-    <div className={`absolute bottom-4 left-4 bg-white rounded-lg shadow-lg p-3 min-w-48 ${className}`}>
+    <div
+      className={`absolute bottom-4 left-4 bg-white rounded-lg shadow-lg p-3 min-w-48 ${className}`}
+    >
       <div className="text-sm font-medium text-gray-900 mb-2">지도 정보</div>
-      
+
       <div className="space-y-2 text-xs text-gray-600">
         {/* 마커 정보 */}
         <div className="flex justify-between">
           <span>마커</span>
           <span>{totalMarkers}개</span>
         </div>
-        
+
         <div className="flex justify-between">
           <span>방문 완료</span>
           <span className="text-green-600">{visitedMarkers}개</span>
         </div>
-        
+
         <div className="flex justify-between">
           <span>스탬프 수집</span>
           <span className="text-blue-600">{collectedStamps}개</span>
@@ -210,7 +216,7 @@ export function MapInfoPanel({
             <span>{completionRate.toFixed(1)}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-1">
-            <div 
+            <div
               className="bg-green-500 h-1 rounded-full transition-all duration-300"
               style={{ width: `${completionRate}%` }}
             />
@@ -223,7 +229,7 @@ export function MapInfoPanel({
             <span>{stampRate.toFixed(1)}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-1">
-            <div 
+            <div
               className="bg-blue-500 h-1 rounded-full transition-all duration-300"
               style={{ width: `${stampRate}%` }}
             />

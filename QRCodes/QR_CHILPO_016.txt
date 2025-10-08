@@ -1,0 +1,10 @@
+QR Code: QR_CHILPO_016
+Name: 칠포해수욕장
+Description: 깨끗한 수질과 주변의 기암괴석이 아름다운 조화를 이루는 해수욕장입니다. 자연 그대로의 해안을 즐길 수 있습니다.
+Address: 경상북도 포항시 북구 흥해읍
+Coordinates: 36.158, 129.385
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=16
+Stamp Image URL: https://picsum.photos/200/200?random=stamp16
+
+Generated at: 2025-10-07T01:29:22.415Z

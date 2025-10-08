@@ -1,0 +1,10 @@
+QR Code: QR_IGARI_014
+Name: 이가리 닻 전망대
+Description: 바다를 향해 뻗어 나간 거대한 닻 모양의 독특한 구조물로, 포항의 새로운 랜드마크입니다. 시원한 바다를 배경으로 사진을 찍기 좋습니다.
+Address: 경상북도 포항시 북구 청하면
+Coordinates: 36.1764, 129.4172
+Visit Duration: 40 minutes
+Image URL: https://picsum.photos/800/600?random=14
+Stamp Image URL: https://picsum.photos/200/200?random=stamp14
+
+Generated at: 2025-10-07T01:29:22.414Z

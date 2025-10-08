@@ -1,0 +1,10 @@
+QR Code: QR_JUSANG_063
+Name: 주상절리길
+Description: 주상절리를 가까이에서 관찰하며 걸을 수 있도록 조성된 트레킹 코스입니다. 자연의 신비로움을 느끼며 힐링할 수 있는 길입니다.
+Address: 경상북도 포항시 북구 청하면
+Coordinates: 36.1695, 129.4075
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=63
+Stamp Image URL: https://picsum.photos/200/200?random=stamp63
+
+Generated at: 2025-10-07T01:29:22.426Z

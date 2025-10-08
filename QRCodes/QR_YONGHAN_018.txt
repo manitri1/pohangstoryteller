@@ -1,0 +1,10 @@
+QR Code: QR_YONGHAN_018
+Name: 용한해수욕장
+Description: 조용하고 한적한 분위기에서 휴식을 취할 수 있는 작은 해수욕장입니다. 인근에 맛집과 카페가 있어 편리합니다.
+Address: 경상북도 포항시 북구 흥해읍
+Coordinates: 36.035, 129.3705
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=18
+Stamp Image URL: https://picsum.photos/200/200?random=stamp18
+
+Generated at: 2025-10-07T01:29:22.415Z

@@ -17,9 +17,9 @@ export function Header({ className }: HeaderProps) {
   const navigation = [
     { name: '홈', href: '/' },
     { name: '스토리 탐험', href: '/stories' },
-    { name: '경험 기록', href: '/records' },
+    { name: '경험 기록', href: '/stamps' },
     { name: '커뮤니티', href: '/community' },
-    { name: 'AI 챗봇', href: '/chatbot' },
+    { name: 'AI 챗봇', href: '/stories' },
   ];
 
   const languages = [
@@ -38,7 +38,7 @@ export function Header({ className }: HeaderProps) {
           {/* 로고 */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-lg bg-primary-500 flex items-center justify-center">
+              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-white font-bold text-lg">P</span>
               </div>
               <span className="text-lg sm:text-xl font-bold text-neutral-900">
@@ -54,7 +54,7 @@ export function Header({ className }: HeaderProps) {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-neutral-700 hover:text-primary-600 transition-colors"
+                className="text-sm font-medium text-neutral-700 hover:text-primary transition-colors"
               >
                 {item.name}
               </Link>
@@ -111,7 +111,7 @@ export function Header({ className }: HeaderProps) {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="text-sm font-medium text-neutral-700 hover:text-primary-600 transition-colors py-2"
+                        className="text-sm font-medium text-neutral-700 hover:text-primary transition-colors py-2"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}

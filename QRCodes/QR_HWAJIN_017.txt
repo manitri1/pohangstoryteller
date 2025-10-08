@@ -1,0 +1,10 @@
+QR Code: QR_HWAJIN_017
+Name: 화진해수욕장
+Description: 울창한 송림과 깨끗한 백사장이 어우러진 해수욕장으로, 캠핑장도 인접해 있어 편의성이 높습니다. 가족 단위 피서지로 인기입니다.
+Address: 경상북도 포항시 북구 송라면
+Coordinates: 36.235, 129.4301
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=17
+Stamp Image URL: https://picsum.photos/200/200?random=stamp17
+
+Generated at: 2025-10-07T01:29:22.415Z

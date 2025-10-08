@@ -1,0 +1,10 @@
+QR Code: QR_BONGHWASAN_021
+Name: 봉화산
+Description: 흥해읍 이팝나무군락지. 아름다운 자연경관과 함께 등산객들에게 사랑받는 곳입니다. 정상에서는 탁 트인 전망을 감상할 수 있습니다.
+Address: 경상북도 포항시 북구 흥해읍
+Coordinates: 36.1042, 129.3582
+Visit Duration: 90 minutes
+Image URL: https://picsum.photos/800/600?random=21
+Stamp Image URL: https://picsum.photos/200/200?random=stamp21
+
+Generated at: 2025-10-07T01:29:22.416Z

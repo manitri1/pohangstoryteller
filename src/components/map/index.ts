@@ -16,6 +16,7 @@ export { MapContainer } from './components/map-container';
 export { MapMarker, MarkerPopup } from './components/map-marker';
 export { MapRoute, RouteInfo } from './components/map-route';
 export { MapControls, MapInfoPanel } from './components/map-controls';
+export { StoryMap } from './components/story-map';
 
 // 프로바이더
 export { MapProvider, useMapContext } from './providers/map-provider';

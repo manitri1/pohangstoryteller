@@ -1,0 +1,10 @@
+QR Code: QR_GONGJIN_056
+Name: 청하 공진시장
+Description: 드라마 촬영지로 유명해진 전통 시장입니다. 정감 있는 시장 풍경과 지역 먹거리를 경험할 수 있습니다.
+Address: 경상북도 포항시 북구 청하면
+Coordinates: 36.162, 129.3885
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=56
+Stamp Image URL: https://picsum.photos/200/200?random=stamp56
+
+Generated at: 2025-10-07T01:29:22.426Z

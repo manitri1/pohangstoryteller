@@ -1,0 +1,10 @@
+QR Code: QR_CHARACTER_047
+Name: 포항캐릭터해상공원
+Description: 포항의 캐릭터를 테마로 한 해상공원입니다.
+Address: 경상북도 포항시 북구
+Coordinates: 36, 129.375
+Visit Duration: 60 minutes
+Image URL: https://picsum.photos/800/600?random=47
+Stamp Image URL: https://picsum.photos/200/200?random=stamp47
+
+Generated at: 2025-10-07T01:29:22.425Z

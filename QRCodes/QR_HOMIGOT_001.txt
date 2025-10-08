@@ -1,0 +1,10 @@
+QR Code: QR_HOMIGOT_001
+Name: 호미곶
+Description: 한반도 최동단으로 일출을 감상할 수 있는 곳
+Address: 경상북도 포항시 남구 호미곶면
+Coordinates: 36.0761, 129.5678
+Visit Duration: 120 minutes
+Image URL: https://picsum.photos/800/600?random=5
+Stamp Image URL: https://picsum.photos/200/200?random=stamp5
+
+Generated at: 2025-10-07T01:29:22.413Z
