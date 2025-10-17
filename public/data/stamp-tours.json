@@ -1,0 +1,297 @@
+[
+  {
+    "id": "homigot_sunrise_tour",
+    "name": "호미곶 일출 투어",
+    "description": "한반도 최동단 호미곶에서 웅장한 일출을 감상하는 투어",
+    "icon": "🌅",
+    "color": "bg-orange-500",
+    "difficulty": "easy",
+    "estimatedDuration": 180,
+    "totalStamps": 3,
+    "collectedStamps": 0,
+    "isCompleted": false,
+    "completionRate": 0,
+    "stamps": [
+      {
+        "id": "stamp_homigot_sunrise",
+        "name": "호미곶 일출 스탬프",
+        "description": "한반도 최동단 호미곶에서 웅장한 일출을 감상하고 획득한 스탬프입니다.",
+        "location": "호미곶",
+        "coordinates": {
+          "lat": 36.0789,
+          "lng": 129.5678
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=101",
+        "rarity": "rare",
+        "points": 100,
+        "isCollected": false,
+        "order": 1
+      },
+      {
+        "id": "stamp_homigot_lighthouse",
+        "name": "호미곶 등대 스탬프",
+        "description": "호미곶의 상징인 등대에서 획득한 스탬프입니다.",
+        "location": "호미곶 등대",
+        "coordinates": {
+          "lat": 36.079,
+          "lng": 129.5679
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=102",
+        "rarity": "common",
+        "points": 50,
+        "isCollected": false,
+        "order": 2
+      },
+      {
+        "id": "stamp_homigot_memorial",
+        "name": "호미곶 기념비 스탬프",
+        "description": "한반도 최동단 기념비에서 획득한 스탬프입니다.",
+        "location": "호미곶 기념비",
+        "coordinates": {
+          "lat": 36.0788,
+          "lng": 129.5677
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=103",
+        "rarity": "common",
+        "points": 50,
+        "isCollected": false,
+        "order": 3
+      }
+    ],
+    "rewards": [
+      {
+        "id": "badge_sunrise_master",
+        "type": "badge",
+        "name": "일출 마스터",
+        "description": "호미곶 일출 투어를 완료한 증명",
+        "icon": "🏆",
+        "isUnlocked": false
+      }
+    ]
+  },
+  {
+    "id": "pohang_food_tour",
+    "name": "포항 시내 맛집 투어",
+    "description": "과메기, 회 등 포항 특색 음식을 맛보는 투어",
+    "icon": "🍽️",
+    "color": "bg-red-500",
+    "difficulty": "easy",
+    "estimatedDuration": 240,
+    "totalStamps": 4,
+    "collectedStamps": 0,
+    "isCompleted": false,
+    "completionRate": 0,
+    "stamps": [
+      {
+        "id": "stamp_jookdo_market",
+        "name": "죽도시장 맛집 스탬프",
+        "description": "활기 넘치는 죽도시장에서 신선한 해산물과 포항 특미를 맛보고 획득한 스탬프입니다.",
+        "location": "죽도시장",
+        "coordinates": {
+          "lat": 36.019,
+          "lng": 129.365
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=104",
+        "rarity": "common",
+        "points": 80,
+        "isCollected": false,
+        "order": 1
+      },
+      {
+        "id": "stamp_guryongpo_fish",
+        "name": "구룡포 과메기 스탬프",
+        "description": "구룡포에서 유명한 과메기를 맛보고 획득한 스탬프입니다.",
+        "location": "구룡포 과메기 거리",
+        "coordinates": {
+          "lat": 35.968,
+          "lng": 129.544
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=105",
+        "rarity": "rare",
+        "points": 120,
+        "isCollected": false,
+        "order": 2
+      },
+      {
+        "id": "stamp_pohang_sashimi",
+        "name": "포항 회 스탬프",
+        "description": "신선한 포항 회를 맛보고 획득한 스탬프입니다.",
+        "location": "포항 회 전문점",
+        "coordinates": {
+          "lat": 36.018,
+          "lng": 129.364
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=106",
+        "rarity": "common",
+        "points": 100,
+        "isCollected": false,
+        "order": 3
+      },
+      {
+        "id": "stamp_pohang_specialty",
+        "name": "포항 특산품 스탬프",
+        "description": "포항의 특산품을 구매하고 획득한 스탬프입니다.",
+        "location": "포항 특산품 판매점",
+        "coordinates": {
+          "lat": 36.017,
+          "lng": 129.363
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=107",
+        "rarity": "common",
+        "points": 60,
+        "isCollected": false,
+        "order": 4
+      }
+    ],
+    "rewards": [
+      {
+        "id": "badge_food_explorer",
+        "type": "badge",
+        "name": "맛집 탐험가",
+        "description": "포항 맛집 투어를 완료한 증명",
+        "icon": "🍴",
+        "isUnlocked": false
+      }
+    ]
+  },
+  {
+    "id": "posco_industrial_tour",
+    "name": "포항제철소 견학 투어",
+    "description": "대한민국 산업 발전의 상징, 포항제철소를 견학하는 투어",
+    "icon": "🏭",
+    "color": "bg-gray-600",
+    "difficulty": "medium",
+    "estimatedDuration": 300,
+    "totalStamps": 3,
+    "collectedStamps": 0,
+    "isCompleted": false,
+    "completionRate": 0,
+    "stamps": [
+      {
+        "id": "stamp_posco_tour",
+        "name": "포항제철소 견학 스탬프",
+        "description": "대한민국 산업 발전의 상징, 포항제철소를 견학하고 획득한 스탬프입니다.",
+        "location": "포항제철소",
+        "coordinates": {
+          "lat": 36.1,
+          "lng": 129.4
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=108",
+        "rarity": "rare",
+        "points": 200,
+        "isCollected": false,
+        "order": 1
+      },
+      {
+        "id": "stamp_posco_museum",
+        "name": "포스코 박물관 스탬프",
+        "description": "포스코의 역사와 철강 산업을 배우고 획득한 스탬프입니다.",
+        "location": "포스코 박물관",
+        "coordinates": {
+          "lat": 36.101,
+          "lng": 129.401
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=109",
+        "rarity": "common",
+        "points": 80,
+        "isCollected": false,
+        "order": 2
+      },
+      {
+        "id": "stamp_posco_innovation",
+        "name": "포스코 혁신관 스탬프",
+        "description": "포스코의 혁신 기술을 체험하고 획득한 스탬프입니다.",
+        "location": "포스코 혁신관",
+        "coordinates": {
+          "lat": 36.102,
+          "lng": 129.402
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=110",
+        "rarity": "epic",
+        "points": 150,
+        "isCollected": false,
+        "order": 3
+      }
+    ],
+    "rewards": [
+      {
+        "id": "badge_industrial_explorer",
+        "type": "badge",
+        "name": "산업 탐험가",
+        "description": "포항제철소 견학 투어를 완료한 증명",
+        "icon": "⚙️",
+        "isUnlocked": false
+      }
+    ]
+  },
+  {
+    "id": "yeongildae_beach_tour",
+    "name": "영일대 해수욕장 투어",
+    "description": "포항의 대표 해수욕장에서 바다를 만끽하는 투어",
+    "icon": "🏖️",
+    "color": "bg-blue-500",
+    "difficulty": "easy",
+    "estimatedDuration": 120,
+    "totalStamps": 3,
+    "collectedStamps": 0,
+    "isCompleted": false,
+    "completionRate": 0,
+    "stamps": [
+      {
+        "id": "stamp_yeongildae_beach",
+        "name": "영일대 해수욕장 스탬프",
+        "description": "포항의 대표 해수욕장, 영일대 해수욕장에서 시원한 바다를 만끽하고 획득한 스탬프입니다.",
+        "location": "영일대 해수욕장",
+        "coordinates": {
+          "lat": 36.0194,
+          "lng": 129.3656
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=111",
+        "rarity": "common",
+        "points": 80,
+        "isCollected": false,
+        "order": 1
+      },
+      {
+        "id": "stamp_yeongildae_sunset",
+        "name": "영일대 일몰 스탬프",
+        "description": "영일대에서 아름다운 일몰을 감상하고 획득한 스탬프입니다.",
+        "location": "영일대 일몰 포인트",
+        "coordinates": {
+          "lat": 36.02,
+          "lng": 129.366
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=112",
+        "rarity": "rare",
+        "points": 120,
+        "isCollected": false,
+        "order": 2
+      },
+      {
+        "id": "stamp_yeongildae_activities",
+        "name": "영일대 해양 활동 스탬프",
+        "description": "영일대에서 해양 활동을 체험하고 획득한 스탬프입니다.",
+        "location": "영일대 해양 활동장",
+        "coordinates": {
+          "lat": 36.0188,
+          "lng": 129.3652
+        },
+        "imageUrl": "https://picsum.photos/200/200?random=113",
+        "rarity": "common",
+        "points": 100,
+        "isCollected": false,
+        "order": 3
+      }
+    ],
+    "rewards": [
+      {
+        "id": "badge_beach_lover",
+        "type": "badge",
+        "name": "바다 애호가",
+        "description": "영일대 해수욕장 투어를 완료한 증명",
+        "icon": "🌊",
+        "isUnlocked": false
+      }
+    ]
+  }
+]

@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createPureClient } from '@/lib/supabase/server';
 import mockCourses from '@/data/mock-courses.json';
+
+// 이 라우트를 동적으로 설정
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const supabase = await createClient();
+    const supabase = await createPureClient();
 
     // 데이터베이스 연결 테스트
     console.log('🔍 Supabase 클라이언트 생성 완료');
@@ -222,13 +225,15 @@ export async function GET() {
       id: course.id,
       title: course.title,
       description: course.description,
-      duration: `${Math.floor(course.duration_minutes / 60)}시간 ${course.duration_minutes % 60}분`,
+      duration: `${Math.floor(course.duration_minutes / 60)}시간 ${
+        course.duration_minutes % 60
+      }분`,
       difficulty:
         course.difficulty === 'easy'
           ? '쉬움'
           : course.difficulty === 'medium'
-            ? '보통'
-            : '어려움',
+          ? '보통'
+          : '어려움',
       rating: 4.5, // 기본 평점 (실제로는 별도 테이블에서 계산)
       reviewCount: Math.floor(Math.random() * 200) + 50, // 임시 리뷰 수
       image: course.image_url,

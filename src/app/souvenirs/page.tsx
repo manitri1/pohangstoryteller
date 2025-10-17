@@ -12,8 +12,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import SouvenirTemplateCard from '@/components/souvenirs/SouvenirTemplateCard';
-import PhotoEditor from '@/components/souvenirs/PhotoEditor';
+import SouvenirEditor from '@/components/souvenirs/SouvenirEditor';
 import {
   Palette,
   Plus,
@@ -43,7 +51,10 @@ interface SouvenirTemplate {
     | '포토북'
     | '스티커'
     | '키링'
-    | '엽서';
+    | '엽서'
+    | '머그컵'
+    | '마그넷'
+    | '포스터';
   category: 'nature' | 'history' | 'food' | 'culture' | 'general';
   previewImageUrl?: string;
   basePrice: number;
@@ -81,11 +92,22 @@ export default function SouvenirsPage() {
   const [showEditor, setShowEditor] = useState(false);
   const [selectedTemplate, setSelectedTemplate] =
     useState<SouvenirTemplate | null>(null);
+  const [showTemplateSelector, setShowTemplateSelector] = useState(false);
 
   // 템플릿 데이터 로드
   useEffect(() => {
     loadTemplates();
   }, []);
+
+  // showEditor 상태 변화 감지
+  useEffect(() => {
+    console.log('showEditor 상태 변화:', showEditor);
+  }, [showEditor]);
+
+  // selectedTemplate 상태 변화 감지
+  useEffect(() => {
+    console.log('selectedTemplate 상태 변화:', selectedTemplate);
+  }, [selectedTemplate]);
 
   // 필터링 및 정렬
   useEffect(() => {
@@ -139,19 +161,174 @@ export default function SouvenirsPage() {
   const loadTemplates = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('/api/souvenirs/templates');
-      if (response.ok) {
-        const data = await response.json();
-        setTemplates(data.templates || []);
-        setStats(
-          data.stats || {
-            totalTemplates: 0,
-            totalProjects: 0,
-            totalOrders: 0,
-            totalRevenue: 0,
-          }
-        );
-      }
+
+      // 샘플 템플릿 데이터
+      const sampleTemplates: SouvenirTemplate[] = [
+        {
+          id: '1',
+          name: '포항4컷 기본',
+          description: '포항 여행의 추억을 4컷으로 담아보세요',
+          templateType: '포항4컷',
+          category: 'general',
+          basePrice: 5000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: '10x15cm', pages: 1 },
+        },
+        {
+          id: '2',
+          name: '포항4컷 해변',
+          description: '바다 풍경이 돋보이는 4컷 템플릿',
+          templateType: '포항4컷',
+          category: 'nature',
+          basePrice: 5500,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: '10x15cm', pages: 1 },
+        },
+        {
+          id: '3',
+          name: '롤링페이퍼 클래식',
+          description: '전통적인 스타일의 롤링페이퍼',
+          templateType: '롤링페이퍼',
+          category: 'culture',
+          basePrice: 8000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: 'A4', pages: 1 },
+        },
+        {
+          id: '4',
+          name: '롤링페이퍼 모던',
+          description: '현대적인 디자인의 롤링페이퍼',
+          templateType: '롤링페이퍼',
+          category: 'general',
+          basePrice: 8500,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: 'A4', pages: 1 },
+        },
+        {
+          id: '5',
+          name: '포토북 미니',
+          description: '소형 포토북으로 여행 추억을 담아보세요',
+          templateType: '포토북',
+          category: 'general',
+          basePrice: 15000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: 'A5', pages: 20 },
+        },
+        {
+          id: '6',
+          name: '포토북 라지',
+          description: '대형 포토북으로 더 많은 추억을 담아보세요',
+          templateType: '포토북',
+          category: 'general',
+          basePrice: 25000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: 'A4', pages: 30 },
+        },
+        {
+          id: '7',
+          name: '스티커 세트',
+          description: '포항 명소 스티커 세트',
+          templateType: '스티커',
+          category: 'general',
+          basePrice: 3000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: '5x5cm', pages: 1 },
+        },
+        {
+          id: '8',
+          name: '키링 세트',
+          description: '포항 기념 키링 세트',
+          templateType: '키링',
+          category: 'general',
+          basePrice: 4000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: '3x3cm', pages: 1 },
+        },
+        {
+          id: '9',
+          name: '엽서 세트',
+          description: '포항 명소 엽서 세트',
+          templateType: '엽서',
+          category: 'nature',
+          basePrice: 6000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: '10x15cm', pages: 5 },
+        },
+        {
+          id: '10',
+          name: '머그컵 클래식',
+          description: '포항 사진이 인쇄된 머그컵',
+          templateType: '머그컵',
+          category: 'general',
+          basePrice: 12000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: '350ml', pages: 1 },
+        },
+        {
+          id: '11',
+          name: '마그넷 세트',
+          description: '냉장고용 포항 기념 마그넷',
+          templateType: '마그넷',
+          category: 'general',
+          basePrice: 5000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: '5x5cm', pages: 3 },
+        },
+        {
+          id: '12',
+          name: '포스터 A3',
+          description: '포항 풍경 포스터 (A3 사이즈)',
+          templateType: '포스터',
+          category: 'nature',
+          basePrice: 18000,
+          projectCount: 0,
+          orderCount: 0,
+          averageRating: 0,
+          reviewCount: 0,
+          templateConfig: { size: 'A3', pages: 1 },
+        },
+      ];
+
+      setTemplates(sampleTemplates);
+      setStats({
+        totalTemplates: sampleTemplates.length,
+        totalProjects: 0,
+        totalOrders: 0,
+        totalRevenue: 0,
+      });
     } catch (error) {
       console.error('템플릿 데이터 로드 실패:', error);
       toast({
@@ -166,8 +343,20 @@ export default function SouvenirsPage() {
 
   // 템플릿 선택
   const handleTemplateSelect = (template: SouvenirTemplate) => {
+    console.log('템플릿 선택됨:', template);
+    console.log('현재 showEditor 상태:', showEditor);
+    console.log('현재 selectedTemplate:', selectedTemplate);
+
     setSelectedTemplate(template);
     setShowEditor(true);
+
+    console.log('상태 업데이트 요청 완료');
+
+    // 상태 업데이트 확인을 위한 타이머
+    setTimeout(() => {
+      console.log('상태 업데이트 후 showEditor:', showEditor);
+      console.log('상태 업데이트 후 selectedTemplate:', selectedTemplate);
+    }, 100);
   };
 
   // 템플릿 미리보기
@@ -188,34 +377,23 @@ export default function SouvenirsPage() {
     setSelectedTemplate(null);
   };
 
+  // 템플릿 선택 모달에서 템플릿 선택
+  const handleTemplateSelectFromModal = (template: SouvenirTemplate) => {
+    setSelectedTemplate(template);
+    setShowTemplateSelector(false);
+    setShowEditor(true);
+  };
+
   // 프로젝트 저장
   const handleProjectSave = (projectData: any) => {
     console.log('프로젝트 저장:', projectData);
-    // 프로젝트 저장 API 호출
+    // 여기서 실제 프로젝트 저장 로직을 구현
     toast({
-      title: '저장 완료',
-      description: '프로젝트가 성공적으로 저장되었습니다.',
+      title: '프로젝트 저장 완료',
+      description: '기념품 프로젝트가 저장되었습니다.',
     });
+    // 편집기 닫기
     handleEditorClose();
-  };
-
-  const getTemplateTypeIcon = (type: string) => {
-    switch (type) {
-      case '포항4컷':
-        return <Scissors className="h-5 w-5" />;
-      case '롤링페이퍼':
-        return <BookOpen className="h-5 w-5" />;
-      case '포토북':
-        return <BookOpen className="h-5 w-5" />;
-      case '스티커':
-        return <Sticker className="h-5 w-5" />;
-      case '키링':
-        return <Key className="h-5 w-5" />;
-      case '엽서':
-        return <Mail className="h-5 w-5" />;
-      default:
-        return <Palette className="h-5 w-5" />;
-    }
   };
 
   if (isLoading) {
@@ -228,12 +406,25 @@ export default function SouvenirsPage() {
     );
   }
 
+  // 편집기 표시
+  console.log('렌더링 상태 확인:', {
+    showEditor,
+    selectedTemplate: selectedTemplate?.name,
+    selectedTemplateId: selectedTemplate?.id,
+  });
+
   if (showEditor && selectedTemplate) {
+    console.log('SouvenirEditor 렌더링 조건 만족');
+    console.log('SouvenirEditor에 전달되는 template:', selectedTemplate);
     return (
-      <PhotoEditor
+      <SouvenirEditor
         template={selectedTemplate}
+        onBack={() => {
+          console.log('뒤로가기 클릭');
+          setShowEditor(false);
+          setSelectedTemplate(null);
+        }}
         onSave={handleProjectSave}
-        onClose={handleEditorClose}
       />
     );
   }
@@ -251,7 +442,12 @@ export default function SouvenirsPage() {
               포항 여행의 소중한 순간들을 특별한 기념품으로 만들어보세요
             </p>
           </div>
-          <Button className="flex items-center gap-2">
+          <Button
+            className="flex items-center gap-2"
+            onClick={() => {
+              setShowTemplateSelector(true);
+            }}
+          >
             <Plus className="h-4 w-4" />새 프로젝트
           </Button>
         </div>
@@ -376,7 +572,15 @@ export default function SouvenirsPage() {
             <p className="text-gray-600 mb-4">
               새로운 템플릿을 추가하거나 다른 필터를 시도해보세요!
             </p>
-            <Button>
+            <Button
+              onClick={() => {
+                console.log('첫 템플릿 만들기');
+                toast({
+                  title: '템플릿 생성',
+                  description: '새로운 템플릿을 생성합니다.',
+                });
+              }}
+            >
               <Plus className="h-4 w-4 mr-2" />첫 템플릿 만들기
             </Button>
           </CardContent>
@@ -401,6 +605,47 @@ export default function SouvenirsPage() {
           ))}
         </div>
       )}
+
+      {/* 템플릿 선택 모달 */}
+      <Dialog
+        open={showTemplateSelector}
+        onOpenChange={setShowTemplateSelector}
+      >
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>템플릿 선택</DialogTitle>
+            <DialogDescription>
+              새 프로젝트에 사용할 템플릿을 선택하세요.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+            {templates.map((template) => (
+              <Card
+                key={template.id}
+                className="cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => handleTemplateSelectFromModal(template)}
+              >
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge variant="secondary">{template.templateType}</Badge>
+                    <span className="text-sm font-medium">
+                      ₩{template.basePrice.toLocaleString()}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold mb-1">{template.name}</h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {template.description}
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-gray-500">
+                    <span>크기: {template.templateConfig.size}</span>
+                    <span>페이지: {template.templateConfig.pages}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

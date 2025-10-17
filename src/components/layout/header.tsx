@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { Menu, X, Globe, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import AuthButton from '@/components/auth/auth-button';
 
 interface HeaderProps {
   className?: string;
+  onLoginClick?: () => void;
 }
 
-export function Header({ className }: HeaderProps) {
+export function Header({ className, onLoginClick }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('ko');
 
@@ -79,11 +81,10 @@ export function Header({ className }: HeaderProps) {
               </select>
             </div>
 
-            {/* 로그인 버튼 */}
-            <Button variant="outline" size="sm" className="hidden sm:flex">
-              <User className="h-4 w-4 mr-2" />
-              로그인
-            </Button>
+            {/* 인증 버튼 */}
+            <div className="hidden sm:flex">
+              <AuthButton />
+            </div>
 
             {/* 모바일 메뉴 */}
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -134,10 +135,9 @@ export function Header({ className }: HeaderProps) {
                         ))}
                       </select>
                     </div>
-                    <Button variant="outline" size="sm" className="w-full">
-                      <User className="h-4 w-4 mr-2" />
-                      로그인
-                    </Button>
+                    <div className="w-full">
+                      <AuthButton />
+                    </div>
                   </div>
                 </div>
               </SheetContent>

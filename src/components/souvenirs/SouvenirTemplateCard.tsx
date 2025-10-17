@@ -16,6 +16,9 @@ import {
   Sticker,
   Key,
   Mail,
+  Coffee,
+  Magnet,
+  Image as ImageIcon,
 } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -30,7 +33,10 @@ interface SouvenirTemplate {
     | '포토북'
     | '스티커'
     | '키링'
-    | '엽서';
+    | '엽서'
+    | '머그컵'
+    | '마그넷'
+    | '포스터';
   category: 'nature' | 'history' | 'food' | 'culture' | 'general';
   previewImageUrl?: string;
   basePrice: number;
@@ -59,6 +65,14 @@ export default function SouvenirTemplateCard({
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
 
+  console.log('SouvenirTemplateCard 렌더링:', {
+    template: template.name,
+    onSelect: !!onSelect,
+    onPreview: !!onPreview,
+    onLike: !!onLike,
+    showActions,
+  });
+
   const getTemplateIcon = (type: string) => {
     switch (type) {
       case '포항4컷':
@@ -73,6 +87,12 @@ export default function SouvenirTemplateCard({
         return <Key className="h-5 w-5" />;
       case '엽서':
         return <Mail className="h-5 w-5" />;
+      case '머그컵':
+        return <Coffee className="h-5 w-5" />;
+      case '마그넷':
+        return <Magnet className="h-5 w-5" />;
+      case '포스터':
+        return <ImageIcon className="h-5 w-5" />;
       default:
         return <Palette className="h-5 w-5" />;
     }
@@ -271,8 +291,35 @@ export default function SouvenirTemplateCard({
               </Button>
               <Button
                 size="sm"
-                onClick={() => onSelect?.(template)}
+                onClick={(e) => {
+                  console.log('=== 제작하기 버튼 클릭 이벤트 시작 ===');
+                  console.log('이벤트 객체:', e);
+                  console.log('템플릿 정보:', template);
+                  console.log('onSelect 함수 존재:', !!onSelect);
+                  console.log('onSelect 함수 타입:', typeof onSelect);
+
+                  e.preventDefault();
+                  e.stopPropagation();
+
+                  if (onSelect) {
+                    console.log('onSelect 함수 호출 시작');
+                    try {
+                      onSelect(template);
+                      console.log('onSelect 함수 호출 완료');
+                    } catch (error) {
+                      console.error('onSelect 함수 호출 중 오류:', error);
+                    }
+                  } else {
+                    console.log('onSelect 함수가 없습니다!');
+                  }
+                  console.log('=== 제작하기 버튼 클릭 이벤트 종료 ===');
+                }}
                 className="flex-1"
+                style={{
+                  pointerEvents: 'auto',
+                  cursor: 'pointer',
+                  zIndex: 10,
+                }}
               >
                 <Download className="h-4 w-4 mr-2" />
                 제작하기
@@ -286,7 +333,7 @@ export default function SouvenirTemplateCard({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg flex items-end justify-center pb-4"
+            className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg flex items-end justify-center pb-4 pointer-events-none"
           >
             <div className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
               템플릿 선택

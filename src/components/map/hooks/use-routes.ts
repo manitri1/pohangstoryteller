@@ -1,7 +1,46 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { Route, Coordinate } from '../types';
+
+// Kakao Maps API 타입 선언
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
+// Kakao Maps API 로드 상태 확인
+const useKakaoMaps = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const checkKakaoMaps = () => {
+      if (typeof window !== 'undefined' && window.kakao && window.kakao.maps) {
+        setIsLoaded(true);
+      } else {
+        setIsLoaded(false);
+      }
+    };
+
+    checkKakaoMaps();
+
+    // 주기적으로 체크 (API 로드 완료까지)
+    const interval = setInterval(checkKakaoMaps, 100);
+
+    // 5초 후에는 체크 중단
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  return isLoaded;
+};
 
 /**
  * 🛣️ 경로 관리 훅
@@ -11,6 +50,7 @@ export function useRoutes() {
   const [routes, setRoutes] = useState<Route[]>([]);
   const [kakaoPolylines, setKakaoPolylines] = useState<any[]>([]);
   const mapInstanceRef = useRef<any>(null);
+  const isKakaoMapsLoaded = useKakaoMaps();
 
   // 경로 생성
   const createRoute = useCallback((routeData: Omit<Route, 'id'>): Route => {
@@ -73,39 +113,43 @@ export function useRoutes() {
   }, []);
 
   // 카카오맵 폴리라인 생성
-  const createKakaoPolyline = useCallback((route: Route) => {
-    if (
-      !mapInstanceRef.current ||
-      typeof window === 'undefined' ||
-      !window.kakao
-    )
-      return null;
+  const createKakaoPolyline = useCallback(
+    (route: Route) => {
+      if (
+        !mapInstanceRef.current ||
+        !isKakaoMapsLoaded ||
+        typeof window === 'undefined' ||
+        !window.kakao ||
+        !window.kakao.maps
+      )
+        return null;
 
-    const path = route.waypoints.map(
-      (point) => new window.kakao.maps.LatLng(point.lat, point.lng)
-    );
+      const path = route.waypoints.map(
+        (point) => new window.kakao.maps.LatLng(point.lat, point.lng)
+      );
 
-    const polyline = new window.kakao.maps.Polyline({
-      path,
-      strokeWeight: route.strokeWeight || 3,
-      strokeColor: route.color || '#3B82F6',
-      strokeOpacity: route.strokeOpacity || 0.8,
-      strokeStyle: 'solid',
-    });
+      const polyline = new window.kakao.maps.Polyline({
+        path,
+        strokeWeight: route.strokeWeight || 3,
+        strokeColor: route.color || '#3B82F6',
+        strokeOpacity: route.strokeOpacity || 0.8,
+        strokeStyle: 'solid',
+      });
 
-    // 폴리라인 클릭 이벤트
-    window.kakao.maps.event.addListener(polyline, 'click', () => {
-      console.log('경로 클릭:', route);
-    });
+      // 폴리라인 클릭 이벤트
+      window.kakao.maps.event.addListener(polyline, 'click', () => {
+        console.log('경로 클릭:', route);
+      });
 
-    return polyline;
-  }, []);
+      return polyline;
+    },
+    [isKakaoMapsLoaded]
+  );
 
   // 카카오맵에 경로 표시
   const showRoutesOnMap = useCallback(
     (mapInstance: any) => {
-      if (!mapInstance || typeof window === 'undefined' || !window.kakao)
-        return;
+      if (!mapInstance || !isKakaoMapsLoaded) return;
 
       mapInstanceRef.current = mapInstance;
 
@@ -124,7 +168,7 @@ export function useRoutes() {
 
       setKakaoPolylines(newKakaoPolylines);
     },
-    [routes, createKakaoPolyline, kakaoPolylines]
+    [routes, createKakaoPolyline, kakaoPolylines, isKakaoMapsLoaded]
   );
 
   // 경로 색상 변경
@@ -292,5 +336,6 @@ export function useRoutes() {
     filterRoutes,
     searchRoutes,
     getRouteStats,
+    isKakaoMapsLoaded,
   };
 }

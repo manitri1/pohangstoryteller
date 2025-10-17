@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Providers from './providers';
-import { AuthProvider } from '@/components/auth/auth-provider';
+import AuthSessionProvider from '@/components/auth/session-provider';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -17,6 +17,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: '포항 스토리텔러',
   description: '포항 여행의 소중한 순간들을 기록하고 공유하는 플랫폼',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
@@ -36,7 +41,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
-          <AuthProvider>{children}</AuthProvider>
+          <AuthSessionProvider>{children}</AuthSessionProvider>
         </Providers>
       </body>
     </html>

@@ -10,7 +10,37 @@ declare global {
   }
 }
 
-const kakao = typeof window !== 'undefined' ? window.kakao : null;
+// Kakao Maps API 로드 상태 확인
+const useKakaoMaps = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const checkKakaoMaps = () => {
+      if (typeof window !== 'undefined' && window.kakao && window.kakao.maps) {
+        setIsLoaded(true);
+      } else {
+        setIsLoaded(false);
+      }
+    };
+
+    checkKakaoMaps();
+
+    // 주기적으로 체크 (API 로드 완료까지)
+    const interval = setInterval(checkKakaoMaps, 100);
+
+    // 5초 후에는 체크 중단
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  return isLoaded;
+};
 
 /**
  * 🗺️ 지도 상태 관리 훅
@@ -31,11 +61,12 @@ export function useMap(initialCenter: MapCenter, handlers?: MapEventHandlers) {
   const mapInstanceRef = useRef<any>(null);
   const markersRef = useRef<Marker[]>([]);
   const routesRef = useRef<Route[]>([]);
+  const isKakaoMapsLoaded = useKakaoMaps();
 
   // 지도 초기화
   const initializeMap = useCallback(
     (mapInstance: any) => {
-      if (!mapInstance) return;
+      if (!mapInstance || !isKakaoMapsLoaded) return;
 
       mapInstanceRef.current = mapInstance;
 
@@ -47,44 +78,55 @@ export function useMap(initialCenter: MapCenter, handlers?: MapEventHandlers) {
 
       // 지도 이벤트 리스너 등록
       if (handlers?.onMapClick) {
-        kakao.maps.event.addListener(mapInstance, 'click', handlers.onMapClick);
+        window.kakao.maps.event.addListener(
+          mapInstance,
+          'click',
+          handlers.onMapClick
+        );
       }
 
       if (handlers?.onBoundsChanged) {
-        kakao.maps.event.addListener(mapInstance, 'bounds_changed', () => {
-          const bounds = mapInstance.getBounds();
-          handlers.onBoundsChanged?.(bounds);
-        });
+        window.kakao.maps.event.addListener(
+          mapInstance,
+          'bounds_changed',
+          () => {
+            const bounds = mapInstance.getBounds();
+            handlers.onBoundsChanged?.(bounds);
+          }
+        );
       }
 
       if (handlers?.onZoomChanged) {
-        kakao.maps.event.addListener(mapInstance, 'zoom_changed', () => {
+        window.kakao.maps.event.addListener(mapInstance, 'zoom_changed', () => {
           const level = mapInstance.getLevel();
           handlers.onZoomChanged?.(level);
           setMapState((prev) => ({ ...prev, currentLevel: level }));
         });
       }
     },
-    [handlers]
+    [handlers, isKakaoMapsLoaded]
   );
 
   // 지도 중심점 변경
-  const setCenter = useCallback((center: MapCenter) => {
-    if (!mapInstanceRef.current) return;
+  const setCenter = useCallback(
+    (center: MapCenter) => {
+      if (!mapInstanceRef.current || !isKakaoMapsLoaded) return;
 
-    const moveLatLon = new kakao.maps.LatLng(center.lat, center.lng);
-    mapInstanceRef.current.setCenter(moveLatLon);
+      const moveLatLon = new window.kakao.maps.LatLng(center.lat, center.lng);
+      mapInstanceRef.current.setCenter(moveLatLon);
 
-    if (center.level) {
-      mapInstanceRef.current.setLevel(center.level);
-    }
+      if (center.level) {
+        mapInstanceRef.current.setLevel(center.level);
+      }
 
-    setMapState((prev) => ({
-      ...prev,
-      currentCenter: center,
-      currentLevel: center.level || prev.currentLevel,
-    }));
-  }, []);
+      setMapState((prev) => ({
+        ...prev,
+        currentCenter: center,
+        currentLevel: center.level || prev.currentLevel,
+      }));
+    },
+    [isKakaoMapsLoaded]
+  );
 
   // 지도 줌 변경
   const setZoom = useCallback((level: number) => {
@@ -95,21 +137,25 @@ export function useMap(initialCenter: MapCenter, handlers?: MapEventHandlers) {
   }, []);
 
   // 지도 범위 설정
-  const fitBounds = useCallback((markers: Marker[]) => {
-    if (!mapInstanceRef.current || markers.length === 0) return;
+  const fitBounds = useCallback(
+    (markers: Marker[]) => {
+      if (!mapInstanceRef.current || markers.length === 0 || !isKakaoMapsLoaded)
+        return;
 
-    const bounds = new kakao.maps.LatLngBounds();
+      const bounds = new window.kakao.maps.LatLngBounds();
 
-    markers.forEach((marker) => {
-      const latLng = new kakao.maps.LatLng(
-        marker.position.lat,
-        marker.position.lng
-      );
-      bounds.extend(latLng);
-    });
+      markers.forEach((marker) => {
+        const latLng = new window.kakao.maps.LatLng(
+          marker.position.lat,
+          marker.position.lng
+        );
+        bounds.extend(latLng);
+      });
 
-    mapInstanceRef.current.setBounds(bounds);
-  }, []);
+      mapInstanceRef.current.setBounds(bounds);
+    },
+    [isKakaoMapsLoaded]
+  );
 
   // 마커 선택
   const selectMarker = useCallback(
@@ -188,5 +234,6 @@ export function useMap(initialCenter: MapCenter, handlers?: MapEventHandlers) {
     setError,
     getMapInstance,
     getCurrentState,
+    isKakaoMapsLoaded,
   };
 }

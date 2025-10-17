@@ -144,8 +144,8 @@ export function PreferenceForm({ onSubmit }: PreferenceFormProps) {
                 onClick={() => handleInterestToggle(interest.id)}
                 className={`p-4 rounded-lg border-2 transition-all duration-200 text-left ${
                   selectedInterests.includes(interest.id)
-                    ? 'border-primary-500 bg-primary-50 text-primary-700'
-                    : 'border-neutral-200 hover:border-primary-300 hover:bg-neutral-50'
+                    ? 'border-blue-600 border-4 bg-blue-50 text-blue-700 shadow-lg'
+                    : 'border-neutral-200 hover:border-blue-300 hover:bg-neutral-50'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -180,8 +180,8 @@ export function PreferenceForm({ onSubmit }: PreferenceFormProps) {
                 onClick={() => setSelectedDuration(duration.id)}
                 className={`p-3 rounded-lg border-2 transition-all duration-200 flex items-center gap-3 ${
                   selectedDuration === duration.id
-                    ? 'border-secondary-500 bg-secondary-50 text-secondary-700'
-                    : 'border-neutral-200 hover:border-secondary-300 hover:bg-neutral-50'
+                    ? 'border-blue-600 border-4 bg-blue-50 text-blue-700 shadow-lg'
+                    : 'border-neutral-200 hover:border-blue-300 hover:bg-neutral-50'
                 }`}
               >
                 {duration.icon}
@@ -209,8 +209,8 @@ export function PreferenceForm({ onSubmit }: PreferenceFormProps) {
                 onClick={() => setSelectedCompanion(companion.id)}
                 className={`p-4 rounded-lg border-2 transition-all duration-200 text-left ${
                   selectedCompanion === companion.id
-                    ? 'border-accent-500 bg-accent-50 text-accent-700'
-                    : 'border-neutral-200 hover:border-accent-300 hover:bg-neutral-50'
+                    ? 'border-blue-600 border-4 bg-blue-50 text-blue-700 shadow-lg'
+                    : 'border-neutral-200 hover:border-blue-300 hover:bg-neutral-50'
                 }`}
               >
                 <div className="flex items-center gap-3">

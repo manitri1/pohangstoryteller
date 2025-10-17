@@ -12,6 +12,7 @@ import {
   Stamp,
   Play,
   Eye,
+  Tag,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -26,6 +27,7 @@ interface AlbumItem {
   imageUrl?: string;
   videoUrl?: string;
   location?: string;
+  tags?: string[];
   createdAt: Date;
   likes?: number;
   comments?: number;
@@ -128,6 +130,23 @@ export function AlbumItemCard({ item, viewMode }: AlbumItemCardProps) {
                 <div className="flex items-center space-x-1 text-sm text-gray-500 mb-2">
                   <MapPin className="h-3 w-3" />
                   <span>{item.location}</span>
+                </div>
+              )}
+
+              {/* 태그 */}
+              {item.tags && item.tags.length > 0 && (
+                <div className="flex flex-wrap gap-1 mb-2">
+                  {item.tags.slice(0, 3).map((tag, index) => (
+                    <Badge key={index} variant="outline" className="text-xs">
+                      <Tag className="h-3 w-3 mr-1" />
+                      {tag}
+                    </Badge>
+                  ))}
+                  {item.tags.length > 3 && (
+                    <Badge variant="outline" className="text-xs">
+                      +{item.tags.length - 3}
+                    </Badge>
+                  )}
                 </div>
               )}
 
@@ -239,6 +258,23 @@ export function AlbumItemCard({ item, viewMode }: AlbumItemCardProps) {
             <div className="flex items-center space-x-1 text-sm text-gray-500 mb-3">
               <MapPin className="h-4 w-4" />
               <span>{item.location}</span>
+            </div>
+          )}
+
+          {/* 태그 */}
+          {item.tags && item.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1 mb-3">
+              {item.tags.slice(0, 2).map((tag, index) => (
+                <Badge key={index} variant="outline" className="text-xs">
+                  <Tag className="h-3 w-3 mr-1" />
+                  {tag}
+                </Badge>
+              ))}
+              {item.tags.length > 2 && (
+                <Badge variant="outline" className="text-xs">
+                  +{item.tags.length - 2}
+                </Badge>
+              )}
             </div>
           )}
 

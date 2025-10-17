@@ -10,7 +10,37 @@ declare global {
   }
 }
 
-const kakao = typeof window !== 'undefined' ? window.kakao : null;
+// Kakao Maps API 로드 상태 확인
+const useKakaoMaps = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const checkKakaoMaps = () => {
+      if (typeof window !== 'undefined' && window.kakao && window.kakao.maps) {
+        setIsLoaded(true);
+      } else {
+        setIsLoaded(false);
+      }
+    };
+
+    checkKakaoMaps();
+
+    // 주기적으로 체크 (API 로드 완료까지)
+    const interval = setInterval(checkKakaoMaps, 100);
+
+    // 5초 후에는 체크 중단
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  return isLoaded;
+};
 
 /**
  * 🎯 마커 관리 훅
@@ -20,6 +50,7 @@ export function useMarkers() {
   const [markers, setMarkers] = useState<Marker[]>([]);
   const [kakaoMarkers, setKakaoMarkers] = useState<any[]>([]);
   const mapInstanceRef = useRef<any>(null);
+  const isKakaoMapsLoaded = useKakaoMaps();
 
   // 마커 생성
   const createMarker = useCallback((markerData: Omit<Marker, 'id'>): Marker => {
@@ -109,65 +140,61 @@ export function useMarkers() {
   );
 
   // 카카오맵 마커 생성
-  const createKakaoMarker = useCallback((marker: Marker) => {
-    if (!mapInstanceRef.current) return null;
+  const createKakaoMarker = useCallback(
+    (marker: Marker) => {
+      if (
+        !mapInstanceRef.current ||
+        !isKakaoMapsLoaded ||
+        !window.kakao ||
+        !window.kakao.maps
+      )
+        return null;
 
-    const position = new kakao.maps.LatLng(
-      marker.position.lat,
-      marker.position.lng
-    );
+      const position = new window.kakao.maps.LatLng(
+        marker.position.lat,
+        marker.position.lng
+      );
 
-    // 마커 이미지 설정
-    let imageSrc = '';
-    const imageSize = new kakao.maps.Size(24, 24);
-    const imageOption = { offset: new kakao.maps.Point(12, 12) };
+      // 마커 이미지 설정 - 기본 마커 사용으로 변경
+      let markerImage = null;
 
-    switch (marker.type) {
-      case 'start':
-        imageSrc =
-          'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerRed.png';
-        break;
-      case 'end':
-        imageSrc =
-          'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerBlue.png';
-        break;
-      case 'stamp':
-        imageSrc = marker.isStampCollected
-          ? 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerGreen.png'
-          : 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
-        break;
-      case 'photo':
-        imageSrc =
-          'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerYellow.png';
-        break;
-      default:
-        imageSrc =
-          'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
-    }
+      // 마커 타입에 따른 색상 설정 (기본 마커 사용)
+      const markerColor = (() => {
+        switch (marker.type) {
+          case 'start':
+            return '#FF0000'; // 빨간색
+          case 'end':
+            return '#0000FF'; // 파란색
+          case 'stamp':
+            return marker.isStampCollected ? '#00FF00' : '#FFD700'; // 초록색 또는 금색
+          case 'photo':
+            return '#FFFF00'; // 노란색
+          default:
+            return '#FFD700'; // 금색
+        }
+      })();
 
-    const markerImage = new kakao.maps.MarkerImage(
-      imageSrc,
-      imageSize,
-      imageOption
-    );
-    const kakaoMarker = new kakao.maps.Marker({
-      position,
-      image: markerImage,
-    });
+      // 기본 마커 사용 (이미지 없이)
+      const kakaoMarker = new window.kakao.maps.Marker({
+        position,
+        // image: markerImage, // 이미지 사용하지 않음
+      });
 
-    // 마커 클릭 이벤트
-    kakao.maps.event.addListener(kakaoMarker, 'click', () => {
-      // 마커 클릭 시 처리 로직
-      console.log('마커 클릭:', marker);
-    });
+      // 마커 클릭 이벤트
+      window.kakao.maps.event.addListener(kakaoMarker, 'click', () => {
+        // 마커 클릭 시 처리 로직
+        console.log('마커 클릭:', marker);
+      });
 
-    return kakaoMarker;
-  }, []);
+      return kakaoMarker;
+    },
+    [isKakaoMapsLoaded]
+  );
 
   // 카카오맵에 마커 표시
   const showMarkersOnMap = useCallback(
     (mapInstance: any) => {
-      if (!mapInstance) return;
+      if (!mapInstance || !isKakaoMapsLoaded) return;
 
       mapInstanceRef.current = mapInstance;
 
@@ -186,7 +213,7 @@ export function useMarkers() {
 
       setKakaoMarkers(newKakaoMarkers);
     },
-    [markers, createKakaoMarker, kakaoMarkers]
+    [markers, createKakaoMarker, kakaoMarkers, isKakaoMapsLoaded]
   );
 
   // 마커 클러스터링
@@ -252,13 +279,10 @@ export function useMarkers() {
     const total = markers.length;
     const visited = markers.filter((m) => m.isVisited).length;
     const stampsCollected = markers.filter((m) => m.isStampCollected).length;
-    const byType = markers.reduce(
-      (acc, marker) => {
-        acc[marker.type] = (acc[marker.type] || 0) + 1;
-        return acc;
-      },
-      {} as Record<string, number>
-    );
+    const byType = markers.reduce((acc, marker) => {
+      acc[marker.type] = (acc[marker.type] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
 
     return {
       total,
@@ -287,5 +311,6 @@ export function useMarkers() {
     filterMarkers,
     searchMarkers,
     getMarkerStats,
+    isKakaoMapsLoaded,
   };
 }

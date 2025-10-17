@@ -9,16 +9,18 @@ interface MainLayoutProps {
   children: React.ReactNode;
   showSidebar?: boolean;
   className?: string;
+  onLoginClick?: () => void;
 }
 
 export function MainLayout({
   children,
   showSidebar = true,
   className,
+  onLoginClick,
 }: MainLayoutProps) {
   return (
     <div className="min-h-screen bg-neutral-50">
-      <Header />
+      <Header onLoginClick={onLoginClick} />
 
       <div className="flex">
         {showSidebar && <Sidebar />}
