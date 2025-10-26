@@ -148,12 +148,12 @@ function StampsContent() {
 
   const handleBackToDashboard = () => {
     setCurrentView('dashboard');
-    setSelectedTour(null);
+    setSelectedTourId(null);
   };
 
   const handleBackToTours = () => {
     setCurrentView('tours');
-    setSelectedTour(null);
+    setSelectedTourId(null);
   };
 
   const filteredStamps = stamps.filter((stamp) => {
