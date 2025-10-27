@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -17,14 +17,13 @@ interface AuthModalProps {
   onModeChange: (mode: 'login' | 'register') => void;
 }
 
-export function AuthModal({
+const AuthModal = memo(function AuthModal({
   isOpen,
   onClose,
   onLogin,
   mode,
   onModeChange,
 }: AuthModalProps) {
-  console.log('AuthModal 렌더링:', { isOpen, mode });
 
   const [loginForm, setLoginForm] = useState({
     email: '',
@@ -636,4 +635,6 @@ export function AuthModal({
       </div>
     </div>
   );
-}
+});
+
+export { AuthModal };

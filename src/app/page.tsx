@@ -58,11 +58,6 @@ export default function Home() {
     setAuthMode(mode);
   };
 
-  // showAuthModal 상태 변화 감지
-  useEffect(() => {
-    console.log('showAuthModal 상태 변화:', showAuthModal);
-  }, [showAuthModal]);
-
   // 애니메이션 변수들
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -706,14 +701,16 @@ export default function Home() {
         </section>
       </MainLayout>
 
-      {/* 로그인/회원가입 모달 - MainLayout 밖으로 이동 */}
-      <AuthModal
-        isOpen={showAuthModal}
-        onClose={() => setShowAuthModal(false)}
-        onLogin={handleLogin}
-        mode={authMode}
-        onModeChange={handleAuthModeChange}
-      />
+      {/* 로그인/회원가입 모달 - 조건부 렌더링으로 최적화 */}
+      {showAuthModal && (
+        <AuthModal
+          isOpen={showAuthModal}
+          onClose={() => setShowAuthModal(false)}
+          onLogin={handleLogin}
+          mode={authMode}
+          onModeChange={handleAuthModeChange}
+        />
+      )}
     </>
   );
 }
