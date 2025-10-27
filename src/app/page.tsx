@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSession, signOut } from 'next-auth/react';
 import { MainLayout } from '@/components/layout/main-layout';
 import AuthButton from '@/components/auth/auth-button';
 import { Button } from '@/components/ui/button';
@@ -34,22 +35,41 @@ import { motion } from 'framer-motion';
 import { AuthModal } from '@/components/auth/AuthModal';
 
 export default function Home() {
-  // 로그인 상태 관리
+  // NextAuth 세션 사용
+  const { data: session, status } = useSession();
+  
+  // 로그인 상태 관리 (NextAuth 세션과 동기화)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState<{ name: string; email: string } | null>(
-    null
-  );
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
 
-  // 로그인/로그아웃 핸들러
+  // NextAuth 세션과 로컬 상태 동기화
+  useEffect(() => {
+    if (session?.user) {
+      setIsLoggedIn(true);
+      setUser({
+        name: session.user.name || '사용자',
+        email: session.user.email || '',
+      });
+    } else {
+      setIsLoggedIn(false);
+      setUser(null);
+    }
+  }, [session]);
+
+  // 로그인/로그아웃 핸들러 (NextAuth와 연동)
   const handleLogin = (userData: { name: string; email: string }) => {
-    setUser(userData);
-    setIsLoggedIn(true);
+    // NextAuth 세션이 있으면 로컬 상태도 업데이트
+    if (session?.user) {
+      setUser(userData);
+      setIsLoggedIn(true);
+    }
     setShowAuthModal(false);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
     setUser(null);
     setIsLoggedIn(false);
   };
@@ -264,12 +284,12 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                 >
-                  {isLoggedIn ? (
+                  {session?.user ? (
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-2 text-white">
                         <User className="h-5 w-5" />
                         <span className="font-medium">
-                          {user?.name}님, 안녕하세요!
+                          {session.user.name || '사용자'}님, 안녕하세요!
                         </span>
                       </div>
                       <Button
