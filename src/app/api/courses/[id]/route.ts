@@ -182,23 +182,11 @@ export async function GET(
         '📋 필요한 마이그레이션: 20241219_001_initial_schema.sql, 20241219_002_sample_data.sql'
       );
 
-      // 데이터베이스에 데이터가 없을 때 목업 데이터 사용
+      // 데이터베이스에 데이터가 없을 때 에러 반환
       console.log('🔍 현재 환경:', process.env.NODE_ENV);
       console.log(
         '📋 데이터베이스에 코스 데이터가 없습니다. 마이그레이션을 실행해주세요.'
       );
-      console.log('📋 임시로 목업 데이터를 사용합니다.');
-
-      try {
-        const fallbackCourse = mockCourses.courses.find((c) => c.id === id);
-        if (fallbackCourse) {
-          console.log('✅ 목업 데이터에서 코스를 찾았습니다.');
-          return NextResponse.json(fallbackCourse);
-        }
-        console.log('❌ 목업 데이터에서도 코스를 찾을 수 없습니다.');
-      } catch (mockError) {
-        console.error('❌ 목업 데이터 로딩 오류:', mockError);
-      }
 
       return NextResponse.json(
         {

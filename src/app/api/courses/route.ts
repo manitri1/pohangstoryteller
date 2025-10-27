@@ -201,15 +201,11 @@ export async function GET() {
         console.log('📋 카테고리 데이터:', categoriesCheck);
       }
 
-      // 데이터베이스에 데이터가 없을 때 목업 데이터 사용
+      // 데이터베이스에 데이터가 없을 때 에러 반환
       console.log('🔍 현재 환경:', process.env.NODE_ENV);
       console.log(
         '📋 데이터베이스에 코스 데이터가 없습니다. 마이그레이션을 실행해주세요.'
       );
-      console.log('📋 임시로 목업 데이터를 사용합니다.');
-
-      // 임시로 목업 데이터 사용 (마이그레이션 완료 후 제거 예정)
-      return NextResponse.json(mockCourses);
 
       return NextResponse.json(
         {
