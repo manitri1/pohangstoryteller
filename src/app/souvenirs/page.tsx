@@ -101,12 +101,12 @@ export default function SouvenirsPage() {
 
   // showEditor 상태 변화 감지
   useEffect(() => {
-    console.log('showEditor 상태 변화:', showEditor);
+    // 상태 변화 감지
   }, [showEditor]);
 
   // selectedTemplate 상태 변화 감지
   useEffect(() => {
-    console.log('selectedTemplate 상태 변화:', selectedTemplate);
+    // 선택된 템플릿 상태 변화 감지
   }, [selectedTemplate]);
 
   // 필터링 및 정렬
@@ -407,15 +407,10 @@ export default function SouvenirsPage() {
   }
 
   // 편집기 표시
-  console.log('렌더링 상태 확인:', {
-    showEditor,
-    selectedTemplate: selectedTemplate?.name,
-    selectedTemplateId: selectedTemplate?.id,
-  });
+  // 렌더링 상태 확인
 
   if (showEditor && selectedTemplate) {
-    console.log('SouvenirEditor 렌더링 조건 만족');
-    console.log('SouvenirEditor에 전달되는 template:', selectedTemplate);
+    // SouvenirEditor 렌더링 조건 만족
     return (
       <SouvenirEditor
         template={selectedTemplate}

@@ -286,11 +286,7 @@ export default function Home() {
                       variant="outline"
                       size="lg"
                       onClick={() => {
-                        console.log('로그인 버튼 클릭됨');
-                        console.log('현재 showAuthModal 상태:', showAuthModal);
-                        alert('로그인 버튼이 클릭되었습니다!');
                         setShowAuthModal(true);
-                        console.log('setShowAuthModal(true) 호출됨');
                       }}
                       className="border-white text-white hover:bg-white/10 w-full sm:w-auto"
                     >

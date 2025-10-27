@@ -166,13 +166,10 @@ export default function SouvenirEditor({
 
   // showSourceSelector 상태 변화 감지
   useEffect(() => {
-    console.log('showSourceSelector 상태 변화:', showSourceSelector);
+    // 상태 변화 감지
   }, [showSourceSelector]);
 
-  console.log('SouvenirEditor 렌더링:', template);
-  console.log('SouvenirEditor props:', { template, onBack, onSave });
-  console.log('SouvenirEditor template.name:', template?.name);
-  console.log('SouvenirEditor template.id:', template?.id);
+  // 렌더링 정보
 
   // 디자인 소스 선택
   const handleSourceSelect = (sourceType: string, sourceData: any) => {

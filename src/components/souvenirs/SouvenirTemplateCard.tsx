@@ -65,13 +65,7 @@ export default function SouvenirTemplateCard({
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
 
-  console.log('SouvenirTemplateCard 렌더링:', {
-    template: template.name,
-    onSelect: !!onSelect,
-    onPreview: !!onPreview,
-    onLike: !!onLike,
-    showActions,
-  });
+  // 렌더링 정보
 
   const getTemplateIcon = (type: string) => {
     switch (type) {
