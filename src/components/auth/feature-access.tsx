@@ -24,7 +24,13 @@ export default function FeatureAccess({
   
   // 디버깅용 로그 (개발 환경에서만)
   if (process.env.NODE_ENV === 'development') {
-    console.log(`FeatureAccess [${featureName}]:`, { status, session: !!session, requireAuth });
+    console.log(`FeatureAccess [${featureName}]:`, { 
+      status, 
+      session: !!session, 
+      sessionUser: session?.user,
+      requireAuth,
+      timestamp: new Date().toISOString()
+    });
   }
 
   // 로그인이 필요하지 않은 기능
