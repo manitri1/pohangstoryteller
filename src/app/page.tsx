@@ -46,6 +46,7 @@ export default function Home() {
 
   // NextAuth 세션과 로컬 상태 동기화
   useEffect(() => {
+    console.log('Session status:', status, 'Session:', session);
     if (session?.user) {
       setIsLoggedIn(true);
       setUser({
@@ -56,7 +57,7 @@ export default function Home() {
       setIsLoggedIn(false);
       setUser(null);
     }
-  }, [session]);
+  }, [session, status]);
 
   // 로그인/로그아웃 핸들러 (NextAuth와 연동)
   const handleLogin = (userData: { name: string; email: string }) => {

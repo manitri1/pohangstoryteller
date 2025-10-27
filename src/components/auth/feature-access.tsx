@@ -21,6 +21,11 @@ export default function FeatureAccess({
   requireAuth = true,
 }: FeatureAccessProps) {
   const { data: session, status } = useSession();
+  
+  // 디버깅용 로그 (개발 환경에서만)
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`FeatureAccess [${featureName}]:`, { status, session: !!session, requireAuth });
+  }
 
   // 로그인이 필요하지 않은 기능
   if (!requireAuth) {
@@ -32,6 +37,7 @@ export default function FeatureAccess({
     return (
       <div className="flex items-center justify-center p-8">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        <span className="ml-2 text-gray-600">로딩 중...</span>
       </div>
     );
   }
