@@ -459,34 +459,49 @@ export async function getMediaStats() {
   try {
     const userId = await getValidUserId(supabase);
 
-    const { data, error } = await supabase.rpc('get_media_stats', {
+    // 먼저 get_advanced_media_stats 함수를 시도
+    const { data, error } = await supabase.rpc('get_advanced_media_stats', {
       p_user_id: userId,
     });
 
     if (error) {
-      console.error('미디어 통계 조회 오류:', error);
+      console.error('고급 미디어 통계 조회 오류:', error);
 
-      // 통계 함수 오류인 경우 더미 데이터 반환
-      if (
-        error.code === '42804' ||
-        error.message?.includes('structure of query')
-      ) {
-        console.log('통계 함수 오류. 더미 통계 데이터 반환...');
-        return {
-          data: {
-            total_files: 0,
-            total_size: 0,
-            image_count: 0,
-            image_size: 0,
-            video_count: 0,
-            video_size: 0,
-            audio_count: 0,
-            audio_size: 0,
-            public_files: 0,
-            private_files: 0,
-          },
-          error: null,
-        };
+      // 고급 함수가 없으면 기본 함수 시도
+      if (error.code === 'PGRST202' && error.message?.includes('get_advanced_media_stats')) {
+        console.log('고급 함수가 없음. 기본 함수 시도...');
+        
+        const { data: basicData, error: basicError } = await supabase.rpc('get_media_stats', {
+          p_user_id: userId,
+        });
+
+        if (basicError) {
+          console.error('기본 미디어 통계 조회 오류:', basicError);
+          
+          // 모든 함수가 실패하면 더미 데이터 반환
+          if (basicError.code === 'PGRST202') {
+            console.log('통계 함수가 없음. 더미 통계 데이터 반환...');
+            return {
+              data: {
+                total_files: 0,
+                total_size: 0,
+                image_count: 0,
+                image_size: 0,
+                video_count: 0,
+                video_size: 0,
+                audio_count: 0,
+                audio_size: 0,
+                public_files: 0,
+                private_files: 0,
+              },
+              error: null,
+            };
+          }
+          
+          throw basicError;
+        }
+
+        return { data: basicData?.[0] || null, error: null };
       }
 
       throw error;
