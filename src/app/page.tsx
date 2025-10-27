@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { MainLayout } from '@/components/layout/main-layout';
 import AuthButton from '@/components/auth/auth-button';
 import { Button } from '@/components/ui/button';
@@ -37,6 +38,7 @@ import { AuthModal } from '@/components/auth/AuthModal';
 export default function Home() {
   // NextAuth 세션 사용
   const { data: session, status } = useSession();
+  const router = useRouter();
   
   // 로그인 상태 관리 (NextAuth 세션과 동기화)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -77,6 +79,12 @@ export default function Home() {
 
   const handleAuthModeChange = (mode: 'login' | 'register') => {
     setAuthMode(mode);
+  };
+
+  // 카드 클릭 핸들러
+  const handleCardClick = (href: string) => {
+    console.log('카드 클릭됨:', href);
+    router.push(href);
   };
 
   // 애니메이션 변수들
@@ -421,34 +429,34 @@ export default function Home() {
                       transition: { duration: 0.2 },
                     }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => handleCardClick(feature.href)}
+                    className="cursor-pointer"
                   >
-                    <Link href={feature.href}>
-                      <Card className="card-story cursor-pointer overflow-hidden">
-                        <motion.div
-                          className="relative"
-                          whileHover={{ scale: 1.1 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <CardHeader className="text-center pb-3">
-                            <motion.div
-                              className={`w-14 h-14 rounded-full ${feature.color} flex items-center justify-center mx-auto mb-3`}
-                              whileHover={{ rotate: 360 }}
-                              transition={{ duration: 0.6 }}
-                            >
-                              <Icon className="h-7 w-7" />
-                            </motion.div>
-                            <CardTitle className="text-h5">
-                              {feature.title}
-                            </CardTitle>
-                          </CardHeader>
-                          <CardContent className="pt-0">
-                            <CardDescription className="text-center text-sm">
-                              {feature.description}
-                            </CardDescription>
-                          </CardContent>
-                        </motion.div>
-                      </Card>
-                    </Link>
+                    <Card className="card-story overflow-hidden">
+                      <motion.div
+                        className="relative"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <CardHeader className="text-center pb-3">
+                          <motion.div
+                            className={`w-14 h-14 rounded-full ${feature.color} flex items-center justify-center mx-auto mb-3`}
+                            whileHover={{ rotate: 360 }}
+                            transition={{ duration: 0.6 }}
+                          >
+                            <Icon className="h-7 w-7" />
+                          </motion.div>
+                          <CardTitle className="text-h5">
+                            {feature.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="pt-0">
+                          <CardDescription className="text-center text-sm">
+                            {feature.description}
+                          </CardDescription>
+                        </CardContent>
+                      </motion.div>
+                    </Card>
                   </motion.div>
                 );
               })}
