@@ -55,7 +55,7 @@ RETURNS TABLE (
   private_files BIGINT,
   recent_uploads BIGINT,
   popular_tags TEXT[],
-  storage_usage_percentage NUMERIC
+  storage_usage_percentage BIGINT
 ) 
 LANGUAGE plpgsql
 SECURITY DEFINER
@@ -84,9 +84,8 @@ BEGIN
       LIMIT 10
     ) as popular_tags,
     ROUND(
-      (COALESCE(SUM(file_size), 0)::NUMERIC / total_storage_limit::NUMERIC) * 100, 
-      2
-    ) as storage_usage_percentage
+      (COALESCE(SUM(file_size), 0)::NUMERIC / total_storage_limit::NUMERIC) * 100
+    )::BIGINT as storage_usage_percentage
   FROM media_files
   WHERE user_id = p_user_id;
 END;

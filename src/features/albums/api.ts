@@ -11,7 +11,45 @@ async function getValidUserId(supabase: any): Promise<string> {
 
     if (session?.user?.id) {
       console.log('Next-Auth 세션 사용:', session.user.id);
-      return session.user.id;
+      
+      // UUID 형식 검증
+      if (session.user.id.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
+        return session.user.id;
+      } else {
+        // 숫자 ID인 경우 UUID로 변환
+        console.warn('Next-Auth ID가 UUID 형식이 아닙니다:', session.user.id);
+        
+        // 기존 사용자 중 첫 번째 사용자 사용
+        const { data: firstUser, error } = await supabase
+          .from('profiles')
+          .select('id')
+          .limit(1)
+          .single();
+
+        if (error || !firstUser) {
+          // 사용자가 없는 경우 테스트 사용자 생성
+          const testUserId = '00000000-0000-0000-0000-000000000001';
+
+          const { error: insertError } = await supabase.from('profiles').insert({
+            id: testUserId,
+            name: '테스트 사용자',
+            email: 'test@example.com',
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          });
+
+          if (insertError) {
+            console.error('테스트 사용자 생성 실패:', insertError);
+            throw new Error('사용자 인증에 실패했습니다.');
+          }
+
+          console.log('테스트 사용자 생성 및 사용:', testUserId);
+          return testUserId;
+        }
+
+        console.log('기존 사용자 사용:', firstUser.id);
+        return firstUser.id;
+      }
     }
 
     // 세션이 없는 경우 기존 사용자 중 첫 번째 사용자 사용

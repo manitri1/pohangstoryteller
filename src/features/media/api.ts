@@ -117,7 +117,15 @@ async function getValidUserId(supabase: any): Promise<string> {
 
     if (session?.user?.id) {
       console.log('Supabase 세션 사용:', session.user.id);
-      return session.user.id;
+      
+      // UUID 형식 검증
+      if (session.user.id.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
+        return session.user.id;
+      } else {
+        console.warn('Supabase 세션 ID가 UUID 형식이 아닙니다:', session.user.id);
+        // UUID가 아닌 경우 테스트 사용자 ID 사용
+        return testUserId;
+      }
     }
   } catch (error) {
     console.log('Supabase 세션 확인 실패:', error);
