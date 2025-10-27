@@ -74,10 +74,6 @@ export default withAuth(
 export const config = {
   matcher: [
     '/stamps/:path*',
-    '/community/:path*',
     '/albums/:path*',
-    '/media/:path*',
-    '/souvenirs/:path*',
-    '/stories/:path*',
   ],
 };
