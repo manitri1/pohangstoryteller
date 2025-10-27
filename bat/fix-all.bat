@@ -1,20 +1,21 @@
 @echo off
 chcp 65001 >nul
-echo 포항 스토리텔러 종합 문제 해결 도구
-echo ====================================
+echo Pohang StoryTeller All-in-One Fix Tool
+echo ======================================
 echo.
 
 :menu
-echo 선택하세요:
-echo 1. 개발 서버 문제 해결 (포트 정리 + 캐시 정리 + 재시작)
-echo 2. 500 오류 빠른 해결 (모든 Node.js 프로세스 종료)
-echo 3. 빌드 문제 해결 (타입 체크 + 린트 + 빌드)
-echo 4. NextAuth 문제 해결 (인증 시스템 오류)
-echo 5. 의존성 재설치
-echo 6. 환경 변수 설정
-echo 7. 종료
+echo Select option:
+echo 1. Fix Dev Server (Port cleanup + Cache cleanup + Restart)
+echo 2. Fix 500 Error (Kill all Node.js processes)
+echo 3. Fix Build Issues (Type check + Lint + Build)
+echo 4. Fix NextAuth Issues (Authentication system errors)
+echo 5. Reinstall Dependencies
+echo 6. Setup Environment Variables
+echo 7. Fix All Issues (Run 1-5 automatically)
+echo 8. Exit
 echo.
-set /p choice="번호를 입력하세요 (1-7): "
+set /p choice="Enter number (1-8): "
 
 if "%choice%"=="1" goto dev_fix
 if "%choice%"=="2" goto fix_500
@@ -22,24 +23,25 @@ if "%choice%"=="3" goto build_fix
 if "%choice%"=="4" goto fix_nextauth
 if "%choice%"=="5" goto reinstall
 if "%choice%"=="6" goto env_setup
-if "%choice%"=="7" goto end
-echo 잘못된 선택입니다. 다시 시도해주세요.
+if "%choice%"=="7" goto fix_all
+if "%choice%"=="8" goto end
+echo Invalid selection. Please try again.
 echo.
 goto menu
 
 :dev_fix
 echo.
-echo [개발 서버 문제 해결]
-echo ====================
-echo 포트 정리 중...
+echo [Fixing Dev Server]
+echo ===================
+echo Cleaning ports...
 for /f "tokens=5" %%a in ('netstat -ano ^| findstr :3000') do taskkill /PID %%a /F >nul 2>&1
 for /f "tokens=5" %%a in ('netstat -ano ^| findstr :3001') do taskkill /PID %%a /F >nul 2>&1
 
-echo 캐시 정리 중...
+echo Cleaning cache...
 if exist .next rmdir /s /q .next
 if exist node_modules\.cache rmdir /s /q node_modules\.cache
 
-echo 개발 서버 시작...
+echo Starting dev server...
 npm run dev
 goto menu
 
@@ -195,8 +197,118 @@ if exist .env.local (
 pause
 goto menu
 
+:fix_all
+echo.
+echo [Fixing All Issues - Running 1-5 Automatically]
+echo ================================================
+echo This will run the following steps sequentially:
+echo 1. Kill all Node.js processes
+echo 2. Clean ports (3000, 3001)
+echo 3. Clean cache (.next, node_modules\.cache)
+echo 4. Reinstall dependencies
+echo 5. Type check and lint
+echo 6. Start dev server
+echo.
+echo Continue? (y/n)
+set /p confirm=""
+if /i not "%confirm%"=="y" goto menu
+
+echo.
+echo [Step 1] Killing all Node.js processes...
+taskkill /IM node.exe /F >nul 2>&1
+echo Done
+
+echo.
+echo [Step 2] Cleaning ports...
+for /f "tokens=5" %%a in ('netstat -ano ^| findstr :3000') do taskkill /PID %%a /F >nul 2>&1
+for /f "tokens=5" %%a in ('netstat -ano ^| findstr :3001') do taskkill /PID %%a /F >nul 2>&1
+echo Done
+
+echo.
+echo [Step 3] Cleaning cache...
+echo Stopping all processes that might be using files...
+taskkill /IM node.exe /F >nul 2>&1
+taskkill /IM npm.exe /F >nul 2>&1
+timeout /t 2 /nobreak >nul
+
+echo Force deleting .next folder...
+if exist .next (
+    attrib -r -h -s .next\*.* /s /d >nul 2>&1
+    rmdir /s /q .next >nul 2>&1
+    if exist .next (
+        echo Warning: Could not delete .next folder completely
+        echo Trying alternative method...
+        del /f /s /q .next\*.* >nul 2>&1
+        rmdir /s /q .next >nul 2>&1
+    )
+)
+
+echo Cleaning other cache folders...
+if exist node_modules\.cache rmdir /s /q node_modules\.cache
+if exist out rmdir /s /q out
+if exist dist rmdir /s /q dist
+if exist .turbo rmdir /s /q .turbo
+
+echo Clearing npm cache...
+npm cache clean --force >nul 2>&1
+
+echo Done
+
+echo.
+echo [Step 4] Reinstalling dependencies...
+if exist node_modules rmdir /s /q node_modules
+if exist package-lock.json del package-lock.json
+echo Installing dependencies... (This may take a while)
+npm install
+if %errorlevel% neq 0 (
+    echo Failed to install dependencies! Check your internet connection.
+    pause
+    goto menu
+)
+echo Done
+
+echo.
+echo [Step 5] Type checking...
+npx tsc --noEmit --skipLibCheck
+if %errorlevel% neq 0 (
+    echo Type errors found! But continuing...
+) else (
+    echo Type check passed
+)
+
+echo.
+echo [Step 6] Lint checking...
+npx eslint . --ext .ts,.tsx --max-warnings 0 >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Lint errors found! But continuing...
+) else (
+    echo Lint check passed
+)
+
+echo.
+echo [Step 7] Checking environment variables...
+if exist .env.local (
+    echo .env.local file exists
+) else (
+    echo .env.local file missing - using defaults
+)
+
+echo.
+echo [Step 8] Starting dev server...
+echo Starting dev server in 3 seconds...
+timeout /t 3 /nobreak >nul
+echo.
+echo Starting dev server...
+echo Open http://localhost:3000 in your browser
+echo.
+echo Note: If you see image loading errors (522), it's due to picsum.photos service issues.
+echo This is normal and doesn't affect functionality.
+echo.
+npm run dev
+goto menu
+
 :end
 echo.
-echo 프로그램을 종료합니다.
-echo 감사합니다!
+echo Exiting program.
+echo Thank you!
 pause

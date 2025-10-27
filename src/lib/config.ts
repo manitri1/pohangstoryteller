@@ -3,12 +3,12 @@ export const config = {
   // Kakao Map API 키 (실제 배포 시 환경 변수로 관리)
   kakaoMapApiKey:
     process.env.NEXT_PUBLIC_KAKAO_MAP_API_KEY ||
-    '81bc629292619cb2ede368c8b02a7f25',
+    'your_kakao_map_api_key_here',
 
   // Google Maps API 키 (실제 배포 시 환경 변수로 관리)
   googleMapsApiKey:
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ||
-    'AIzaSyAcvVAi0JxHsT4b8LKFRrOgdHmvv_mF0io',
+    'your_google_maps_api_key_here',
 
   // OpenAI API 키 (실제 배포 시 환경 변수로 관리)
   openaiApiKey: process.env.OPENAI_API_KEY || 'your_openai_api_key_here',

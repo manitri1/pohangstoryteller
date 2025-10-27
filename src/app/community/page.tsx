@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -28,10 +28,53 @@ import {
   getComments,
 } from '@/features/community/api';
 import { toast } from '@/hooks/use-toast';
+import { createClient } from '@/lib/supabase/client';
 
+// 실제 데이터베이스에서 posts 가져오기
+async function fetchPosts() {
+  const supabase = createClient();
+  
+  const { data, error } = await supabase
+    .from('posts')
+    .select(`
+      *,
+      profiles!author_id (
+        id,
+        name,
+        avatar_url
+      ),
+      likes:likes(count),
+      comments:comments(count),
+      bookmarks:bookmarks(count)
+    `)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Posts 조회 오류:', error);
+    return [];
+  }
+
+  return data?.map(post => ({
+    id: post.id,
+    author: post.profiles?.name || '익명',
+    avatar: post.profiles?.avatar_url || 'https://picsum.photos/40/40?random=1',
+    title: post.title,
+    content: post.content,
+    image: post.image_url,
+    likes: post.likes?.[0]?.count || 0,
+    comments: post.comments?.[0]?.count || 0,
+    bookmarks: post.bookmarks?.[0]?.count || 0,
+    tags: post.tags || [],
+    createdAt: new Date(post.created_at).toLocaleDateString(),
+    isLiked: false, // TODO: 사용자별 좋아요 상태 확인
+    isBookmarked: false, // TODO: 사용자별 북마크 상태 확인
+  })) || [];
+}
+
+// 실제 데이터베이스에서 생성된 posts의 ID 사용
 const mockPosts = [
   {
-    id: 1,
+    id: 'd1fc3358-a0f5-489d-9b13-0f2c988c4448', // 실제 DB의 첫 번째 post ID
     author: '포항여행러',
     avatar: 'https://picsum.photos/40/40?random=1',
     title: '포항 호미곶 일출 정말 아름다웠어요!',
@@ -47,7 +90,7 @@ const mockPosts = [
     isBookmarked: false,
   },
   {
-    id: 2,
+    id: '99a649b7-48c6-4053-9226-42352ab0a22b', // 실제 DB의 두 번째 post ID
     author: '맛집탐방러',
     avatar: 'https://picsum.photos/40/40?random=2',
     title: '포항 과메기 맛집 추천해주세요!',
@@ -63,7 +106,7 @@ const mockPosts = [
     isBookmarked: false,
   },
   {
-    id: 3,
+    id: '7f97a5bf-578e-4f4b-a543-d9192bc30037', // 실제 DB의 세 번째 post ID
     author: '역사탐방러',
     avatar: 'https://picsum.photos/40/40?random=3',
     title: '포항 역사박물관 방문 후기',
@@ -93,22 +136,48 @@ export default function CommunityPage() {
 }
 
 function CommunityContent() {
-  const [posts, setPosts] = useState(mockPosts);
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // 실제 데이터베이스에서 posts 로드
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        const fetchedPosts = await fetchPosts();
+        if (fetchedPosts.length > 0) {
+          setPosts(fetchedPosts);
+        } else {
+          // 데이터가 없으면 mockPosts 사용
+          console.log('데이터베이스에 posts가 없어서 mockPosts 사용');
+          setPosts(mockPosts);
+        }
+      } catch (error) {
+        console.error('Posts 로드 실패:', error);
+        // 실패 시 mockPosts 사용
+        console.log('데이터베이스 연결 실패로 mockPosts 사용');
+        setPosts(mockPosts);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    loadPosts();
+  }, []);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('전체');
   const [showPostWriter, setShowPostWriter] = useState(false);
   const [showCommentModal, setShowCommentModal] = useState(false);
-  const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
+  const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
   const [comments, setComments] = useState<any[]>([]);
 
-  const handleLike = async (postId: number) => {
+  const handleLike = async (postId: string) => {
     const post = posts.find((p) => p.id === postId);
     if (!post) return;
 
     try {
       if (post.isLiked) {
         // 좋아요 취소
-        const { error } = await unlikePost(postId.toString());
+        const { error } = await unlikePost(postId);
         if (error) throw error;
 
         setPosts((prev) =>
@@ -124,7 +193,7 @@ function CommunityContent() {
         );
       } else {
         // 좋아요 추가
-        const { error } = await likePost(postId.toString());
+        const { error } = await likePost(postId);
         if (error) throw error;
 
         setPosts((prev) =>
@@ -149,14 +218,14 @@ function CommunityContent() {
     }
   };
 
-  const handleBookmark = async (postId: number) => {
+  const handleBookmark = async (postId: string) => {
     const post = posts.find((p) => p.id === postId);
     if (!post) return;
 
     try {
       if (post.isBookmarked) {
         // 북마크 취소
-        const { error } = await unbookmarkPost(postId.toString());
+        const { error } = await unbookmarkPost(postId);
         if (error) throw error;
 
         setPosts((prev) =>
@@ -172,7 +241,7 @@ function CommunityContent() {
         );
       } else {
         // 북마크 추가
-        const { error } = await bookmarkPost(postId.toString());
+        const { error } = await bookmarkPost(postId);
         if (error) throw error;
 
         setPosts((prev) =>
@@ -203,13 +272,13 @@ function CommunityContent() {
   };
 
   // 댓글 모달 열기
-  const handleOpenCommentModal = async (postId: number) => {
+  const handleOpenCommentModal = async (postId: string) => {
     setSelectedPostId(postId);
     setShowCommentModal(true);
 
     try {
       // 댓글 목록 가져오기
-      const { data, error } = await getComments(postId.toString());
+      const { data, error } = await getComments(postId);
       if (error) throw error;
 
       setComments(data || []);
@@ -239,7 +308,7 @@ function CommunityContent() {
       // 게시글의 댓글 수 증가
       setPosts((prev) =>
         prev.map((post) =>
-          post.id === parseInt(postId)
+          post.id === postId
             ? { ...post, comments: post.comments + 1 }
             : post
         )
@@ -259,6 +328,21 @@ function CommunityContent() {
     const matchesFilter = filter === '전체' || post.tags.includes(filter);
     return matchesSearch && matchesFilter;
   });
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center items-center h-64">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p className="text-gray-600">게시글을 불러오는 중...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -451,7 +535,7 @@ function CommunityContent() {
       {/* 댓글 모달 */}
       {selectedPostId && (
         <CommentModal
-          postId={selectedPostId.toString()}
+          postId={selectedPostId}
           isOpen={showCommentModal}
           onClose={() => {
             setShowCommentModal(false);

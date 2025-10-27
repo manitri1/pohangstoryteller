@@ -21,12 +21,16 @@ const mockCourse = {
   title: '포항 바다와 일몰의 만남',
   description:
     '영일대 해수욕장에서 시작하여 포항운하를 따라 산책하며 아름다운 일몰을 감상하는 코스',
-  category: '자연경관',
-  duration: 180,
+  fullDescription: '영일대 해수욕장에서 시작하여 포항운하를 따라 산책하며 아름다운 일몰을 감상하는 코스입니다. 바다의 신선한 바람과 함께하는 힐링 여행을 즐겨보세요.',
+  duration: '180분',
   difficulty: '쉬움',
-  distance: 5.2,
+  rating: 4.5,
+  category: '자연경관',
   cost: '20,000원',
   image: 'https://picsum.photos/800/600?random=1',
+  tips: ['일몰 시간을 미리 확인하세요', '편안한 신발을 착용하세요', '카메라를 준비하세요'],
+  transportation: '도보',
+  bestTime: '오후 4-6시',
   locations: [
     {
       id: '1',
@@ -34,11 +38,12 @@ const mockCourse = {
       description: '포항의 대표적인 해수욕장',
       coordinates: { lat: 36.0194, lng: 129.3656 },
       qrCode: 'QR_YEONGILDAE_001',
+      image: 'https://picsum.photos/400/300?random=1',
       imageUrl: 'https://picsum.photos/400/300?random=1',
       media: [
         {
           id: '1',
-          type: 'image',
+          type: 'image' as const,
           url: 'https://picsum.photos/400/300?random=1',
           title: '영일대 해수욕장',
         },
@@ -50,11 +55,12 @@ const mockCourse = {
       description: '포항의 운하를 따라 산책할 수 있는 아름다운 경관',
       coordinates: { lat: 36.02, lng: 129.37 },
       qrCode: 'QR_POHANG_CANAL_001',
+      image: 'https://picsum.photos/400/300?random=2',
       imageUrl: 'https://picsum.photos/400/300?random=2',
       media: [
         {
           id: '2',
-          type: 'video',
+          type: 'video' as const,
           url: 'https://example.com/video.mp4',
           title: '포항운하 영상',
           duration: 60,
@@ -88,7 +94,7 @@ describe('CourseDetail', () => {
     expect(screen.getByText(mockCourse.title)).toBeInTheDocument();
     expect(screen.getByText(mockCourse.description)).toBeInTheDocument();
     expect(screen.getByText(mockCourse.category)).toBeInTheDocument();
-    expect(screen.getByText(`${mockCourse.duration}분`)).toBeInTheDocument();
+    expect(screen.getByText(mockCourse.duration)).toBeInTheDocument();
     expect(screen.getByText(mockCourse.difficulty)).toBeInTheDocument();
   });
 
@@ -190,12 +196,16 @@ describe('CourseDetail', () => {
       id: '1',
       title: 'Test Course',
       description: '',
-      category: '자연경관',
-      duration: 0,
+      fullDescription: '',
+      duration: '0분',
       difficulty: '쉬움',
-      distance: 0,
+      rating: 0,
+      category: '자연경관',
       cost: '',
       image: '',
+      tips: [],
+      transportation: '',
+      bestTime: '',
       locations: [],
     };
 

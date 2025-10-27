@@ -12,8 +12,8 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 const supabase = createClient(
-  supabaseUrl || 'https://dummy.supabase.co',
-  supabaseKey || 'dummy_key'
+  supabaseUrl || 'https://your-project.supabase.co',
+  supabaseKey || 'your_supabase_service_role_key_here'
 );
 
 export async function GET(request: NextRequest) {

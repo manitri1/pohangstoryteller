@@ -16,15 +16,15 @@ declare module 'next-auth' {
 // 환경변수 검증
 const supabaseUrl =
   process.env.NEXT_PUBLIC_SUPABASE_URL ||
-  'https://dfnqxobgwxmxywlpwvov.supabase.co';
+  'https://your-project.supabase.co';
 const supabaseServiceKey =
   process.env.SUPABASE_SERVICE_ROLE_KEY ||
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRmbnF4b2Jnd3hteHl3bHB3dm92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1OTY3MDgwOSwiZXhwIjoyMDc1MjQ2ODA5fQ.OZN0ymnFKtwX7kL0BNUf3UTDM319esJHKtNZISmUH5c';
+  'your_supabase_service_role_key_here';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || 'fallback-secret-for-development',
   providers: [
     CredentialsProvider({
       name: 'credentials',

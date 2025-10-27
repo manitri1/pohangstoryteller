@@ -8,9 +8,9 @@ dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
 // Supabase 클라이언트 생성
 const supabaseUrl =
-  process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co';
+  process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://your-project.supabase.co';
 const supabaseKey =
-  process.env.SUPABASE_SERVICE_ROLE_KEY || 'dummy_service_role_key';
+  process.env.SUPABASE_SERVICE_ROLE_KEY || 'your_supabase_service_role_key_here';
 
 console.log('🔧 환경변수 확인:');
 console.log(`   Supabase URL: ${supabaseUrl}`);

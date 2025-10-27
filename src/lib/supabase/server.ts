@@ -8,9 +8,9 @@ export async function createClient() {
 
   // 환경 변수 확인 및 기본값 설정
   const supabaseUrl =
-    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co';
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://your-project.supabase.co';
   const supabaseKey =
-    process.env.SUPABASE_SERVICE_ROLE_KEY || 'dummy_service_role_key';
+    process.env.SUPABASE_SERVICE_ROLE_KEY || 'your_supabase_service_role_key_here';
 
   if (
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
@@ -43,8 +43,8 @@ export async function createClient() {
 
 export async function createPureClient() {
   return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
-    process.env.SUPABASE_SERVICE_ROLE_KEY || 'dummy_service_role_key',
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://your-project.supabase.co',
+    process.env.SUPABASE_SERVICE_ROLE_KEY || 'your_supabase_service_role_key_here',
     {
       cookies: {
         getAll() {
