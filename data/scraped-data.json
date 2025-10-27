@@ -1,0 +1,3229 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-27T03:13:13.097Z",
+    "totalCount": 194,
+    "sources": [
+      "kakao",
+      "naver"
+    ],
+    "apiKeyStatus": {
+      "kakao": "valid",
+      "naver": "valid"
+    }
+  },
+  "data": [
+    {
+      "name": "영일대해수욕장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0550695749354,
+        "lng": 129.378187000619
+      },
+      "address": "경북 포항시 북구 두호동 685-1",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해수욕장",
+        "바다"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "영일대해수욕장 노상공영주차장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.05306066876168,
+        "lng": 129.3764921749489
+      },
+      "address": "경북 포항시 북구 항구동 331-1",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해수욕장",
+        "바다"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "CU 영일대해수욕장2호점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.055754035804625,
+        "lng": 129.3773842969178
+      },
+      "address": "경북 포항시 북구 항구동 338",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해수욕장",
+        "바다"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "이마트24 R영일대해수욕장점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.05701884184921,
+        "lng": 129.37780184257957
+      },
+      "address": "경북 포항시 북구 두호동 688",
+      "phone": "02-6916-1500",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해수욕장",
+        "바다"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "CU 영일대해수욕장1호점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.05739608130486,
+        "lng": 129.37790640420167
+      },
+      "address": "경북 포항시 북구 두호동 684",
+      "phone": "054-241-2242",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해수욕장",
+        "바다"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "CU영일대해수욕장1호점 ATM",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.05742368699347,
+        "lng": 129.37792276961113
+      },
+      "address": "경북 포항시 북구 두호동 684",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해수욕장",
+        "바다"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "CU ATM 영일대해수욕장2호점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0557806598031,
+        "lng": 129.377223099412
+      },
+      "address": "경북 포항시 북구 항구동 338",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해수욕장",
+        "바다"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "호미곶",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0780561712913,
+        "lng": 129.56973687334
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리",
+      "phone": "054-270-5855",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "호미곶 해맞이광장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.076761574449,
+        "lng": 129.567927882124
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 226",
+      "phone": "054-270-5855",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "상생의손",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0767341945711,
+        "lng": 129.570044538751
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 286-1",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "해파랑길 15코스",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.058306262034336,
+        "lng": 129.5337565580018
+      },
+      "address": "경북 포항시 남구 호미곶면 대동배리 산 293-7",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "해파랑길 14코스",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.031905291725806,
+        "lng": 129.57699420431413
+      },
+      "address": "경북 포항시 남구 호미곶면 강사리 222-7",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "독수리바위",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0850216798351,
+        "lng": 129.549021252898
+      },
+      "address": "경북 포항시 남구 호미곶면 구만리",
+      "phone": "054-270-2114",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "호미곶유채꽃밭",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0777458604211,
+        "lng": 129.566561506217
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 232-5",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "구룡소",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0571686583743,
+        "lng": 129.525336226312
+      },
+      "address": "경북 포항시 남구 호미곶면 대동배리",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "호미반도 해안둘레길 4코스 호미길",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0840812936656,
+        "lng": 129.551127499373
+      },
+      "address": "경북 포항시 남구 호미곶면 구만리 481-7",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "구만(꺼꾸리)방파제",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0806077776824,
+        "lng": 129.545597861243
+      },
+      "address": "경북 포항시 남구 호미곶면 구만리 680-8",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포스코 포항제철소 정문",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0010236953501,
+        "lng": 129.384723090691
+      },
+      "address": "경북 포항시 남구 동촌동 5-5",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포스코 포항제철소 2문",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9956317510984,
+        "lng": 129.392206496254
+      },
+      "address": "경북 포항시 남구 동촌동",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포스코 포항제철소 3문",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9949507142657,
+        "lng": 129.401215341833
+      },
+      "address": "경북 포항시 남구 청림동 900-6",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포스코 포항제철소 1문",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0083380098119,
+        "lng": 129.377052455981
+      },
+      "address": "경북 포항시 남구 송내동 376-22",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포스코 포항제철소 파트너사협회",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0133747399281,
+        "lng": 129.370035281044
+      },
+      "address": "경북 포항시 남구 해도동 171-18",
+      "phone": "054-220-4301",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사",
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "이마트24 포항제철소중앙대식당점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9985731636754,
+        "lng": 129.382675652342
+      },
+      "address": "경북 포항시 남구 괴동동 1",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "이마트24 포항제철소파이넥스점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0001326805728,
+        "lng": 129.386712040617
+      },
+      "address": "경북 포항시 남구 동촌동 5",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "이마트24 포항제철소압연점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9962949547389,
+        "lng": 129.38668726229196
+      },
+      "address": "경북 포항시 남구 괴동동 1-33",
+      "phone": "054-220-4284",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포스코 포항제철소",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0074245845458,
+        "lng": 129.390726577049
+      },
+      "address": "경북 포항시 남구 송내동 1-365",
+      "phone": "054-220-1114",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항고기제철소",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.05994659192835,
+        "lng": 129.37832384273722
+      },
+      "address": "경북 포항시 북구 두호동 1035-11",
+      "phone": "054-242-5121",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.012436470681074,
+        "lng": 129.32180208599536
+      },
+      "address": "경북 포항시 남구 지곡동 166-14",
+      "phone": "054-279-0114",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 친환경소재대학원",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.01090405763204,
+        "lng": 129.32783202008443
+      },
+      "address": "경북 포항시 남구 지곡동 166-5",
+      "phone": "054-279-9201",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 인공지능대학원",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.010632972193,
+        "lng": 129.321181382701
+      },
+      "address": "경북 포항시 남구 효자동 515",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 대학원",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0111350627065,
+        "lng": 129.32279745785618
+      },
+      "address": "경북 포항시 남구 효자동 산 27",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 엔지니어링 대학원",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.010914217807,
+        "lng": 129.32786558782
+      },
+      "address": "경북 포항시 남구 지곡동 166-5",
+      "phone": "054-279-0151",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 정보통신대학원",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.012359608112135,
+        "lng": 129.32176988812085
+      },
+      "address": "경북 포항시 남구 지곡동 166-14",
+      "phone": "054-279-8402",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 포스코국제관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0141297968129,
+        "lng": 129.320946822754
+      },
+      "address": "경북 포항시 남구 지곡동 산 260-1",
+      "phone": "054-279-8500",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 박태준학술정보관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.01279735265112,
+        "lng": 129.3251706949967
+      },
+      "address": "경북 포항시 남구 지곡동 166-20",
+      "phone": "054-279-2900",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 체육관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.01879324225,
+        "lng": 129.323186435887
+      },
+      "address": "경북 포항시 남구 지곡동 295",
+      "phone": "054-279-3881",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항공과대학교 포항가속기연구소",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.02261526105398,
+        "lng": 129.31676370294073
+      },
+      "address": "경북 포항시 남구 지곡동 산 183",
+      "phone": "054-279-1050",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항시립미술관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0665132318315,
+        "lng": 129.391164741594
+      },
+      "address": "경북 포항시 북구 환호동 352",
+      "phone": "054-270-4700",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "미술",
+        "문화"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항시립미술관 도서자료실",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0663197778717,
+        "lng": 129.391106726785
+      },
+      "address": "경북 포항시 북구 환호동 산 56-1",
+      "phone": "054-270-4701",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "미술",
+        "문화"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "카페파노라마",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.06627234317768,
+        "lng": 129.39122625047455
+      },
+      "address": "경북 포항시 북구 환호동 351",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "카페",
+        "커피"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항시립미술관 전기차충전소",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.06662624960784,
+        "lng": 129.39087408547272
+      },
+      "address": "경북 포항시 북구 환호동 351",
+      "phone": "1522-2573",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "미술",
+        "문화"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항시립영암도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.01286420054624,
+        "lng": 129.3581405914675
+      },
+      "address": "경북 포항시 남구 대도동 632-11",
+      "phone": "054-270-5685",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항시립 대잠도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0189367838694,
+        "lng": 129.344320711525
+      },
+      "address": "경북 포항시 남구 대잠동 1001",
+      "phone": "054-270-5680",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항시립구룡포도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.98295588874648,
+        "lng": 129.55027628584438
+      },
+      "address": "경북 포항시 남구 구룡포읍 병포리 139-1",
+      "phone": "054-270-5629",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "동해석곡도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.99082762434,
+        "lng": 129.437480877629
+      },
+      "address": "경북 포항시 남구 동해면 도구리 602-15",
+      "phone": "054-270-4625",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포은중앙도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0438652808772,
+        "lng": 129.36743020094
+      },
+      "address": "경북 포항시 북구 덕수동 35-19",
+      "phone": "054-270-4600",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항문화재단",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.04374001764378,
+        "lng": 129.3685713632009
+      },
+      "address": "경북 포항시 북구 동빈1가 90",
+      "phone": "054-289-7999",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항문화예술회관 대공연장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0092055841648,
+        "lng": 129.365989244226
+      },
+      "address": "경북 포항시 남구 대도동 303-1",
+      "phone": "054-289-7999",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항문화예술회관 소공연장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0096122429403,
+        "lng": 129.366019145407
+      },
+      "address": "경북 포항시 남구 대도동 303-1",
+      "phone": "054-289-7999",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항문화예술회관 주차장1",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0094215471099,
+        "lng": 129.365272677607
+      },
+      "address": "경북 포항시 남구 대도동 303-1",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항문화예술회관 주차장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0095575348682,
+        "lng": 129.365230166912
+      },
+      "address": "경북 포항시 남구 대도동 303-1",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항문화예술회관 주차장2",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0094750423432,
+        "lng": 129.3674921409
+      },
+      "address": "경북 포항시 남구 해도동 185-2",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "문화예술회관사거리",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0105246979599,
+        "lng": 129.364524951411
+      },
+      "address": "경북 포항시 남구 대도동",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "히즈빈스 문화예술회관점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0096122429403,
+        "lng": 129.366019145407
+      },
+      "address": "경북 포항시 남구 대도동 303-1",
+      "phone": "054-274-2540",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "문화예술회관 전기차충전소",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.00921524357631,
+        "lng": 129.36540845437187
+      },
+      "address": "경북 포항시 남구 대도동 303-1",
+      "phone": "1661-9408",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항운하",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0235774310417,
+        "lng": 129.378592876827
+      },
+      "address": "경북 포항시 남구 송도동 222",
+      "phone": "054-270-5177",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항운하공영주차장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0286092210031,
+        "lng": 129.373286959683
+      },
+      "address": "경북 포항시 남구 해도동 550",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항운하 스마트도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0281945788017,
+        "lng": 129.374206238161
+      },
+      "address": "경북 포항시 남구 해도동 1-201",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항운하스케치카페",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.028193612508,
+        "lng": 129.374209536742
+      },
+      "address": "경북 포항시 남구 해도동 1-201",
+      "phone": "070-7322-0089",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "카페",
+        "커피"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항운하 물관리센터",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0237420886027,
+        "lng": 129.377559683265
+      },
+      "address": "경북 포항시 남구 송도동 516-36",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항운하에어컨",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0453760183685,
+        "lng": 129.36935594937
+      },
+      "address": "경북 포항시 북구 동빈1가 73-11",
+      "phone": "054-276-6728",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "운하회대게식당",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.03561293669932,
+        "lng": 129.36971891782127
+      },
+      "address": "경북 포항시 북구 죽도동 568-3",
+      "phone": "054-246-5656",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항요양병원",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.128187339052545,
+        "lng": 129.35404629555796
+      },
+      "address": "경북 포항시 북구 흥해읍 용천리 735",
+      "phone": "054-262-1000",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "운하모텔",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0397355347126,
+        "lng": 129.36941650778527
+      },
+      "address": "경북 포항시 북구 동빈2가 137-3",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "달빛운하문보트",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.03199610658488,
+        "lng": 129.37150843947214
+      },
+      "address": "경북 포항시 남구 해도동 537",
+      "phone": "054-275-3188",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "죽도시장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.03635459216977,
+        "lng": 129.36839001006632
+      },
+      "address": "경북 포항시 북구 죽도동 2-4",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "죽도시장 공영주차장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0342208980925,
+        "lng": 129.369673866627
+      },
+      "address": "경북 포항시 북구 죽도동 579-1",
+      "phone": "054-280-9421",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항죽도시장맛집 동남회식당",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.035221993546386,
+        "lng": 129.36935000749367
+      },
+      "address": "경북 포항시 북구 죽도동 573-3",
+      "phone": "054-248-2882",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통",
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항죽도시장 주차장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.03521945521776,
+        "lng": 129.36468867959988
+      },
+      "address": "경북 포항시 북구 죽도동 156-12",
+      "phone": "054-246-1700",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "다이소 포항죽도시장점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.03479478749397,
+        "lng": 129.36648411749655
+      },
+      "address": "경북 포항시 북구 죽도동 594-4",
+      "phone": "1522-4400",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "죽도시장 수제비골목",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0355461638973,
+        "lng": 129.368037439579
+      },
+      "address": "경북 포항시 북구 죽도동 2-587",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "죽도시장 노상주차장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0365804967685,
+        "lng": 129.367946396861
+      },
+      "address": "경북 포항시 북구 죽도동 556-1",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "죽도시장 공중화장실",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0354290075615,
+        "lng": 129.367856443048
+      },
+      "address": "경북 포항시 북구 죽도동 2-587",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "죽도시장삼거리",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0372016570576,
+        "lng": 129.369431524904
+      },
+      "address": "경북 포항시 북구 남빈동",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "죽도시장칼제비",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0348066200455,
+        "lng": 129.366751810059
+      },
+      "address": "경북 포항시 북구 죽도동 594-3",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항회식당",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.035674323710964,
+        "lng": 129.36921158939998
+      },
+      "address": "경북 포항시 북구 죽도동 570-2",
+      "phone": "054-249-3027",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항회센터7호 여남점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.073175710132,
+        "lng": 129.412254415619
+      },
+      "address": "경북 포항시 북구 여남동 124",
+      "phone": "054-251-0250",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항회타운독도가는길",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0373772441058,
+        "lng": 129.371668745655
+      },
+      "address": "경북 포항시 남구 송도동 474-8",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "맛있는포항회대게",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0355726961018,
+        "lng": 129.369566847136
+      },
+      "address": "경북 포항시 북구 죽도동 568-6",
+      "phone": "010-2282-4440",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항남교회",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0137311840219,
+        "lng": 129.354874934783
+      },
+      "address": "경북 포항시 남구 상도동 623-5",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항시새마을회",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.064597438303,
+        "lng": 129.193691128211
+      },
+      "address": "경북 포항시 북구 기계면 문성리 357-1",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "마라도회식당",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0647406686574,
+        "lng": 129.387160527094
+      },
+      "address": "경북 포항시 북구 두호동 158",
+      "phone": "054-251-3850",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항바다원해",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.070065858804824,
+        "lng": 129.40143121816283
+      },
+      "address": "경북 포항시 북구 환호동 53",
+      "phone": "0507-1388-9200",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "새포항물회집",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0464179156998,
+        "lng": 129.36956580783
+      },
+      "address": "경북 포항시 북구 대신동 63-3",
+      "phone": "054-241-2087",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항 구룡포과메기축제",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9906228480142,
+        "lng": 129.559544026241
+      },
+      "address": "경북 포항시 남구 구룡포읍 구룡포리 954-34",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "과메기",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항구룡포과메기사업협동조합",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.98642607805251,
+        "lng": 129.5518147472073
+      },
+      "address": "경북 포항시 남구 구룡포읍 구룡포리 954-13",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "과메기",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "엘토르 원조구룡포과메기전문점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.03249720703172,
+        "lng": 129.36479805535615
+      },
+      "address": "경북 포항시 북구 죽도동 47-8",
+      "phone": "054-275-1772",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "과메기",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "호미곶과메기 이강수산",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.03241097808418,
+        "lng": 129.3647389044242
+      },
+      "address": "경북 포항시 북구 죽도동 47-9",
+      "phone": "010-4089-5353",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "과메기",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "구룡포장원과메기",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0814918730647,
+        "lng": 129.39496048468536
+      },
+      "address": "경북 포항시 북구 장성동 1417-2",
+      "phone": "054-252-2120",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "과메기",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "다락방과메기",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.02265731699608,
+        "lng": 129.35620540749906
+      },
+      "address": "경북 포항시 북구 죽도동 626-18",
+      "phone": "054-283-1915",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "과메기",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "쫑아네과메기",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0463752629975,
+        "lng": 129.368350790662
+      },
+      "address": "경북 포항시 북구 대신동 67-52",
+      "phone": "010-4197-6500",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "과메기",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항밤바다",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0052987467726,
+        "lng": 129.342135837073
+      },
+      "address": "경북 포항시 남구 효자동 604-1",
+      "phone": "054-277-2466",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "구룡수산 싱싱과메기",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9773600794194,
+        "lng": 129.551121437508
+      },
+      "address": "경북 포항시 남구 구룡포읍 병포리 247-2",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "과메기",
+        "전통"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "이동생선구이",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.020170764740925,
+        "lng": 129.34055976225866
+      },
+      "address": "경북 포항시 남구 대잠동 996",
+      "phone": "054-278-0677",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "양덕생선구이전문점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0791367636812,
+        "lng": 129.399684918993
+      },
+      "address": "경북 포항시 북구 양덕동 1638",
+      "phone": "054-256-2232",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "싱싱생선구이",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.1126517302871,
+        "lng": 129.431015616055
+      },
+      "address": "경북 포항시 북구 흥해읍 용한리 7-6",
+      "phone": "054-251-5929",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "567생선구이",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.015677978541,
+        "lng": 129.349469831671
+      },
+      "address": "경북 포항시 북구 죽도동 711-11",
+      "phone": "010-4981-4600",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "강산생선구이",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.003743090354,
+        "lng": 129.317218056605
+      },
+      "address": "경북 포항시 남구 연일읍 유강리 589-9",
+      "phone": "054-278-3977",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "향로생선구이정식",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.013968195886,
+        "lng": 129.356293743137
+      },
+      "address": "경북 포항시 남구 상도동 617-18",
+      "phone": "054-281-1855",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항막회",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.061321142762,
+        "lng": 129.369520139746
+      },
+      "address": "경북 포항시 북구 창포동 629-1",
+      "phone": "054-255-6777",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "달빛에구운고등어 포항양덕점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0815738945762,
+        "lng": 129.402427306562
+      },
+      "address": "경북 포항시 북구 양덕동 1767-1",
+      "phone": "054-246-3002",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "오호리준 포항영일대점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0595561388166,
+        "lng": 129.378067967107
+      },
+      "address": "경북 포항시 북구 두호동 1035-12",
+      "phone": "054-610-2833",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "느린마을양조장 포항효자점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0048272091787,
+        "lng": 129.337951410548
+      },
+      "address": "경북 포항시 남구 효자동 594-6",
+      "phone": "054-277-9310",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "육장갈비 포항원동점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9730513774655,
+        "lng": 129.401659966101
+      },
+      "address": "경북 포항시 남구 오천읍 원리 1083",
+      "phone": "054-292-7892",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "깡통갈비 포항효자본점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0051112471441,
+        "lng": 129.335119963185
+      },
+      "address": "경북 포항시 남구 효자동 590-6",
+      "phone": "054-277-9288",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "명륜진사갈비 포항두호점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0662548554818,
+        "lng": 129.372256056251
+      },
+      "address": "경북 포항시 북구 두호동 1098-8",
+      "phone": "054-726-0200",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "명륜진사갈비 포항이동점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.028806187861,
+        "lng": 129.337221478381
+      },
+      "address": "경북 포항시 남구 이동 649-7",
+      "phone": "054-283-6996",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "명륜진사갈비 포항양덕점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.081576040295,
+        "lng": 129.404744919909
+      },
+      "address": "경북 포항시 북구 양덕동 1845-1",
+      "phone": "054-249-9295",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "솔가숯불갈비 포항점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9737041370785,
+        "lng": 129.402627450995
+      },
+      "address": "경북 포항시 남구 오천읍 원리 1132",
+      "phone": "054-291-2244",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "이박사냄비갈비 포항본점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0281151594942,
+        "lng": 129.359979552785
+      },
+      "address": "경북 포항시 북구 죽도동 201-15",
+      "phone": "054-282-0210",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "해원숯불갈비 포항본점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0805101239546,
+        "lng": 129.392645360557
+      },
+      "address": "경북 포항시 북구 장성동 1424-3",
+      "phone": "054-247-8123",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "훔친갈비 포항오천점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.973511144234415,
+        "lng": 129.4026814538138
+      },
+      "address": "경북 포항시 남구 오천읍 원리 1133",
+      "phone": "054-246-9292",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "명륜진사갈비 포항죽도점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0272571063671,
+        "lng": 129.361276093571
+      },
+      "address": "경북 포항시 북구 죽도동 203-3",
+      "phone": "054-273-3100",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "동네맛집뼈구이집 포항장성점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.07171874203432,
+        "lng": 129.37751199857047
+      },
+      "address": "경북 포항시 북구 장성동 855-1",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "과일담은요거트맛집요맛 포항문덕점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.96777864573516,
+        "lng": 129.4065209498204
+      },
+      "address": "경북 포항시 남구 오천읍 원리 930-9",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항묵돌이",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.05840719011319,
+        "lng": 129.37853159568903
+      },
+      "address": "경북 포항시 북구 두호동 611",
+      "phone": "0507-1405-1962",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항특미물회",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0464068636787,
+        "lng": 129.37012463935
+      },
+      "address": "경북 포항시 북구 동빈1가 71-77",
+      "phone": "054-246-1490",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "황장군 포항점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0190563130326,
+        "lng": 129.354403490225
+      },
+      "address": "경북 포항시 북구 죽도동 653-8",
+      "phone": "054-282-2777",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항 오대양물회식당",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0466667354344,
+        "lng": 129.368099913396
+      },
+      "address": "경북 포항시 북구 대신동 67-5",
+      "phone": "054-244-7164",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항수협 송도활어회센터",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.04615256350299,
+        "lng": 129.37868415082016
+      },
+      "address": "경북 포항시 남구 송도동 253-113",
+      "phone": "054-256-2770",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포항바다화석박물관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.07671053442078,
+        "lng": 129.5659374136189
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 293-1",
+      "phone": "054-284-9229",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "한국수석포항박물관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0767524190645,
+        "lng": 129.566000925509
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 292-5",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "국립등대박물관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.07814051344337,
+        "lng": 129.56811480553355
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 221",
+      "phone": "054-284-4857",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포스코 파크1538 포스코역사박물관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9970903551096,
+        "lng": 129.387012821079
+      },
+      "address": "경북 포항시 남구 괴동동 1-7",
+      "phone": "054-220-7721",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "영일민속박물관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.1108283385166,
+        "lng": 129.347196597785
+      },
+      "address": "경북 포항시 북구 흥해읍 성내리 39-8",
+      "phone": "054-261-2798",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "국립등대박물관 등대역사관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0776824624711,
+        "lng": 129.569014409347
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 221",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "국립등대박물관 체험관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0781740779094,
+        "lng": 129.567599819124
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 221",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "국립등대박물관 교육관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0777903420437,
+        "lng": 129.568059018313
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 221",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "국립등대박물관 주차장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0774825173494,
+        "lng": 129.567582871559
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 221",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "박물관횟집",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.07894797354843,
+        "lng": 129.559392066062
+      },
+      "address": "경북 포항시 남구 호미곶면 대보리 886-10",
+      "phone": "054-284-8865",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "갤러리포항",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.03460860970443,
+        "lng": 129.3633170809755
+      },
+      "address": "경북 포항시 북구 죽도동 40-10",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "갤러리상생",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0348256220973,
+        "lng": 129.378216857285
+      },
+      "address": "경북 포항시 남구 송도동 311-268",
+      "phone": "054-255-7899",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "갤러리라나",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0077825511467,
+        "lng": 129.340903039842
+      },
+      "address": "경북 포항시 남구 효자동 579",
+      "phone": "0503-7152-1347",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포스코갤러리",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 35.9989296252978,
+        "lng": 129.382420273596
+      },
+      "address": "경북 포항시 남구 괴동동 1",
+      "phone": "054-220-2939",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "갤러리443",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.039477263997,
+        "lng": 129.366801786228
+      },
+      "address": "경북 포항시 북구 상원동 443-9",
+      "phone": "010-9355-0956",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "갤러리수북",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.081006896457,
+        "lng": 129.398665145402
+      },
+      "address": "경북 포항시 북구 양덕동 1507-1",
+      "phone": "0502-5550-5162",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "오원 갤러리",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0708607214791,
+        "lng": 129.367608998748
+      },
+      "address": "경북 포항시 북구 창포동 466-17",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "더코르소갤러리",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0208469105806,
+        "lng": 129.358649160418
+      },
+      "address": "경북 포항시 북구 죽도동 335-14",
+      "phone": "054-281-7600",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "갤러리m",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 36.0389846402675,
+        "lng": 129.366653915084
+      },
+      "address": "경북 포항시 북구 상원동 447-4",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "kakao"
+    },
+    {
+      "name": "포갈집",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 1039-2 포갈집",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "고천돼지",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 항구동 349-7 1층",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "온센 포항점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 550 1층",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "라한호텔 포항",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 367",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "카페파도",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 구룡포읍 병포리 249 병포리 249번지",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "카페",
+        "커피"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "호미곶해맞이광장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 호미곶면 대보리",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "케이프라운지",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 호미곶면 구만리 3-1 언덕길 윗쪽 주차장 1층 케이프라운지",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "Auspice coffee",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 호미곶면 강사리 759-4 Auspice coffee",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "중앙대식당 포항제철소점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 동촌동 5",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "산업",
+        "역사"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항공과대학교POSPLEX",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 지곡동 295",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항공과대학교 지곡회관 아우름홀",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 지곡동 166-3 포항공대제1융합관",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스",
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항공과대학교포스코국제관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 지곡동 260-1",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "교육",
+        "캠퍼스"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항시립미술관 제2관(2027년예정)",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 환호동 351 포항시립미술관",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "미술",
+        "문화"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항시립미술관입구",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 환호동",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "미술",
+        "문화"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "환호공원시립미술관앞화장실",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 환호동 산55",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "미술",
+        "문화"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항시립대잠도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 대잠동 1001",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항시립포은오천도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 오천읍 용덕리 263-1",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "연일공공도서관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 연일읍 동문리 15-3 연일도서관",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "도서관",
+        "교육"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항문화예술회관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 대도동 303-1 문화예술회관",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "침촌문화회관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 장성동 1502-5",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "산촌문화회관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 기북면 탑정리 1027",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항문화예술회관 야외공연장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 대도동 303-1 문화예술회관",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "포항크루즈",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 송도동 222 포항운하관",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "감태",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 송도동 516-35",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "옥희coffee 운하관점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 송도동 222 3층, 옥희coffee",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "삼형제횟집",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 죽도동 568-23",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "영해회식당 죽도시장점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 죽도동 573-9 영해회식당",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "시장",
+        "전통",
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "영광회대게센타",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 죽도동 574-1",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "해일향",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 구룡포읍 구룡포리 93-1 1층 대기석 2층매장",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "창우물회대게",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 구룡포읍 구룡포리 390-39 창우물회",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "아라광장",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 구룡포읍 구룡포리 954-34",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "구룡포과메기물회거리",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 구룡포읍 구룡포리",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회",
+        "과메기",
+        "전통"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "환여횟집",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 190-9",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "구룡포 영일만회대게",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 구룡포읍 구룡포리 946-1",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "묵돌이",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 611 1층",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "영일대 미남포차",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 611 영일대 미남포차",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "연다라회식당",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 죽도동 573-3",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "해산물",
+        "회"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "미남장어 문덕점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 오천읍 원리 926 미남장어",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "조새호 영일대점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 1008-1 1층 조새호 영일대점",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "조개1번지",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 1014 1층",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "대화식당",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 죽도동 2-221",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "고려의숲 품격한우 한정식",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 이동 240",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "서민갈비",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 흥해읍 흥안리 892 1층~2층",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "러블랑",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 송라면 지경리 232 러블랑",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "헤이안",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 156",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "어레인지먼트",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 흥해읍 오도리 85 어레인지먼트",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "오브레멘",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 두호동 190-7 오브레멘",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "오딘",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 송라면 지경리 222 오딘",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "파루시아",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 호미곶면 대보리 220-6 파루시아",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "구룡포근대역사관",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 구룡포읍 구룡포리 243",
+      "phone": "",
+      "rating": "",
+      "category": "역사여행",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "제이드826커피",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 연일읍 중명리 826 제이드826커피",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "피어싱갤러리 포항점",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 대흥동 732-7 1층",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "카페 도도",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 흥해읍 이인리 243-6 카페 도도",
+      "phone": "",
+      "rating": "",
+      "category": "맛집탐방",
+      "tags": [
+        "카페",
+        "커피"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "소풍갤러리",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 북구 용흥동 96-14 모닝힐 상가1층",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    },
+    {
+      "name": "마잘헤어 with 김채윤헤어갤러리",
+      "description": "포항의 특별한 장소입니다",
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "address": "경상북도 포항시 남구 오천읍 원리 932-7",
+      "phone": "",
+      "rating": "",
+      "category": "자연경관",
+      "tags": [
+        "포항"
+      ],
+      "source": "naver"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { createPureClient } from '@/lib/supabase/server';
-import mockCourses from '@/data/mock-courses.json';
 
 // 이 라우트를 동적으로 설정
 export const dynamic = 'force-dynamic';
@@ -123,21 +122,21 @@ export async function GET() {
           '⚠️ 테이블이 존재하지 않습니다. 마이그레이션을 적용해주세요.'
         );
         console.error('📋 마이그레이션 가이드: QUICK_MIGRATION_GUIDE.md 참고');
-        // 마이그레이션 미적용 시 목업 데이터 사용
-        return NextResponse.json(mockCourses);
+        // 마이그레이션 미적용 시 빈 배열 반환
+        return NextResponse.json({ courses: [] });
       }
 
       // 42703 오류는 컬럼이 없음을 의미
       if (error.code === '42703') {
         console.error('⚠️ 컬럼이 존재하지 않습니다. 스키마를 확인해주세요.');
         console.error('📋 오류 상세:', error.message);
-        // 스키마 오류 시 목업 데이터 사용
-        return NextResponse.json(mockCourses);
+        // 스키마 오류 시 빈 배열 반환
+        return NextResponse.json({ courses: [] });
       }
 
-      // 기타 Supabase 오류 시 목업 데이터로 fallback
-      console.error('⚠️ Supabase 연결 오류로 목업 데이터를 사용합니다.');
-      return NextResponse.json(mockCourses);
+      // 기타 Supabase 오류 시 빈 배열로 fallback
+      console.error('⚠️ Supabase 연결 오류로 빈 배열을 반환합니다.');
+      return NextResponse.json({ courses: [] });
     }
 
     if (!courses || courses.length === 0) {
@@ -267,8 +266,15 @@ export async function GET() {
 
     return NextResponse.json({ courses: transformedCourses });
   } catch (error) {
-    console.error('API error:', error);
-    // 모든 오류 시 목업 데이터로 fallback
-    return NextResponse.json(mockCourses);
+    console.error('❌ API 오류:', error);
+    return NextResponse.json(
+      { 
+        error: 'server_error',
+        message: '서버 오류가 발생했습니다.',
+        details: error instanceof Error ? error.message : 'Unknown error',
+        courses: []
+      },
+      { status: 500 }
+    );
   }
 }

@@ -1,4 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
+
+// 환경변수 로딩
+dotenv.config({ path: path.join(__dirname, '..', '.env.local') });
+dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
 // Supabase 클라이언트 생성
 const supabaseUrl =
@@ -6,46 +12,45 @@ const supabaseUrl =
 const supabaseKey =
   process.env.SUPABASE_SERVICE_ROLE_KEY || 'dummy_service_role_key';
 
+console.log('🔧 환경변수 확인:');
+console.log(`   Supabase URL: ${supabaseUrl}`);
+console.log(`   Service Role Key: ${supabaseKey ? '설정됨' : '설정되지 않음'}`);
+
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// 샘플 사용자 데이터
+// 샘플 사용자 데이터 (UUID 형식으로 변경)
 const sampleUsers = [
   {
-    id: 'user-1',
+    id: '550e8400-e29b-41d4-a716-446655440001',
     name: '포항여행러',
-    avatar: 'https://picsum.photos/100/100?random=1',
-    verified: true,
+    email: 'traveler@pohang.com',
   },
   {
-    id: 'user-2',
+    id: '550e8400-e29b-41d4-a716-446655440002',
     name: '포항맛집탐방',
-    avatar: 'https://picsum.photos/100/100?random=2',
-    verified: false,
+    email: 'food@pohang.com',
   },
   {
-    id: 'user-3',
+    id: '550e8400-e29b-41d4-a716-446655440003',
     name: '포항역사탐방',
-    avatar: 'https://picsum.photos/100/100?random=3',
-    verified: true,
+    email: 'history@pohang.com',
   },
   {
-    id: 'user-4',
+    id: '550e8400-e29b-41d4-a716-446655440004',
     name: '포항사진작가',
-    avatar: 'https://picsum.photos/100/100?random=4',
-    verified: false,
+    email: 'photo@pohang.com',
   },
   {
-    id: 'user-5',
+    id: '550e8400-e29b-41d4-a716-446655440005',
     name: '포항가족여행',
-    avatar: 'https://picsum.photos/100/100?random=5',
-    verified: false,
+    email: 'family@pohang.com',
   },
 ];
 
 // 샘플 게시물 데이터
 const samplePosts = [
   {
-    author_id: 'user-1',
+    author_id: '550e8400-e29b-41d4-a716-446655440001',
     content:
       '포항 영일대 해수욕장에서의 아름다운 일출을 담았습니다! 🌅\n\n새벽 5시에 일어나서 해변으로 향했는데, 정말 값진 경험이었어요. 포항의 바다는 정말 아름답네요!',
     media_urls: [
@@ -61,7 +66,7 @@ const samplePosts = [
     is_public: true,
   },
   {
-    author_id: 'user-2',
+    author_id: '550e8400-e29b-41d4-a716-446655440002',
     content:
       '포항 대표 맛집들을 돌아다니며 맛본 음식들! 🍽️\n\n특히 포항의 대표 음식인 과메기를 처음 먹어봤는데, 정말 맛있었어요. 다음에 또 와야겠습니다!',
     media_urls: [
@@ -78,7 +83,7 @@ const samplePosts = [
     is_public: true,
   },
   {
-    author_id: 'user-3',
+    author_id: '550e8400-e29b-41d4-a716-446655440003',
     content:
       '포항의 역사적 의미를 담은 장소들을 둘러보았습니다.\n\n포항의 발전 과정과 역사를 알 수 있는 좋은 기회였어요. 특히 포항제철소의 역사는 정말 인상적이었습니다.',
     media_urls: [],
@@ -91,7 +96,7 @@ const samplePosts = [
     is_public: true,
   },
   {
-    author_id: 'user-4',
+    author_id: '550e8400-e29b-41d4-a716-446655440004',
     content:
       '포항의 숨겨진 보석 같은 카페를 발견했습니다! ☕\n\n조용하고 아늑한 분위기에서 포항의 일상을 느낄 수 있어서 정말 좋았어요. 커피도 맛있고 분위기도 최고!',
     media_urls: ['https://picsum.photos/800/600?random=15'],
@@ -104,7 +109,7 @@ const samplePosts = [
     is_public: true,
   },
   {
-    author_id: 'user-5',
+    author_id: '550e8400-e29b-41d4-a716-446655440005',
     content:
       '가족과 함께 포항 여행을 다녀왔습니다! 👨‍👩‍👧‍👦\n\n아이들이 정말 좋아했어요. 특히 해변에서 모래성 만들기와 조개 줍기가 최고였습니다. 포항은 가족 여행지로도 완벽해요!',
     media_urls: [
@@ -125,50 +130,68 @@ const samplePosts = [
 const sampleComments = [
   {
     post_id: '', // 첫 번째 게시물 ID로 설정
-    author_id: 'user-2',
+    author_id: '550e8400-e29b-41d4-a716-446655440002',
     content: '정말 아름다운 일출이네요! 저도 다음에 가보고 싶어요 🌅',
   },
   {
     post_id: '', // 첫 번째 게시물 ID로 설정
-    author_id: 'user-3',
+    author_id: '550e8400-e29b-41d4-a716-446655440003',
     content: '포항의 바다 정말 아름답죠! 영일대는 정말 추천하는 곳이에요',
   },
   {
     post_id: '', // 두 번째 게시물 ID로 설정
-    author_id: 'user-1',
+    author_id: '550e8400-e29b-41d4-a716-446655440001',
     content: '과메기 정말 맛있죠! 포항의 대표 음식이에요 🦀',
   },
   {
     post_id: '', // 세 번째 게시물 ID로 설정
-    author_id: 'user-4',
+    author_id: '550e8400-e29b-41d4-a716-446655440004',
     content: '포항제철소 역사 정말 흥미로워요! 다음에 가이드 투어 신청해보세요',
   },
   {
     post_id: '', // 네 번째 게시물 ID로 설정
-    author_id: 'user-5',
+    author_id: '550e8400-e29b-41d4-a716-446655440005',
     content: '어떤 카페인지 궁금해요! 주소 알려주실 수 있나요?',
   },
 ];
 
 // 샘플 좋아요 데이터
 const sampleLikes = [
-  { user_id: 'user-2', post_id: '' }, // 첫 번째 게시물
-  { user_id: 'user-3', post_id: '' }, // 첫 번째 게시물
-  { user_id: 'user-4', post_id: '' }, // 첫 번째 게시물
-  { user_id: 'user-1', post_id: '' }, // 두 번째 게시물
-  { user_id: 'user-3', post_id: '' }, // 두 번째 게시물
-  { user_id: 'user-5', post_id: '' }, // 두 번째 게시물
-  { user_id: 'user-1', post_id: '' }, // 세 번째 게시물
-  { user_id: 'user-2', post_id: '' }, // 세 번째 게시물
-  { user_id: 'user-1', post_id: '' }, // 네 번째 게시물
-  { user_id: 'user-3', post_id: '' }, // 네 번째 게시물
-  { user_id: 'user-2', post_id: '' }, // 다섯 번째 게시물
-  { user_id: 'user-4', post_id: '' }, // 다섯 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440002', post_id: '' }, // 첫 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440003', post_id: '' }, // 첫 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440004', post_id: '' }, // 첫 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440001', post_id: '' }, // 두 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440003', post_id: '' }, // 두 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440005', post_id: '' }, // 두 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440001', post_id: '' }, // 세 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440002', post_id: '' }, // 세 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440001', post_id: '' }, // 네 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440003', post_id: '' }, // 네 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440002', post_id: '' }, // 다섯 번째 게시물
+  { user_id: '550e8400-e29b-41d4-a716-446655440004', post_id: '' }, // 다섯 번째 게시물
 ];
 
 async function insertSampleData() {
   try {
     console.log('🚀 샘플 데이터 삽입 시작...');
+
+    // Supabase 연결 테스트
+    console.log('🔍 Supabase 연결 테스트 중...');
+    const { data: testData, error: testError } = await supabase
+      .from('profiles')
+      .select('id')
+      .limit(1);
+
+    if (testError) {
+      console.error('❌ Supabase 연결 실패:', testError);
+      console.log('💡 다음을 확인해주세요:');
+      console.log('   1. 환경변수 설정 확인');
+      console.log('   2. Supabase 프로젝트 상태 확인');
+      console.log('   3. 네트워크 연결 확인');
+      return;
+    }
+
+    console.log('✅ Supabase 연결 성공');
 
     // 1. 사용자 프로필 생성
     console.log('👥 사용자 프로필 생성 중...');
@@ -176,8 +199,7 @@ async function insertSampleData() {
       const { error } = await supabase.from('profiles').upsert({
         id: user.id,
         name: user.name,
-        avatar: user.avatar,
-        verified: user.verified,
+        email: user.email,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       });

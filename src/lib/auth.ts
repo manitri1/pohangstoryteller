@@ -24,6 +24,7 @@ const supabaseServiceKey =
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -128,4 +129,5 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
   },
+  debug: process.env.NODE_ENV === 'development',
 };

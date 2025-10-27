@@ -17,7 +17,7 @@ import { AchievementSystem } from '@/components/stamps/achievement-system';
 import { AdvancedStampFeatures } from '@/components/stamps/advanced-stamp-features';
 import FeatureAccess from '@/components/auth/feature-access';
 import { stampTours } from '@/data/stamp-tours';
-import { mockStamps, Stamp as StampType } from '@/data/mock-stamps';
+import { Stamp as StampType } from '@/data/mock-stamps';
 import { useStampCollection } from '@/hooks/use-stamp-collection';
 
 // Stamp interface는 이제 mock-stamps.ts에서 import
@@ -65,8 +65,9 @@ function StampsContent() {
     tours.find((tour) => tour.id === selectedTourId) || tours[0] || null;
 
   useEffect(() => {
-    // 데이터 로드 (import 방식으로 안정적으로 로드)
-    setStamps(mockStamps);
+    // Supabase에서 스탬프 데이터 로드 (향후 구현)
+    // 현재는 빈 배열로 설정
+    setStamps([]);
     setLoading(false);
 
     // 활성 코스 확인

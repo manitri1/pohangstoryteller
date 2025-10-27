@@ -1,0 +1,320 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-27T03:12:56.706Z",
+    "version": "1.0.0",
+    "description": "포항 스토리텔러 실제 데이터"
+  },
+  "data": {
+    "touristSpots": [
+      {
+        "name": "영일대 해수욕장",
+        "category": "자연경관",
+        "description": "포항의 대표적인 해수욕장으로 아름다운 해안선을 자랑합니다",
+        "coordinates": {
+          "lat": 36.0194,
+          "lng": 129.3656
+        },
+        "address": "경북 포항시 북구 해안로 240",
+        "visitDuration": 180,
+        "tags": [
+          "해수욕장",
+          "바다",
+          "여름"
+        ],
+        "targetAudience": [
+          "가족",
+          "커플"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을"
+        ],
+        "weatherSuitability": [
+          "맑음"
+        ],
+        "activityLevel": "moderate"
+      },
+      {
+        "name": "호미곶",
+        "category": "자연경관",
+        "description": "한반도 최동단으로 일출 명소로 유명합니다",
+        "coordinates": {
+          "lat": 36.076,
+          "lng": 129.567
+        },
+        "address": "경북 포항시 남구 호미곶면 대보리",
+        "visitDuration": 120,
+        "tags": [
+          "일출",
+          "호미곶",
+          "자연"
+        ],
+        "targetAudience": [
+          "커플",
+          "가족"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을"
+        ],
+        "weatherSuitability": [
+          "맑음"
+        ],
+        "activityLevel": "relaxed"
+      },
+      {
+        "name": "포항제철소",
+        "category": "역사여행",
+        "description": "한국의 산업역사를 보여주는 대규모 제철소입니다",
+        "coordinates": {
+          "lat": 36.112,
+          "lng": 129.345
+        },
+        "address": "경북 포항시 남구 대잠동",
+        "visitDuration": 90,
+        "tags": [
+          "산업",
+          "역사",
+          "교육"
+        ],
+        "targetAudience": [
+          "가족",
+          "학생"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "가을"
+        ],
+        "weatherSuitability": [
+          "맑음"
+        ],
+        "activityLevel": "moderate"
+      },
+      {
+        "name": "포항공과대학교",
+        "category": "역사여행",
+        "description": "한국의 대표적인 공과대학으로 아름다운 캠퍼스를 자랑합니다",
+        "coordinates": {
+          "lat": 36.013,
+          "lng": 129.325
+        },
+        "address": "경북 포항시 남구 청암로 77",
+        "visitDuration": 120,
+        "tags": [
+          "대학교",
+          "교육",
+          "캠퍼스"
+        ],
+        "targetAudience": [
+          "가족",
+          "학생"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을"
+        ],
+        "weatherSuitability": [
+          "맑음",
+          "흐림"
+        ],
+        "activityLevel": "moderate"
+      },
+      {
+        "name": "죽도시장",
+        "category": "맛집탐방",
+        "description": "포항의 대표적인 전통시장으로 신선한 해산물과 특산품을 판매합니다",
+        "coordinates": {
+          "lat": 36.019,
+          "lng": 129.365
+        },
+        "address": "경북 포항시 북구 죽도시장길 1",
+        "visitDuration": 90,
+        "tags": [
+          "시장",
+          "해산물",
+          "전통"
+        ],
+        "targetAudience": [
+          "가족",
+          "친구"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을",
+          "겨울"
+        ],
+        "weatherSuitability": [
+          "맑음",
+          "흐림"
+        ],
+        "activityLevel": "moderate"
+      }
+    ],
+    "restaurants": [
+      {
+        "name": "포항 회센터",
+        "category": "해산물",
+        "description": "신선한 포항 회를 맛볼 수 있는 전문점입니다",
+        "coordinates": {
+          "lat": 36.018,
+          "lng": 129.364
+        },
+        "address": "경북 포항시 북구 중앙로",
+        "visitDuration": 60,
+        "tags": [
+          "회",
+          "해산물",
+          "신선"
+        ],
+        "targetAudience": [
+          "커플",
+          "가족",
+          "친구"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을",
+          "겨울"
+        ],
+        "weatherSuitability": [
+          "맑음",
+          "흐림"
+        ],
+        "activityLevel": "moderate"
+      },
+      {
+        "name": "과메기 전문점",
+        "category": "전통음식",
+        "description": "구룡포의 전통 과메기를 맛볼 수 있는 전문점입니다",
+        "coordinates": {
+          "lat": 35.968,
+          "lng": 129.544
+        },
+        "address": "경북 포항시 남구 구룡포읍",
+        "visitDuration": 45,
+        "tags": [
+          "과메기",
+          "전통",
+          "구룡포"
+        ],
+        "targetAudience": [
+          "가족",
+          "친구"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을",
+          "겨울"
+        ],
+        "weatherSuitability": [
+          "맑음",
+          "흐림"
+        ],
+        "activityLevel": "moderate"
+      },
+      {
+        "name": "포항 바다뷰 카페",
+        "category": "카페",
+        "description": "영일대 해수욕장을 조망할 수 있는 카페입니다",
+        "coordinates": {
+          "lat": 36.0194,
+          "lng": 129.3656
+        },
+        "address": "경북 포항시 북구 해안로 240",
+        "visitDuration": 30,
+        "tags": [
+          "카페",
+          "바다뷰",
+          "커피"
+        ],
+        "targetAudience": [
+          "커플",
+          "친구"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을",
+          "겨울"
+        ],
+        "weatherSuitability": [
+          "맑음",
+          "흐림"
+        ],
+        "activityLevel": "relaxed"
+      }
+    ],
+    "culturalFacilities": [
+      {
+        "name": "포항시립미술관",
+        "category": "문화시설",
+        "description": "현대미술 작품을 감상할 수 있는 문화공간입니다",
+        "coordinates": {
+          "lat": 36.019,
+          "lng": 129.365
+        },
+        "address": "경북 포항시 북구 중앙로 200",
+        "visitDuration": 90,
+        "tags": [
+          "미술관",
+          "문화",
+          "예술"
+        ],
+        "targetAudience": [
+          "가족",
+          "학생"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을",
+          "겨울"
+        ],
+        "weatherSuitability": [
+          "맑음",
+          "흐림",
+          "비"
+        ],
+        "activityLevel": "moderate"
+      },
+      {
+        "name": "포항시립도서관",
+        "category": "문화시설",
+        "description": "다양한 도서와 문화프로그램을 제공하는 도서관입니다",
+        "coordinates": {
+          "lat": 36.019,
+          "lng": 129.365
+        },
+        "address": "경북 포항시 북구 중앙로 200",
+        "visitDuration": 60,
+        "tags": [
+          "도서관",
+          "문화",
+          "교육"
+        ],
+        "targetAudience": [
+          "가족",
+          "학생"
+        ],
+        "seasonSuitability": [
+          "봄",
+          "여름",
+          "가을",
+          "겨울"
+        ],
+        "weatherSuitability": [
+          "맑음",
+          "흐림",
+          "비"
+        ],
+        "activityLevel": "relaxed"
+      }
+    ]
+  }
+}
