@@ -276,7 +276,7 @@ export class AlbumClassifier {
    * 아이템의 테마 결정
    */
   private determineItemTheme(item: AlbumItem): string {
-    const title = item.title.toLowerCase();
+    const title = item.title?.toLowerCase() || '';
     const location = item.metadata.location?.toLowerCase() || '';
     const tags = item.metadata.tags || [];
 
@@ -385,7 +385,7 @@ export class AlbumClassifier {
    * 활동 결정
    */
   private determineActivity(item: AlbumItem): string {
-    const title = item.title.toLowerCase();
+    const title = item.title?.toLowerCase() || '';
     const location = item.metadata.location?.toLowerCase() || '';
     const tags = item.metadata.tags || [];
 
@@ -402,7 +402,7 @@ export class AlbumClassifier {
    * 감정 결정
    */
   private determineEmotion(item: AlbumItem): string {
-    const title = item.title.toLowerCase();
+    const title = item.title?.toLowerCase() || '';
     const tags = item.metadata.tags || [];
 
     if (title.includes('즐거운') || tags.includes('즐거운')) return '즐거운';

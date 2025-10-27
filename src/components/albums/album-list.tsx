@@ -95,7 +95,7 @@ export function AlbumList({ onAlbumSelect }: AlbumListProps) {
 
   const filteredAlbums = albums.filter((album) => {
     const matchesSearch =
-      album.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      album.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (album.description &&
         album.description.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesFilter =

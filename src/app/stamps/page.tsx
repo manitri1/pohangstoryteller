@@ -159,8 +159,8 @@ function StampsContent() {
 
   const filteredStamps = stamps.filter((stamp) => {
     const matchesSearch =
-      stamp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      stamp.location.toLowerCase().includes(searchTerm.toLowerCase());
+      stamp.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      stamp.location?.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilter = filter === '전체' || stamp.rarity === filter;
     return matchesSearch && matchesFilter;
   });

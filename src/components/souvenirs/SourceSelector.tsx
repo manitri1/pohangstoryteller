@@ -187,7 +187,7 @@ export default function SourceSelector({
 
   const filteredItems = items.filter((item) => {
     const matchesSearch =
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.description?.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory =
       categoryFilter === 'all' || item.category === categoryFilter;

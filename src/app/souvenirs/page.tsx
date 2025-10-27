@@ -117,8 +117,8 @@ export default function SouvenirsPage() {
     if (searchTerm) {
       filtered = filtered.filter(
         (template) =>
-          template.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          template.description.toLowerCase().includes(searchTerm.toLowerCase())
+          template.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          template.description?.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
